@@ -1,15 +1,8 @@
 <script setup>
-
-
-import Menu from '@/assets/components/Menu.vue';
-import Footer from '@/assets/components/Footer.vue';
-
-
-
+import Menu from '@/components/Menu.vue';
+import Footer from '@/components/Footer.vue';
 </script>
 <template>
-
-
   <div class="container">
 
     <header>
@@ -17,11 +10,12 @@ import Footer from '@/assets/components/Footer.vue';
     </header>
 
     <div class="main">
-      <h1>FixTudo</h1>    
+      <h1>FixTudo</h1>
       <h2>Sua casa em boas mãos</h2>
       <p>Manutenção e cuidado com carinho</p>
-      
+
     </div>
+
     <div class="imagem-home">
       <img src="../assets/imagens/imagemhome.png" alt="">
     </div>
@@ -136,11 +130,12 @@ import Footer from '@/assets/components/Footer.vue';
           <a href="#" class="service-link">→</a>
         </div>
       </div>
-      
-    <Footer></Footer>
+
+      <Footer></Footer>
 
 
-  </div>
+    </div>
+  </div> 
 </template>
 
 
@@ -150,8 +145,6 @@ import Footer from '@/assets/components/Footer.vue';
 
 
 <style scoped>
-
-
 .services-container {
   text-align: center;
   background-color: white;
@@ -258,18 +251,23 @@ button {
   margin-bottom: 0.5rem;
 }
 
+.main h1 {
+  font-weight: 600px;
+  color: black;
+  font-size: 3rem;
+}
+
 .main p {
   color: #666;
 
 }
 
-.imagem-home img{
+.imagem-home img {
+  position: absolute;
   height: 600px;
   width: 600px;
-  margin-left: 899px;
-  margin-bottom: 10px;
-  display: flex;  
-
+  margin-left: 915px;    
+  top: 0
 }
 
 
@@ -300,7 +298,7 @@ button {
 
 }
 
-.intera{
+.intera {
   display: flex;
   height: 800px;
   align-items: center;
@@ -309,7 +307,7 @@ button {
   background-color: white;
 }
 
-.intera h2{
+.intera h2 {
   font-weight: bold;
 }
 
@@ -327,7 +325,7 @@ button {
   color: #00626d;
 }
 
-.left-side h4{
+.left-side h4 {
   letter-spacing: 7px;
   font-weight: 400;
 }

@@ -1,27 +1,22 @@
 <script setup>
-
 import { ref } from 'vue'
 const open = ref(false)
 const servicos = ref('Serviços')
 
-
 function Dropdown() {
-  open.value = !open.value;
- 
+  open.value = !open.value
 }
 </script>
 <template>
   <header>
-    <RouterLink to="/"><img src="../imagens/logo.png" alt="logo" /> </RouterLink>
+    <RouterLink to="/"><img src="@/assets/imagens/logo.png" alt="logo" /> </RouterLink>
     <button>Sobre Nós</button>
     <button class="dropdown-button" @click="Dropdown">Serviços</button>
     <div v-if="open" class="dropdown-menu">
-     <RouterLink to="/PaginaLimpeza" class="dropdown-item">Limpeza</RouterLink>
-     
-     
+      <RouterLink to="/PaginaLimpeza" class="dropdown-item">Limpeza</RouterLink>
     </div>
-    <RouterLink to="/PaginaLogin">Entrar</RouterLink>
-    <RouterLink to="/PaginaSignup">Criar Conta</RouterLink>
+    <RouterLink to="/PaginaLogin" class="entrar-botao">Entrar</RouterLink>
+    <RouterLink to="/PaginaSignup" class="menu-botao">Criar Conta</RouterLink>
   </header>
 </template>
 
@@ -42,29 +37,30 @@ header {
 a {
   margin-right: 1.5rem;
   color: #666;
+
   text-decoration: none;
 }
 
 button {
   margin-right: 1.5rem;
-  color: #666;
   text-decoration: none;
   border: none;
-  background-color: #ffe0e000;
+  background-color: transparent; 
+  color: black;
+    padding: 8px 10px;
+    font-size: 1rem; 
+
 }
 .dropdown-button {
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
+  color: black;
   border: none;
   cursor: pointer;
 }
 
 .dropdown-menu {
   position: absolute;
-  background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -76,6 +72,26 @@ button {
 }
 
 .dropdown-item:hover {
-  background-color: #f1f1f1;
+}
+
+.menu-botao {  
+  margin-right: 1.5rem;
+  text-decoration: none;
+  border: none;
+  background-color: #D6D6D6;
+  border-radius: 18px;
+  width: 7rem;
+  text-align: center;
+  color: black;
+    padding: 8px 10px;
+    font-size: 1rem;
+  
+
+}
+
+.entrar-botao {
+  color: black;
+    padding: 8px 10px;
+    font-size: 1rem;
 }
 </style>
