@@ -11,8 +11,14 @@ import Footer from '@/components/Footer.vue';
 
     <div class="main">
       <h1>FixTudo</h1>
-      <h2>Sua casa em boas mãos</h2>
-      <p>Manutenção e cuidado com carinho</p>
+      <div class="quebra-h2">
+
+        <h2>Sua casa em boas mãos</h2>
+      </div>
+      <div class="quebra-p">
+
+        <p>Manutenção e cuidado com carinho</p>
+      </div>
 
     </div>
 
@@ -24,18 +30,17 @@ import Footer from '@/components/Footer.vue';
     <div class="sobrenos">
       <div ref="sectionToScroll">
         <h3>Sobre Nós</h3>
-        <p>
-          Bem-vindo(a) à Fix Tudo, onde transformamos suas necessidades em
-          <hr>soluções práticas e
-          personalizadas!
-          Somos uma empresa dedicada a
-          <hr> conectar você com profissionais qualificados
+        
+         <div> Bem-vindo(a) à <bold>Fix Tudo</bold>, onde transformamos suas necessidades em</div>
+          <div>soluções práticas e
+          personalizadas! Somos uma empresa dedicada a</div>
+          conectar você com profissionais qualificados
           nas áreas de manutenção,
-          <hr> limpeza, cuidados pessoais e culinária.
-        </p>
-        <p>Nosso compromisso é com a excelência e a satisfação dos nossos
-          <hr> clientes.
-        </p>
+           <div>limpeza, cuidados pessoais e culinária.</div>
+       
+        <div>Nosso compromisso é com a excelência e a satisfação dos nossos
+          clientes.</div>
+      
 
       </div>
     </div>
@@ -145,6 +150,13 @@ import Footer from '@/components/Footer.vue';
 
 
 <style scoped>
+.quebra-p{
+  width: 25%;
+}
+.quebra-h2{
+  width: 13%;
+
+}
 .services-container {
   text-align: center;
   background-color: white;
@@ -220,7 +232,12 @@ h1 {
   font-size: 2.5rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 1.5rem;
+ 
+}
+
+.sobrenos h3 {
+  text-align: center;
+  font-weight: 700;
 }
 
 a {
@@ -240,21 +257,25 @@ button {
 
 
 .main {
-  margin-left: 40px;
+  font-size: 1.8rem;
+  margin-left: 100px;
   margin-bottom: 1.5rem;
-
+  margin-top: 2rem;
 }
 
 .main h2 {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: #020202;
+
 }
 
 .main h1 {
-  font-weight: 600px;
+  font-weight: bold;
   color: black;
-  font-size: 3rem;
+  font-size: 4rem;
+  margin-top: 2rem;
 }
 
 .main p {
@@ -275,8 +296,9 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 200px;
-
+  margin-top: 2px;
+  padding: 5rem;
+  font-size: 1.1rem;
 }
 
 .sobrenos img {
@@ -287,8 +309,9 @@ button {
 }
 
 .sobrenos p {
-  color: #666;
+  color: #000000;
   font-size: 1rem;
+  text-decoration: none;
 
 }
 
@@ -300,11 +323,12 @@ button {
 
 .intera {
   display: flex;
-  height: 800px;
+  height: 700px;
   align-items: center;
   justify-content: center;
   gap: 8vw;
   background-color: white;
+  margin-top: 2px;
 }
 
 .intera h2 {
@@ -317,10 +341,9 @@ button {
 .left-side {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-left: 10px
+  gap: 5px;
+  margin-left: 10px;
 }
-
 .left-side h2 {
   color: #00626d;
 }
