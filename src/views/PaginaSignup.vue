@@ -1,5 +1,12 @@
 
 <script setup>
+export default {
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      
 </script>
 
 <template>
@@ -9,38 +16,38 @@
                 <h2 class="title title-primary">Bem Vindo!</h2>
                 <p class="description description-primary">Para manter-se conectado</p>
                 <p class="description description-primary">entre com seus dados pessoais</p>
-                <router-link to="/">
-                <button id="signin" class="btn btn-primary">Entrar</button>
-            </router-link>
+       <router-link to="/PaginaLogin" class="btn btn-primary">Entrar</router-link>
             </div>    
             <div class="second-column">
                 <h2 class="title title-second">Criar Conta</h2>
                 <p class="description description-second">Use seu email para se registrar:</p>
                 <form class="form">
 
+                    <form @submit.prevent="validateForm"></form>
                     <div class="label-input">
                     <label for="name"></label>
-                        <input type="text" id="name" v-model="name" placeholder="Name">
-                        <span v-if="!name" class="error"></span>
+                    <input type="text" id="name" v-model="name" placeholder="Name">
+                    <span v-if="errors.name" class="error">{{ errors.name }}</span>
 
                     </div>
                     
                     <div class="label-input" >
                         <label for="email"></label>
                          <input type="email" id="email" v-model="email" placeholder="Email">
-                         <span v-if="!email" class="error"></span>
+                         <span v-if="errors.email" class="error">{{ errors.email }}</span>
                     </div>
                     
                     <div class="label-input" > 
                         <label for="password"></label>
                         <input type="password" id="password" v-model="password" placeholder="Password">
-                        <span v-if="!password" class="error"></span>
+                        <span v-if="errors.password" class="error">{{ errors.password }}</span>
                     </div>
+
+                    <router-link to="/" class="btn btn-second">Conectar</router-link>
                     
-                    
-                    <button class="btn btn-second">Conectar</button>
-                        
-                </form>
+             
+                               
+    </form>
             </div>
         </div>
       
