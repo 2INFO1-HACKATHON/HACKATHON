@@ -1,7 +1,9 @@
+<script setup>
+</script>
+
 <template>
     <div class="container">
         <div class="content">
-            <!-- Coluna de Login (Esquerda, 60%) -->
             <div class="first-column">
                 <h2 class="title title-primary">Conectar-se</h2>
                 <form class="form" @submit.prevent>
@@ -11,12 +13,13 @@
                     <div class="label-input">
                         <input type="password" placeholder="Senha" required>
                     </div>
-                    <a class="password" href="#">Esqueceu sua senha?</a>
+                    <div class="password-container">
+                        <a class="password" href="#">Esqueceu sua senha?</a>
+                    </div>
                     <router-link to="/" class="btn btn-login">Entrar</router-link>
                 </form>
             </div>
 
-            <!-- Coluna de Boas-vindas (Direita, 40%) -->
             <div class="second-column">
                 <h2 class="title title-second">Bem Vindo!</h2>
                 <p class="description">Coloque seus dados pessoais e inicie sua jornada conosco</p>
@@ -43,7 +46,7 @@
 }
 
 .content {
-    display: flex; /* Adicionando flex aqui para garantir que as colunas estejam lado a lado */
+    display: flex;
     background-color: #fff;
     border-radius: 15px;
     width: 960px;
@@ -52,29 +55,29 @@
 }
 
 .first-column {
-    width: 60%; /* Largura da coluna de login */
+    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 20px 40px; /* Espaçamento lateral */
 }
 
 .second-column {
-    width: 40%; /* Largura da coluna de boas-vindas */
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #45CDDD; /* Cor de fundo da coluna de boas-vindas */
+    background-color: #45CDDD;
     color: #fff;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 }
 
 .title {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -97,42 +100,35 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 400px; /* Limita a largura do formulário */
+    margin: 0 auto; /* Centraliza o formulário */
 }
 
 .form input {
-    height: 45px;
-    width: 100%;
-    border: none;
-    background-color: #ecf0f1;
+    width: 90%; /* Define a largura do input */
+    border: none; /* Remove a borda */
+    background-color: #ecf0f1; /* Cor de fundo do input */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 10px; /* Espaço entre os campos */
 }
 
 .label-input {
     position: relative;
-    background-color: rgb(250, 250, 250) ;
-    padding-bottom: 9px;
-    height: 40px;
     display: flex;
     align-items: center;
-    & input {
-        padding-left: 40px;
-        height: 100%;
-        position: relative;
-        z-index: 1;
-    }
 }
 
-.input-icon {
-    position: absolute;
-    left: 10px;
-    z-index: 999;
-    }
+.password-container {
+    margin-top: 10px;
+    margin-bottom: 20px; /* Espaçamento abaixo do link */
+    align-self: flex-start; /* Alinha o link à esquerda */
+}
 
 .password {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    font-size: 12px; /* Tamanho pequeno para o texto do link */
     color: #3498db;
     text-decoration: none;
-    align-self: flex-start;
 }
 
 .btn {
@@ -163,14 +159,14 @@
 }
 
 .btn-signup {
-    background-color: #fff;
-    color: #45CDDD;
+    background-color: #45CDDD;
+    color: #ffffff;
     border: 1px solid #fff;
     transition: background-color 0.5s;
 }
 
 .btn-signup:hover {
-    background-color: #45CDDD;
-    color: #fff;
+    background-color: #ffffff;
+    color: #45CDDD;
 }
 </style>
