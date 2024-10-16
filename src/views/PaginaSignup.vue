@@ -1,6 +1,5 @@
 
 <script setup>
-
 </script>
 
 <template>
@@ -10,7 +9,9 @@
                 <h2 class="title title-primary">Bem Vindo!</h2>
                 <p class="description description-primary">Para manter-se conectado</p>
                 <p class="description description-primary">entre com seus dados pessoais</p>
+                <router-link to="/">
                 <button id="signin" class="btn btn-primary">Entrar</button>
+            </router-link>
             </div>    
             <div class="second-column">
                 <h2 class="title title-second">Criar Conta</h2>
@@ -18,24 +19,30 @@
                 <form class="form">
 
                     <div class="label-input">
-                      
-                        <input type="text" placeholder="Name">
+                    <label for="name"></label>
+                        <input type="text" id="name" v-model="name" placeholder="Name">
+                        <span v-if="!name" class="error"></span>
+
                     </div>
                     
                     <div class="label-input" >
-                         <input type="email" placeholder="Email">
+                        <label for="email"></label>
+                         <input type="email" id="email" v-model="email" placeholder="Email">
+                         <span v-if="!email" class="error"></span>
                     </div>
                     
                     <div class="label-input" > 
-                        
-                        <input type="password" placeholder="Password">
+                        <label for="password"></label>
+                        <input type="password" id="password" v-model="password" placeholder="Password">
+                        <span v-if="!password" class="error"></span>
                     </div>
                     
                     
-                    <button class="btn btn-second">Conectar</button>        
+                    <button class="btn btn-second">Conectar</button>
+                        
                 </form>
-            </div><!-- second column -->
-        </div><!-- first content -->
+            </div>
+        </div>
       
     </div>
 </template>
