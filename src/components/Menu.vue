@@ -1,9 +1,8 @@
 <script setup>
 
+
 import { ref } from 'vue'
 const open = ref(false)
-
-
 
 function Dropdown() {
   open.value = !open.value;
@@ -17,6 +16,7 @@ function Dropdown() {
     <button class="dropdown-button" @click="Dropdown">Serviços</button>
     <div v-if="open" class="dropdown-menu">
      <RouterLink to="/PaginaLimpeza" class="dropdown-item">Limpeza</RouterLink>
+     <RouterLink to="/PaginaCulinaria" class="dropdown-item">Culinária</RouterLink>
      
      
     </div>
