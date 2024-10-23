@@ -52,7 +52,6 @@ import Footer from '@/components/Footer.vue'
         </div>
       </div>
 
-      <!-- Sessão de cuidados com idosos -->
       <div class="section">
         <div class="text-left">
           <h2>Cuidados com idosos</h2>
@@ -78,7 +77,6 @@ import Footer from '@/components/Footer.vue'
         </div>
       </div>
 
-      <!-- Sessão de cuidados com idosos -->
       <div class="section">
         <div class="text-left">
           <h2>Cuidados com idosos</h2>
@@ -136,104 +134,109 @@ import Footer from '@/components/Footer.vue'
 </template>
 
 <style scoped>
-.servicos-cuidados{
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            font-size: 2em;
-            color: #333;
-        }
-        p {
-            font-size: 1em;
-            color: #666;
-            margin-bottom: 40px;
-        }
-        .services {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 80px;
-        }
-        .service-box {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 45%;
-            position: relative;
-        }
-        .service-box h2 {
-            font-size: 1.2em;
-            color: #00a99d;
-            margin-bottom: 20px;
-        }
-        .service-box ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-        }
-        .service-box ul li {
-            font-size: 0.9em;
-            color: #333;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: flex-start;
-        }
-        .service-box ul li::before {
-            content: '•';
-            color: #333;
-            font-size: 1.2em;
-            margin-right: 10px;
-        }
-        .circle {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background-color: #00a99d;
-            border-radius: 50%;
-            top: -50px;
-            left: -50px;
-            z-index: -1;
-        }
-        .circle-right {
-            top: auto;
-            bottom: -50px;
-            left: auto;
-            right: -50px;
-        }
-        
+.servicos-cuidados {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 10vw;
+}
+.servicos-cuidados h1 {
+  font-size: 2em;
+  color: #333;
+
+}
+.servicos-cuidados p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 40px;
+}
+.services {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 80px;
+}
+.service-box {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 45%;
+  position: relative;
+}
+.service-box h2 {
+  font-size: 1.2em;
+  color: #00a99d;
+  margin-bottom: 20px;
+}
+.service-box ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+.service-box ul li {
+  font-size: 0.9em;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+.service-box ul li::before {
+  content: '•';
+  color: #333;
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+.circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #00a99d;
+  border-radius: 50%;
+  top: -50px;
+  left: -50px;
+  z-index: -1;
+}
+.circle-right {
+  top: auto;
+  bottom: -50px;
+  left: auto;
+  right: -50px;
+}
+
 .section {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   justify-content: center;
   padding-bottom: 30px;
+  gap: 0.5rem;
 }
 
 .image-left,
 .image-right {
-  width: 30vw;
+  width: 40vw;
 }
 
 .image-left img,
 .image-right img {
-  width: 100%;
+  width: 80%;
   height: auto;
-  border-radius: 12px; /* Bordas arredondadas mais suaves */
+  border-radius: 12px;
 }
 
 .text-left {
-  width: 50%;
+  width: 40vw;
   padding: 20px;
+  padding-left: 270px ;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .text-right {
-  width: 50%;
+  width: 40vw;
   padding: 20px;
+  padding-right: 270px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -250,13 +253,13 @@ import Footer from '@/components/Footer.vue'
   font-size: 1.1rem;
   color: #333;
   line-height: 1.6;
-  width: 40%;
 }
 .text-left p {
   font-size: 1.1rem;
   color: #333;
   line-height: 1.6;
-  width: 40%;
+  width: 90%;
+  display: flex;
 }
 
 .section img {
@@ -283,10 +286,6 @@ import Footer from '@/components/Footer.vue'
   justify-content: center;
   display: flex;
 }
-
- 
-
- 
 
 .title-card {
   font-weight: bold;
