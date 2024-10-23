@@ -39,100 +39,254 @@ import Footer from '@/components/Footer.vue'
 
     <div class="cuidados">
       <h1 class="title-cuidados">Tipos de Cuidados</h1>
-      <div class="cards-cuidados">
-        <div class="card1">
-          <div class="img-card-cuidados">
-            <img src="@/assets/imagens/logo.png" alt="" class="img-card-cuidados" />
-          </div>
-          <div class="texto-card">
-            <div class="p-tamanho">
-              <h2 class="title-card">Cuidados com crianças</h2>
-              <p class="p-card">
-                Nossa equipe oferece serviços de babá que garantem que seus filhos estejam seguros,
-                bem cuidados e felizes enquanto você estiver fora.
-              </p>
-            </div>
-          </div>
+      <div class="section">
+        <div class="image-left">
+          <img src="@/assets/imagens/teste.png" alt="Cuidados com Crianças" />
         </div>
-        <div class="card2">
-          <img
-            src="https://example.com/cuidados-com-idosos.jpg"
-            alt="Cuidados com idosos"
-            class="img-card-cuidados"
-          />
-          <h2 class="title-card2">Cuidados com idosos</h2>
-          <p class="text-card2">
+        <div class="text-right">
+          <h2>Cuidados com crianças</h2>
+          <p>
+            Nossa equipe oferece serviços de babá que garantem que seus filhos estejam seguros, bem
+            cuidados e felizes enquanto você estiver fora.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sessão de cuidados com idosos -->
+      <div class="section">
+        <div class="text-left">
+          <h2>Cuidados com idosos</h2>
+          <p>
             Conforto e segurança para idosos, promovendo qualidade de vida e independência com uma
             equipe experiente.
           </p>
         </div>
-        <div class="card3">
-          <img
-            src="https://example.com/cuidados-pos-operatorios.jpg"
-            alt="Cuidados pós-operatórios"
-            class="img-card-cuidados"
-          />
-          <h2 class="title-card3">Cuidados pós-operatórios</h2>
-          <p class="text-card3">
-            Apoio especializado para uma recuperação segura, com acompanhamento cuidadoso em cada
-            etapa do processo.
+        <div class="image-right">
+          <img src="@/assets/imagens/teste.png" alt="Cuidados com Idosos" />
+        </div>
+      </div>
+      <div class="section">
+        <div class="image-left">
+          <img src="@/assets/imagens/teste.png" alt="Cuidados com Crianças" />
+        </div>
+        <div class="text-right">
+          <h2>Cuidados com crianças</h2>
+          <p>
+            Nossa equipe oferece serviços de babá que garantem que seus filhos estejam seguros, bem
+            cuidados e felizes enquanto você estiver fora.
           </p>
         </div>
       </div>
+
+      <!-- Sessão de cuidados com idosos -->
+      <div class="section">
+        <div class="text-left">
+          <h2>Cuidados com idosos</h2>
+          <p>
+            Conforto e segurança para idosos, promovendo qualidade de vida e independência com uma
+            equipe experiente.
+          </p>
+        </div>
+        <div class="image-right">
+          <img src="@/assets/imagens/teste.png" alt="Cuidados com Idosos" />
+        </div>
+      </div>
+
+      <div class="servicos-cuidados">
+        <h1>Nossos Serviços de Cuidado</h1>
+        <p>
+          Nossa empresa oferece um conjunto único de soluções personalizadas para ajudar a alcançar
+          seus objetivos e proporcionar resultados positivos.
+        </p>
+        <div class="services">
+          <div class="service-box">
+            <div class="circle"></div>
+            <h2>Companhia e Assistência Domiciliar</h2>
+            <ul>
+              <li>
+                Oferecemos companhia para garantir que seus entes queridos nunca se sintam sozinhos.
+              </li>
+              <li>Preparação de Refeições: Preparamos refeições nutritivas e saborosas.</li>
+              <li>Compras: Ajudamos com as compras do dia a dia.</li>
+              <li>
+                Transporte: Oferecemos transporte para consultas médicas e outras necessidades.
+              </li>
+            </ul>
+          </div>
+          <div class="service-box">
+            <div class="circle circle-right"></div>
+            <h2>Cuidados Pessoais e Profissionais</h2>
+            <ul>
+              <li>Vestir e Higiene Pessoal: Ajuda com vestir-se e cuidados de higiene.</li>
+              <li>Banho: Assistência com o banho para garantir higiene e conforto.</li>
+              <li>
+                Mobilidade: Assistência com a mobilidade para prevenir quedas e garantir segurança.
+              </li>
+              <li>
+                Lembretes de Medicação: Garantimos que as medicações sejam tomadas nos horários
+                corretos.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <Footer></Footer>
   </div>
+  <Footer></Footer>
 </template>
 
 <style scoped>
+.servicos-cuidados{
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2em;
+            color: #333;
+        }
+        p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .services {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 80px;
+        }
+        .service-box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 45%;
+            position: relative;
+        }
+        .service-box h2 {
+            font-size: 1.2em;
+            color: #00a99d;
+            margin-bottom: 20px;
+        }
+        .service-box ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+        .service-box ul li {
+            font-size: 0.9em;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .service-box ul li::before {
+            content: '•';
+            color: #333;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        .circle {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #00a99d;
+            border-radius: 50%;
+            top: -50px;
+            left: -50px;
+            z-index: -1;
+        }
+        .circle-right {
+            top: auto;
+            bottom: -50px;
+            left: auto;
+            right: -50px;
+        }
+        
+.section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.image-left,
+.image-right {
+  width: 30vw;
+}
+
+.image-left img,
+.image-right img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px; /* Bordas arredondadas mais suaves */
+}
+
+.text-left {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.text-right {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-right h2,
+.text-left h2 {
+  color: #00a099;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.text-right p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  width: 40%;
+}
+.text-left p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  width: 40%;
+}
+
+.section img {
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    flex-direction: column;
+  }
+
+  .image-left,
+  .image-right,
+  .text-right,
+  .text-left {
+    width: 100%;
+  }
+}
+
 .title-cuidados {
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 70px;
   justify-content: center;
   display: flex;
 }
 
-.cards-cuidados {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+ 
 
-.card1 {
-  margin: 20px;
-  padding: 20px;
-
-  display: flex;
-}
-
-.card2 {
-  margin: 20px;
-  padding: 20px;
-  width: 300px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  justify-content: center;
-}
-
-.card3 {
-  margin: 20px;
-  padding: 20px;
-  width: 300px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  justify-content: center;
-}
-
-.img-card-cuidados {
-  width: 350px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+ 
 
 .title-card {
   font-weight: bold;
@@ -197,6 +351,7 @@ import Footer from '@/components/Footer.vue'
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 300px;
+  padding: 80px;
 }
 
 .card {
