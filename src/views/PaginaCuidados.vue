@@ -41,7 +41,7 @@ import Footer from '@/components/Footer.vue'
       <h1 class="title-cuidados">Tipos de Cuidados</h1>
       <div class="section">
         <div class="image-left">
-          <img src="@/assets/imagens/teste.png" alt="Cuidados com Crianças" />
+          <img src="@/assets/imagens/logo.png" alt="Cuidados com Crianças" />
         </div>
         <div class="text-right">
           <h2>Cuidados com crianças</h2>
@@ -61,12 +61,12 @@ import Footer from '@/components/Footer.vue'
           </p>
         </div>
         <div class="image-right">
-          <img src="@/assets/imagens/teste.png" alt="Cuidados com Idosos" />
+          <img src="@/assets/imagens/logo.png" alt="Cuidados com Idosos" />
         </div>
       </div>
       <div class="section">
         <div class="image-left">
-          <img src="@/assets/imagens/teste.png" alt="Cuidados com Crianças" />
+          <img src="@/assets/imagens/logo.png" alt="Cuidados com Crianças" />
         </div>
         <div class="text-right">
           <h2>Cuidados com crianças</h2>
@@ -86,7 +86,7 @@ import Footer from '@/components/Footer.vue'
           </p>
         </div>
         <div class="image-right">
-          <img src="@/assets/imagens/teste.png" alt="Cuidados com Idosos" />
+          <img src="@/assets/imagens/logo.png" alt="Cuidados com Idosos" />
         </div>
       </div>
 

@@ -17,6 +17,7 @@ function Dropdown() {
     <div v-if="open" class="dropdown-menu">
      <RouterLink to="/PaginaLimpeza" class="dropdown-item">Limpeza</RouterLink>
      <RouterLink to="/PaginaCulinaria" class="dropdown-item">Culinária</RouterLink>
+     <RouterLink to="/PaginaCuidados" class="dropdown-item">Cuidados</RouterLink>
      
      
     </div>
