@@ -4,6 +4,7 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
+
   <Menu></Menu>
 
   <div class="inicioPagina">
@@ -110,7 +111,12 @@ import Footer from '@/components/Footer.vue'
 </template>
 
 <style scoped>
+
 /*INÍCIO*/
+
+.cinza{
+  background-color: var(--cinza);
+}
 
 .titulo,
 .subtitulo,
@@ -153,29 +159,33 @@ import Footer from '@/components/Footer.vue'
 .titulo-card {
   text-align: center;
   font-weight: 550;
-  color: var(--azul-royal-escuro);
 }
 
 .card {
   flex: 1;
   padding: 20px;
   border: 1px solid #ccc;
+  background-color: white;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 400px;
-  height: 220px;
+  height: 240px;
 }
 
 /* COMO FUNCIONA*/
+
+.how-it-works h1{
+  color: var(--azul-royal-escuro);
+}
 .how-it-works-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   justify-content: center;
   max-width: 74%;
-  margin: 0 auto;
+  margin: 0 auto
 }
 
 .card-grid {
