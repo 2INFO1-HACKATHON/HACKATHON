@@ -1,19 +1,17 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   font-family: var(--font-geral);
-
   margin: 0;
   padding: 0;
   font-weight: normal;
   box-sizing: border-box;
 }
-:root{
-  --font-geral: "Raleway", sans-serif;
-  --font-titulo:"Urbanist", sans-serif;
-  --azul-royal: #2AB0BF;
-  --azul-royal-escuro: #107F8B;
-  --verde-agua: #3FBFA8;
-  --cinza: #D6D6D6;
+:root {
+  --font-geral: 'Raleway', sans-serif;
+  --font-titulo: 'Urbanist', sans-serif;
+  --azul-royal: #2ab0bf;
+  --azul-royal-escuro: #107f8b;
+  --verde-agua: #3fbfa8;
+  --cinza: #d6d6d6;
 }

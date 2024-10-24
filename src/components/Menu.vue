@@ -9,6 +9,7 @@ const userStore = useUserStore();
 const isAuthenticated = computed(() => !!userStore.user);
 
 function toggleDropdown() {
+
   open.value = !open.value;
 }
 
@@ -33,6 +34,7 @@ onBeforeUnmount(() => {
 
 <template>
   <header>
+
     <RouterLink to="/"><img src="../assets/imagens/logo.png" alt="logo" /></RouterLink>
     <button aria-label="Sobre Nós">Sobre Nós</button>
     <button class="dropdown-button" @click="toggleDropdown" aria-haspopup="true" aria-expanded="open">Serviços</button>
@@ -47,6 +49,7 @@ onBeforeUnmount(() => {
     </div>
     <div v-else>
       <button @click="logout" class="auth-button" aria-label="Sair">Logout</button>
+
     </div>
   </header>
 </template>
