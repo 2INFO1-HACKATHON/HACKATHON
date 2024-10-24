@@ -19,7 +19,7 @@ function logout() {
 
 function handleClickOutside(event) {
   if (open.value && !event.target.closest('.dropdown-menu')) {
-    open.value = false;
+    open.value = true;
   }
 }
 
