@@ -40,7 +40,9 @@ onBeforeUnmount(() => {
     <button class="dropdown-button" @click="toggleDropdown" aria-haspopup="true" aria-expanded="open">Serviços</button>
 
     <div v-if="open" class="dropdown-menu" role="menu">
-      <RouterLink to="/PaginaLimpeza" class="dropdown-item" role="menuitem">Limpeza</RouterLink>
+      <RouterLink to="/PaginaLimpeza" class="dropdown-item">Limpeza</RouterLink>
+     <RouterLink to="/PaginaCulinaria" class="dropdown-item">Culinária</RouterLink>
+     <RouterLink to="/PaginaCuidados" class="dropdown-item">Cuidados</RouterLink>
     </div>
 
     <div v-if="!isAuthenticated">
