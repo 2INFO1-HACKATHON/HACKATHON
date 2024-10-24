@@ -37,7 +37,7 @@ onBeforeUnmount(() => {
 
     <RouterLink to="/"><img src="../assets/imagens/logo.png" alt="logo" /></RouterLink>
     <button aria-label="Sobre Nós">Sobre Nós</button>
-    <button class="dropdown-button" @click="Dropdown" aria-haspopup="true" aria-expanded="open">Serviços</button>
+    <button class="dropdown-button" @click="Dropdown">Serviços</button>
 
     <div v-if="open" class="dropdown-menu">
       <RouterLink to="/PaginaLimpeza" class="dropdown-item">Limpeza</RouterLink>
