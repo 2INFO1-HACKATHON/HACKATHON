@@ -19,7 +19,7 @@ function logout() {
 
 function handleClickOutside(event) {
   if (open.value && !event.target.closest('.dropdown-menu')) {
-    open.value = false;
+    open.value = true;
   }
 }
 
@@ -41,6 +41,9 @@ onBeforeUnmount(() => {
 
     <div v-if="open" class="dropdown-menu" role="menu">
       <RouterLink to="/PaginaLimpeza" class="dropdown-item" role="menuitem">Limpeza</RouterLink>
+      <RouterLink to="/PaginaCulinaria" class="dropdown-item">Culinária</RouterLink>
+     <RouterLink to="/PaginaCuidados" class="dropdown-item">Cuidados</RouterLink>
+
     </div>
 
     <div v-if="!isAuthenticated">
