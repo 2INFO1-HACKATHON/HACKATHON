@@ -1,57 +1,71 @@
-<!-- eslint-disable vue/multi-word-component-names -->
+
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
-import { useUserStore } from '@/stores/user';
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
+import { useUserStore } from '@/stores/user'
 
-const open = ref(false);
-const userStore = useUserStore();
+const open = ref(false)
+const userStore = useUserStore()
 
-const isAuthenticated = computed(() => !!userStore.user);
+const isAuthenticated = computed(() => !!userStore.user)
+
 
 function Dropdown() {
 
   open.value = !open.value;
+
 }
 
 function logout() {
-  userStore.clearUser();
+  userStore.clearUser()
 }
 
 function handleClickOutside(event) {
   if (open.value && !event.target.closest('.dropdown-menu')) {
-    open.value = true;
+    open.value = true
   }
 }
 
 onMounted(() => {
-  document.addEventListener('click', handleClickOutside);
-});
+  document.addEventListener('click', handleClickOutside)
+})
 
 onBeforeUnmount(() => {
-  document.removeEventListener('click', handleClickOutside);
-});
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
   <header>
-
     <RouterLink to="/"><img src="../assets/imagens/logo.png" alt="logo" /></RouterLink>
     <button aria-label="Sobre Nós">Sobre Nós</button>
-    <button class="dropdown-button" @click="Dropdown">Serviços</button>
 
-    <div v-if="open" class="dropdown-menu">
-      <RouterLink to="/PaginaLimpeza" class="dropdown-item">Limpeza</RouterLink>
-     <RouterLink to="/PaginaCulinaria" class="dropdown-item">Culinária</RouterLink>
-     <RouterLink to="/PaginaCuidados" class="dropdown-item">Cuidados</RouterLink>
-    </div>
+<div class="menu">
+
+  <button
+  class="dropdown-button"
+  @click="Dropdown"
+  aria-haspopup="true"
+  aria-expanded="open"
+  >
+  Serviços
+</button>
+
+<div v-if="open" class="dropdown-menu" role="menu">
+  <RouterLink to="/PaginaLimpeza" class="dropdown-item" role="menuitem">Limpeza</RouterLink>
+  <RouterLink to="/PaginaCulinaria" class="dropdown-item">Culinária</RouterLink>
+  <RouterLink to="/PaginaCuidados" class="dropdown-item">Cuidados</RouterLink>
+</div>
+
+</div>
 
     <div v-if="!isAuthenticated">
       <RouterLink to="/Paginalogin" class="auth-button" aria-label="Entrar">Entrar</RouterLink>
-      <RouterLink to="/PaginaSignup" class="auth-button" aria-label="Criar Conta">Criar Conta</RouterLink>
+      <RouterLink to="/PaginaSignup" class="auth-button" aria-label="Criar Conta"
+        >Criar Conta</RouterLink
+      >
     </div>
     <div v-else>
       <button @click="logout" class="auth-button" aria-label="Sair">Logout</button>
-
     </div>
   </header>
 </template>
@@ -74,6 +88,9 @@ a {
   color: #666;
   text-decoration: none;
 }
+.menu {
+  margin-top: 0;
+}
 
 button {
   margin-right: 1.5rem;
@@ -89,14 +106,20 @@ button {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
+  justify-content: center;
 }
 
 .dropdown-menu {
   position: absolute;
+
   background-color: #f9f9f9;
-  min-width: 160px;
+  width: 92px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+
+  & a {
+    width: 100%;
+  }
 }
 
 .dropdown-item {
@@ -108,6 +131,7 @@ button {
 
 .dropdown-item:hover {
   background-color: #f1f1f1;
+  width: 92;
 }
 
 .auth-button {
