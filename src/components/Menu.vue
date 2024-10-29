@@ -1,4 +1,4 @@
-<!-- eslint-disable vue/multi-word-component-names -->
+
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
 import { useUserStore } from '@/stores/user';
@@ -39,10 +39,12 @@ onBeforeUnmount(() => {
     <button aria-label="Sobre Nós">Sobre Nós</button>
     <button class="dropdown-button" @click="Dropdown">Serviços</button>
 
-    <div v-if="open" class="dropdown-menu">
-      <RouterLink to="/PaginaLimpeza" class="dropdown-item">Limpeza</RouterLink>
-     <RouterLink to="/PaginaCulinaria" class="dropdown-item">Culinária</RouterLink>
+
+    <div v-if="open" class="dropdown-menu" role="menu">
+      <RouterLink to="/PaginaLimpeza" class="dropdown-item" role="menuitem">Limpeza</RouterLink>
+      <RouterLink to="/PaginaCulinaria" class="dropdown-item">Culinária</RouterLink>
      <RouterLink to="/PaginaCuidados" class="dropdown-item">Cuidados</RouterLink>
+
     </div>
 
     <div v-if="!isAuthenticated">
