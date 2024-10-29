@@ -43,7 +43,7 @@ onBeforeUnmount(() => {
 
   <button
   class="dropdown-button"
-  @click="toggleDropdown"
+  @click="Dropdown"
   aria-haspopup="true"
   aria-expanded="open"
   >
