@@ -1,4 +1,4 @@
-<!-- eslint-disable vue/multi-word-component-names -->
+
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
 import { useUserStore } from '@/stores/user';
@@ -8,7 +8,7 @@ const userStore = useUserStore();
 
 const isAuthenticated = computed(() => !!userStore.user);
 
-function toggleDropdown() {
+function Dropdown() {
 
   open.value = !open.value;
 }
@@ -37,7 +37,8 @@ onBeforeUnmount(() => {
 
     <RouterLink to="/"><img src="../assets/imagens/logo.png" alt="logo" /></RouterLink>
     <button aria-label="Sobre Nós">Sobre Nós</button>
-    <button class="dropdown-button" @click="toggleDropdown" aria-haspopup="true" aria-expanded="open">Serviços</button>
+    <button class="dropdown-button" @click="Dropdown">Serviços</button>
+
 
     <div v-if="open" class="dropdown-menu" role="menu">
       <RouterLink to="/PaginaLimpeza" class="dropdown-item" role="menuitem">Limpeza</RouterLink>
@@ -81,6 +82,7 @@ button {
   color: #666;
   border: none;
   background-color: transparent;
+  text-decoration: none;
 }
 
 .dropdown-button {
