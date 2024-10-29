@@ -1,4 +1,4 @@
-<!-- eslint-disable vue/multi-word-component-names -->
+
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useUserStore } from '@/stores/user'
@@ -8,8 +8,11 @@ const userStore = useUserStore()
 
 const isAuthenticated = computed(() => !!userStore.user)
 
-function toggleDropdown() {
-  open.value = !open.value
+
+function Dropdown() {
+
+  open.value = !open.value;
+
 }
 
 function logout() {
@@ -35,6 +38,7 @@ onBeforeUnmount(() => {
   <header>
     <RouterLink to="/"><img src="../assets/imagens/logo.png" alt="logo" /></RouterLink>
     <button aria-label="Sobre Nós">Sobre Nós</button>
+
 <div class="menu">
 
   <button
@@ -53,6 +57,7 @@ onBeforeUnmount(() => {
 </div>
 
 </div>
+
     <div v-if="!isAuthenticated">
       <RouterLink to="/Paginalogin" class="auth-button" aria-label="Entrar">Entrar</RouterLink>
       <RouterLink to="/PaginaSignup" class="auth-button" aria-label="Criar Conta"
@@ -92,6 +97,7 @@ button {
   color: #666;
   border: none;
   background-color: transparent;
+  text-decoration: none;
 }
 
 .dropdown-button {
