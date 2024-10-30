@@ -18,13 +18,46 @@ import Footer from '@/components/Footer.vue';
             </p>
         </div>
 
-        <h2 class="subtitle"></h2>
+        <h2 class="subtitle">Hidráulica</h2>
 
-
-
-
-        <Footer></Footer>
+  
+ 
 </div>
+
+<Footer></Footer>
 </template>
+
 <style scoped>
+
+.container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-color: #F0F0F0;
+}
+.title {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+.descripition {
+        text-align: center;
+        max-width: 600px;
+        margin-bottom: 2rem;
+}
+.t2{
+        display: flex;
+        width: 700px;
+        font-size: 20px;
+        margin-bottom: 2em;
+        text-align: start;
+}
+.subtitle{
+        font-size: 2rem;
+        font-weight: bold;
+        color:#2AB0BF;
+}
 </style>
