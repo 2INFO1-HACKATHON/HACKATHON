@@ -85,7 +85,7 @@ import Footer from '@/components/Footer.vue'
         </div>
       </div>
       <div class="service reverse">
-        <img src="../assets/imagens/culinaria1.jpg" alt="" />
+        <img src="../assets/imagens/culinaria2.jpg" alt="" />
         <div class="service-text">
           <h3>Chef de Festa</h3>
           <p>
@@ -95,7 +95,7 @@ import Footer from '@/components/Footer.vue'
         </div>
       </div>
       <div class="service">
-        <img src="../assets/imagens/culinaria1.jpg" alt="" />
+        <img src="../assets/imagens/culinaria3.jpg" alt="" />
         <div class="service-text">
           <h3>Chefs Nutricionistas</h3>
           <p>
