@@ -11,6 +11,7 @@ export const useUserStore = defineStore('user', {
     },
     clearUser() {
       this.user = null;
+      localStorage.removeItem('user');
     },
     loadUser() {
       const storedUser = localStorage.getItem('user');

@@ -6,7 +6,7 @@ import { useUserStore } from '@/stores/user'
 const open = ref(false)
 const userStore = useUserStore()
 
-const isAuthenticated = computed(() => !!userStore.user)
+const isAuthenticated = computed(() => userStore.user)
 
 
 function Dropdown() {
