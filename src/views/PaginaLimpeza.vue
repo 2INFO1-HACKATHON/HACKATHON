@@ -2,6 +2,16 @@
 <script setup>
 import Menu from '@/components/Menu.vue';
 import Footer from '@/components/Footer.vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+
+const onSwiper = (swiper) => {
+        console.log(swiper);
+      };
+      const onSlideChange = () => {
+        console.log('slide change');
+      };
+
 </script>
 <template>
     <div class="container">
@@ -21,16 +31,20 @@ import Footer from '@/components/Footer.vue';
         <h2 class="subtitle">Limpezas mais solicitadas:</h2>
 
         <div class="carousel">
-            <button class="arrow left">&lt;</button>
-
-            <div class="item">
-                <img src="../assets/imagens/logo.png" alt="Limpeza Residencial">
-                <h3>Limpeza Residencial</h3>
-                <p>
-                    Deixe seu lar impecável com uma limpeza detalhada em
-                    todos os cómodos.
-                </p>
-                <button class="button">Saiba mais</button>
+            <swiper
+    :slides-per-view="1"
+    :space-between="40"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+  > 
+    <swiper-slide> <img src="@/assets/imagens/limpeza1.jpg" alt="" > <p>a nmabbadbadbhdahb</p> </swiper-slide>
+    <swiper-slide><img src="@/assets/imagens/Limpeza2.jpeg" alt=""></swiper-slide>
+    <swiper-slide><img src="@/assets/imagens/Limpeza3.jpeg" alt=""></swiper-slide>
+    <swiper-slide><img src="@/assets/imagens/Limpeza4.jpeg" alt=""></swiper-slide>
+    <swiper-slide><img src="@/assets/imagens/Limpeza5.jpeg" alt=""></swiper-slide>
+    <swiper-slide><img src="@/assets/imagens/Limpeza6.jpeg" alt=""></swiper-slide> 
+ 
+  </swiper>
             </div>
 
             <button class="arrow right">&gt;</button>
@@ -124,10 +138,19 @@ import Footer from '@/components/Footer.vue';
             </div>
         </div>
         <Footer></Footer>
-    </div>
+    
 </template>
 
 <style scoped>
+.swiper-slide{
+    display: flex;
+    justify-content: center;
+}
+.carousel img{
+    width: 20vw;
+    height: 
+    25vh;
+}
 .pacote {
     font-family: sans-serif;
     text-align: center;
@@ -246,8 +269,8 @@ header {
 
 .carousel {
     display: flex;
-    align-items: center;
-    justify-content: center;
+   
+
 }
 
 .arrow {
