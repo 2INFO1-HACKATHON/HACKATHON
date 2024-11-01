@@ -37,7 +37,7 @@ const onSwiper = (swiper) => {
     @swiper="onSwiper"
     @slideChange="onSlideChange"
   > 
-    <swiper-slide> <img src="@/assets/imagens/limpeza1.jpg" alt="" > <p>a nmabbadbadbhdahb</p> </swiper-slide>
+    <swiper-slide><img src="@/assets/imagens/limpeza1.jpg" alt="" > <p>a nmabbadbadbhdahb</p> </swiper-slide>
     <swiper-slide><img src="@/assets/imagens/Limpeza2.jpeg" alt=""></swiper-slide>
     <swiper-slide><img src="@/assets/imagens/Limpeza3.jpeg" alt=""></swiper-slide>
     <swiper-slide><img src="@/assets/imagens/Limpeza4.jpeg" alt=""></swiper-slide>
