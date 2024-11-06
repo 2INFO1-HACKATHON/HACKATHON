@@ -1,15 +1,10 @@
 <script setup>
 import Menu from '@/components/Menu.vue'
 import Footer from '@/components/Footer.vue'
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
 
-const onSwiper = (swiper) => {
-        console.log(swiper);
-      };
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
+
+  
+    
 
 </script>
 <template>
@@ -18,6 +13,7 @@ const onSwiper = (swiper) => {
   </header>
   <div class="container">
     <h1 class="title">Manutenção</h1>
+
     <h2 class="descricao">Soluções precisas para um lar perfeito.</h2>
 
     <div class="description">
@@ -31,6 +27,7 @@ const onSwiper = (swiper) => {
       <div class="cards-iniciais">
         <div class="card">
           <p class="card-title">O que você precisa hoje?</p>
+          <div class="line-cards"></div>
           <p>
             Escolha entre os serviços de manutenção, como reparo de eletrodomésticos e conserto de
             encanamentos, e agende com facilidade.
@@ -38,6 +35,7 @@ const onSwiper = (swiper) => {
         </div>
         <div class="card">
           <p class="card-title">Orçamento imediato</p>
+          <div class="line-cards"></div>
           <p>
             Receba seu orçamento na hora ao informar sua necessidade pelo formulário, sem esperas
             desnecessárias.
@@ -45,6 +43,7 @@ const onSwiper = (swiper) => {
         </div>
         <div class="card">
           <p class="card-title">Agendamento online</p>
+          <div class="line-cards"></div>
           <p>
             Agende tudo pelo seu dispositivo e receba seu atendimento. Pagamento é realizado após a
             conclusão do serviço, garantindo total transparência e segurança.
@@ -53,33 +52,36 @@ const onSwiper = (swiper) => {
   </div>
 
         <h2 class="subtitle">Hidráulica</h2>
-        <div class="carousel-hidraulica">
-            <swiper
-    :slides-per-view="1"
-    :space-between="40"
-    @swiper="onSwiper"
-    @slideChange="onSlideChange"
-  > 
-    <swiper-slide><img src="@/assets/imagens/limpeza1.jpg" alt="" > <p></p> </swiper-slide>
-    <swiper-slide><img src="@/assets/imagens/Limpeza2.jpeg" alt=""> <p></p></swiper-slide>
-    <swiper-slide><img src="@/assets/imagens/Limpeza3.jpeg" alt=""> <p></p></swiper-slide>
-    <swiper-slide><img src="@/assets/imagens/Limpeza4.jpeg" alt=""><p></p></swiper-slide>
-    <swiper-slide><img src="@/assets/imagens/Limpeza5.jpeg" alt=""><p></p></swiper-slide>
-    <swiper-slide><img src="@/assets/imagens/Limpeza6.jpeg" alt=""><p></p></swiper-slide> 
- 
+
+<section>
+  <swiper>
+
   </swiper>
-            </div>
-
-            <button class="arrow right">&gt;</button>
 
 
+</section>
+      
+  <h2 class="subtitle">Elétrica</h2>
 
+  </div>
+
+  <div class="descricao-clientes">
+    <div class="text-content">
+      <div class="line"></div>
+      <h2>O que nossos clientes dizem</h2>
+      <p>
+        Todos esses depoimentos são fruto de muita dedicação, carinho e
+        empenho do nosso time de profissionais.
+      </p>
+    </div>
+    <img  class="avaliacao" src="../assets/imagens/manutencao1.jpeg" alt="Imagem de avaliação dos clientes">
   </div>
 
   <Footer></Footer>
 </template>
 
 <style scoped>
+
 .container {
   display: flex;
   flex-direction: column;
@@ -93,30 +95,28 @@ const onSwiper = (swiper) => {
   font-weight: bold;
   margin-bottom: 1rem;
   color: #000000;
-}
-.descripition {
   text-align: center;
-  max-width: 600px;
-  margin-bottom: 2rem;
 }
+
 .t2 {
   display: flex;
   width: 700px;
   font-size: 20px;
   margin-bottom: 2em;
-  text-align: start;
+  text-align: center;
 }
 .descricao {
-  font-size: 2 rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
+  text-align: center;
   color: #0f0e0e;
 }
 
 .cards-iniciais {
   display: flex;
-  flex-wrap: wrap; /* Permite que os cards ocupem uma nova linha se a tela for menor */
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 70px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
@@ -124,79 +124,76 @@ const onSwiper = (swiper) => {
 }
 
 .card {
-  flex: 1 1 300px; /* Garante que os cards ocupem no mínimo 300px e tenham tamanhos proporcionais */
+  flex: 1 1 300px;
   padding: 20px;
   border: 1px solid #ccc;
   background-color: white;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  max-width: 300px; /* Limite máximo de largura */
+  max-width: 300px;
+  min-width: 250px;
+  width: 100%;
   height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 }
 
 .card-title {
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
   color: var(--azul-royal-escuro);
   margin-bottom: 10px;
+}
+.line-cards{
+  width: 250px;
+  height: 1px;
+  background-color: #292929;
+  margin-bottom: 1rem;
 }
 .subtitle {
   font-size: 2rem;
   font-weight: bold;
   color: #2ab0bf;
 }
-.carousel-hidraulica img{
-        width: 20vw;
-         height: 
-        25vh;
-
-}
- .carousel{
-        display: flex;
- }
- 
-.arrow {
-    background: none;
-    border: none;
-    font-size: 2em;
-    cursor: pointer;
+.descricao-clientes {
+  background-color: #29b6c5; /* Fundo azul */
+  padding: 4rem;
+  color: #ffffff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1em;
-    margin: 0 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.avaliacao {
+width: 230px;
+height: auto;
+display: flex;
+margin-left: 2rem;
 }
 
-.item img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    object-fit: cover;
-    margin-bottom: 1em;
+.text-content {
+  max-width: 200px;
 }
 
-.item h3 {
-    margin-bottom: 0.5em;
+.line {
+  width: 200px;
+  height: 2px;
+  background-color: #ffffff;
+  margin-bottom: 1em;
 }
 
-.button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 0.5em 1em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    margin-top: 1em;
-    border-radius: 5px;
-    cursor: pointer;
+.text-content h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 0.7em 0;
 }
+
+.text-content p {
+  font-size: 1em;
+  line-height:1.6;
+  display: flex;
+  align-items: flex-start;
+}
+
 </style>
