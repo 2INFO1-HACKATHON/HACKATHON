@@ -41,7 +41,7 @@ const onSwiper = (swiper) => {
     <h1>Limpeza Residencial</h1>
     <swiper-slide><img src="../assets/imagens/Limpeza2.jpeg" alt=""></swiper-slide>
     <swiper-slide><img src="../assets/imagens/Limpeza3.jpeg" alt=""></swiper-slide>
-    <swiper-slide><img src="../assets/imagens/Limpeza4.jpeg" alt=""></swiper-slide>
+    <swiper-slide><img src="../assets/imagens/LImpeza4.jpeg" alt=""></swiper-slide>
     <swiper-slide><img src="../assets/imagens/Limpeza5.jpeg" alt=""></swiper-slide>
     <swiper-slide><img src="../assets/imagens/Limpeza6.jpeg" alt=""></swiper-slide> 
  
