@@ -37,13 +37,13 @@ const onSwiper = (swiper) => {
     @swiper="onSwiper"
     @slideChange="onSlideChange"
   > 
-    <swiper-slide> <img src="@/assets/imagens/limpeza1.jpg" alt="" ></swiper-slide>
+    <swiper-slide> <img src="../assets/imagens/limpeza1.jpg" alt="" ></swiper-slide>
     <h1>Limpeza Residencial</h1>
-    <swiper-slide><img src="@/assets/imagens/Limpeza2.jpeg" alt=""></swiper-slide>
-    <swiper-slide><img src="@/assets/imagens/Limpeza3.jpeg" alt=""></swiper-slide>
-    <swiper-slide><img src="@/assets/imagens/Limpeza4.jpeg" alt=""></swiper-slide>
-    <swiper-slide><img src="@/assets/imagens/Limpeza5.jpeg" alt=""></swiper-slide>
-    <swiper-slide><img src="@/assets/imagens/Limpeza6.jpeg" alt=""></swiper-slide> 
+    <swiper-slide><img src="../assets/imagens/Limpeza2.jpeg" alt=""></swiper-slide>
+    <swiper-slide><img src="../assets/imagens/Limpeza3.jpeg" alt=""></swiper-slide>
+    <swiper-slide><img src="../assets/imagens/Limpeza4.jpeg" alt=""></swiper-slide>
+    <swiper-slide><img src="../assets/imagens/Limpeza5.jpeg" alt=""></swiper-slide>
+    <swiper-slide><img src="../assets/imagens/Limpeza6.jpeg" alt=""></swiper-slide> 
  
   </swiper>
             </div>
