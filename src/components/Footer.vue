@@ -15,7 +15,7 @@
               <svg xmlns="http://www.w3.org/2000/svg" class="icon facebook-icon" viewBox="0 0 24 24" width="30"
                 height="30">
                 <path fill="currentColor"
-                  d="M22.5 0h-21C.7 0 0 .7 0 1.5v21C0 23.3.7 24 1.5 24H12V14.7h-3v-3h3V9c0-3.2 1.9-5 4.8-5 1.4 0 2.8.3 2.8.3v3h-1.6c-1.6 0-2.2 1-2.2 2v2.4h3.7l-.5 3h-3.2V24h6.3c.8 0 1.5-.7 1.5-1.5v-21C24 .7 23.3 0 22.5 0z" />
+                  d="M22.5 0h-21C.7 0 0 .7 0 1.5v21C0 23.3.7 24 1.5 24H12V14.7h-3v-3h3V9c0-3.2 1.9-5 4.8-5 1.4 0 2.8.3 2.8.3v3h-1.6c-1.6 0-2.2 1-2.2 2v2.4h3.7l-.5 3h-3.2V24h6.3c.8 0 1.5-.7 1.5-1.5v-21C24 .7 23.3 0 22.5 0z" /> 
               </svg>
             </a>
             <a href="https://www.instagram.com" target="_blank">
@@ -75,6 +75,8 @@
 .second-column {
   width: 50%;
   line-height: 2em;
+  align-items: center;
+  text-align: center;
 }
 
 .second-title {
@@ -109,12 +111,13 @@
   color: var(--azul-royal);
 }
 
-
 .copyright {
   background-color: var(--azul-royal);
   color: white;
   margin-bottom: 0;
   padding: 1.5vw;
   font-size: 1rem;
+  align-items: center;
+  text-align: center
 }
 </style>
