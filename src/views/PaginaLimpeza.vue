@@ -93,6 +93,7 @@ const onSlideChange = () => {
             <p>
               Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
             </p>
+            
           </div>
         </SwiperSlide>
 
@@ -222,6 +223,7 @@ const onSlideChange = () => {
     </div>
   </div>
   <Footer></Footer>
+
 </template>
 
 <style scoped>
