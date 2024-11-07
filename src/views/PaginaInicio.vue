@@ -22,6 +22,7 @@ userStore.loadUser();
       </div>
     </div>
     <div class="imagem-home">
+      <img src="../assets/imagens/imagemhome.png" alt="">
     </div>
 
     <div class="sobrenos">
@@ -168,9 +169,15 @@ userStore.loadUser();
 </template>
 
 <style scoped>
+.imagem-home {
+  margin-left: 59.6vw;
+  margin-top: -27vw;
+}
+
 header {
   margin-bottom: 13vw
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -210,7 +217,9 @@ header {
 }
 
 .sobrenos {
-  margin-bottom: 30vh;
+  margin-bottom: 5vh;
+  margin-top: -20vw;
+
 }
 
 .sobrenos h3 {
@@ -240,7 +249,7 @@ header {
   justify-content: center;
   gap: 7vw;
   background-color: white;
-  padding: 18vh 7vw 18vh 7vw;
+  padding: 18vh 7vw 5vh 7vw;
 }
 
 .orcamento {
@@ -463,7 +472,7 @@ header {
   background: linear-gradient(to top, var(--azul-royal) 40%, rgba(24, 172, 152, 0.425) 100%);
   z-index: 1;
 }
- 
+
 .service-card h2,
 .service-card p {
   position: relative;
