@@ -313,6 +313,7 @@ import Footer from '@/components/Footer.vue'
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
+  padding-top: 15vh;
 }
 
 .subtitle {
