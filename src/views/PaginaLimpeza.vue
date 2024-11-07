@@ -373,6 +373,7 @@ header {
   text-align: center;
   margin-bottom: 1em;
   font-size: 2.5rem;
+  padding-top: 10vh;
 }
 
 .description {
