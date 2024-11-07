@@ -1,4 +1,4 @@
-
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useUserStore } from '@/stores/user'
@@ -8,11 +8,8 @@ const userStore = useUserStore()
 
 const isAuthenticated = computed(() => userStore.user)
 
-
 function Dropdown() {
-
   open.value = !open.value;
-
 }
 
 function logout() {
@@ -72,8 +69,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 img {
-  width: 9vw;
-  height: 15vh;
+  width: 6vw;
 }
 
 header {
@@ -81,6 +77,11 @@ header {
   display: flex;
   align-items: center;
   margin-bottom: 1.5rem;
+  background-color: #f3f3f3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 a {
@@ -101,8 +102,6 @@ button {
 }
 
 .dropdown-button {
-  background-color: #3498db;
-  color: white;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
