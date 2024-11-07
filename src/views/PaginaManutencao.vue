@@ -1,10 +1,23 @@
 <script setup>
 import Menu from '@/components/Menu.vue'
 import Footer from '@/components/Footer.vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Autoplay, EffectCoverflow, Navigation, Keyboard } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/navigation'
+import 'swiper/css/keyboard'
+import 'swiper/css/bundle'
+import 'swiper/css/autoplay'
+const modules = [Navigation, EffectCoverflow, Keyboard, Autoplay]
 
 
-  
-    
+const onSwiper = (swiper) => {
+  console.log(swiper)
+}
+const onSlideChange = () => {
+  console.log('slide change')
+}
 
 </script>
 <template>
@@ -53,17 +66,144 @@ import Footer from '@/components/Footer.vue'
 
         <h2 class="subtitle">Hidráulica</h2>
 
-<section>
-  <swiper>
+<section class="secao">
+  <Swiper
+  :modules="modules"
+        :slidesPerView="auto"
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+        :grabCursor="true"
+        :centeredSlides="true"
+        :loop="true"
+        :cssMode="true"
+       
+        @autoplay="true"
+        :autoplay="{
+          delay:3900,
+          disableOnInteraction:true,
+        }"
+        :coverflowEffect="{
+          rotate: 0,
+          stretch: 0,
+          depth: 150,
+          modifier: 2.5,
+          slideShadows: true
+        }"
+        :navigation="true"
+        :keyboard="{
+          enabled: true
+        }"
+        :mousewheel="true"
+        :pagination="{
+          clickable: true
+        }"
+>
+  <SwiperSlide>
+         
+         <img src="../assets/imagens/manutencao2.jpeg" alt="" />
+         <div class="texto-carrosel">
+           <h3>Troca de encanamento</h3>
+           <p>
+             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+           </p>
+         </div>
+  </SwiperSlide>
 
-  </swiper>
+
+  <SwiperSlide>
+         
+         <img src="../assets/imagens/manutencao4.jpeg" alt="" />
+         <div class="texto-carrosel">
+           <h3>Instalação de chuveiro</h3>
+           <p>
+             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+           </p>
+         </div>
+  </SwiperSlide>
 
 
+  <SwiperSlide>
+         
+         <img src="../assets/imagens/manutencao3.jpeg" alt="" />
+         <div class="texto-carrosel">
+           <h3>Troca de resistência</h3>
+           <p>
+             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+           </p>
+         </div>
+      </SwiperSlide>
+    </Swiper>
 </section>
       
   <h2 class="subtitle">Elétrica</h2>
+  <section class="secao">
+  <Swiper
+  :modules="modules"
+        :slidesPerView="auto"
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+        :grabCursor="true"
+        :centeredSlides="true"
+        :loop="true"
+        :cssMode="true"
+       
+        @autoplay="true"
+        :autoplay="{
+          delay:3900,
+          disableOnInteraction:true,
+        }"
+        :coverflowEffect="{
+          rotate: 0,
+          stretch: 0,
+          depth: 150,
+          modifier: 2.5,
+          slideShadows: true
+        }"
+        :navigation="true"
+        :keyboard="{
+          enabled: true
+        }"
+        :mousewheel="true"
+        :pagination="{
+          clickable: true
+        }"
+>
+  <SwiperSlide>
+         
+         <img src="../assets/imagens/manutencao1.jpeg" alt="" />
+         <div class="texto-carrosel">
+           <h3>Instalação de pia</h3>
+           <p>
+             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+           </p>
+         </div>
+  </SwiperSlide>
 
-  </div>
+
+  <SwiperSlide>
+         
+         <img src="../assets/imagens/manutencao6.jpeg" alt="" />
+         <div class="texto-carrosel">
+           <h3>Troca de lâmpada</h3>
+           <p>
+             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+           </p>
+         </div>
+  </SwiperSlide>
+
+
+  <SwiperSlide>
+         
+         <img src="../assets/imagens/manutencao5.jpeg" alt="" />
+         <div class="texto-carrosel">
+           <h3>Instalação ar-condicionado</h3>
+           <p>
+             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+           </p>
+         </div>
+      </SwiperSlide>
+    </Swiper>
+</section>
 
   <div class="descricao-clientes">
     <div class="text-content">
@@ -76,8 +216,8 @@ import Footer from '@/components/Footer.vue'
     </div>
     <img  class="avaliacao" src="../assets/imagens/manutencao1.jpeg" alt="Imagem de avaliação dos clientes">
   </div>
-
-  <Footer></Footer>
+  <header> <Footer></Footer></header> 
+  </div>
 </template>
 
 <style scoped>
@@ -89,8 +229,10 @@ import Footer from '@/components/Footer.vue'
   width: 100%;
   height: 100vh;
   background-color: #f7f6f6;
+
 }
 .title {
+  width: auto;
   font-size: 3em;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -116,7 +258,7 @@ import Footer from '@/components/Footer.vue'
 .cards-iniciais {
   display: flex;
   flex-wrap: wrap;
-  gap: 70px;
+  gap: 90px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
@@ -155,7 +297,66 @@ import Footer from '@/components/Footer.vue'
   font-size: 2rem;
   font-weight: bold;
   color: #2ab0bf;
+  align-items: center;
+  text-align: center;
+  justify-content: center
 }
+.secao{
+  height: 60vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.swiper-slide{
+  height: 80vh;
+  width: 5vw;
+  border-radius: 0.7rem;
+
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.swiper-slide img{
+  width: 40vw;
+  height: 50vh;
+  justify-content: center;
+  display: flex;
+  border-radius: .4rem;
+  align-items: center;
+
+}
+
+.texto-carrosel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
+  width: 30vw;
+}
+
+.texto-carrosel h3{
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.texto-carrosel p{
+  width: 44%;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-align: center;
+  }
+
+.carousel{
+  display: flex
+}
+
 .descricao-clientes {
   background-color: #29b6c5; /* Fundo azul */
   padding: 4rem;
@@ -163,6 +364,9 @@ import Footer from '@/components/Footer.vue'
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  position: relative;
+  margin-top: 3rem;
+  z-index: 1;
 }
 
 .avaliacao {
