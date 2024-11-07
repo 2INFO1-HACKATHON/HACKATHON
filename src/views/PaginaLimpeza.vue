@@ -79,9 +79,10 @@ const onSlideChange = () => {
         <SwiperSlide>
           <img src="../assets/imagens/Limpeza2.jpeg" alt="" />
           <div class="texto-carrosel">
-            <h3>Limpeza de Escritório</h3>
+            <h3>Limpeza de Carpetes</h3>
             <p>
-          Garanta um ambiente de trabalho limpo e produtivo, com uma limpeza regular e eficiente.
+           Carpetes como novos, livres de poeira e ácaros.
+             
             </p>
           </div>
         </SwiperSlide>
@@ -89,9 +90,10 @@ const onSlideChange = () => {
         <SwiperSlide>
           <img src="../assets/imagens/Limpeza3.jpeg" alt="" />
           <div class="texto-carrosel">
-            <h3>Limpeza Pós-Obra</h3>
+            <h3>Limpeza de Escritório </h3>
             <p>
-              Elimine toda a poeira após a reforma, deixando o espaço pronto para uso.
+              Garanta um ambiente de trabalho limpo e produtivo, com uma limpeza regular e eficiente.
+            
             </p>
             
           </div>
@@ -101,9 +103,9 @@ const onSlideChange = () => {
           
           <img src="../assets/imagens/LImpeza4.jpeg" alt="" />
           <div class="texto-carrosel">
-            <h3>Limpeza de Carpetes</h3>
+            <h3>Limpeza de Pós-Obra</h3>
             <p>
-              Carpetes como novos, livres de poeira e ácaros.
+              Elimine toda a poeira após a reforma, deixando o espaço pronto para uso.
             </p>
           </div>
         </SwiperSlide>
@@ -111,9 +113,9 @@ const onSlideChange = () => {
         <SwiperSlide>
           <img src="../assets/imagens/Limpeza5.jpeg" alt="" />
           <div class="texto-carrosel">
-            <h3>Limpeza de vidros</h3>
+            <h3>Limpeza de Estofados</h3>
             <p>
-              Vidros brilhantes e limpos, oferecendo uma visão clara e renovada.
+             Estofados limpos e renovados, livres de manchas e odores. 
             </p>
             <h1></h1>
           </div>
@@ -122,9 +124,9 @@ const onSlideChange = () => {
         <SwiperSlide>
           <img src="../assets/imagens/Limpeza6.jpeg" alt="" />
           <div class="texto-carrosel">
-            <h3>Limpeza de Estofados</h3>
+            <h3>Limpeza de Vidros</h3>
             <p>
-              Estofados limpos e renovados, livres de manchas e odores.
+              Vidros brilhantes e limpos, oferecendo uma visão clara e renovada.
             </p>
           </div>
         </SwiperSlide>
