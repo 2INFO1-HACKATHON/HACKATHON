@@ -99,7 +99,7 @@ const onSlideChange = () => {
 
         <SwiperSlide>
           
-          <img src="../assets/imagens/Limpeza4.jpeg" alt="" />
+          <img src="../assets/imagens/LImpeza4.jpeg" alt="" />
           <div class="texto-carrosel">
             <h3>Limpeza Residencial</h3>
             <p>
