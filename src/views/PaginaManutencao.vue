@@ -104,7 +104,7 @@ const onSlideChange = () => {
          <div class="texto-carrosel">
            <h3>Troca de encanamento</h3>
            <p>
-             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+                Oferecemos serviços rápidos e eficientes para a troca de encanamento, garantindo novos tubos e conexões de alta qualidade
            </p>
          </div>
   </SwiperSlide>
@@ -116,7 +116,7 @@ const onSlideChange = () => {
          <div class="texto-carrosel">
            <h3>Instalação de chuveiro</h3>
            <p>
-             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+                Oferecemos instalação profissional de chuveiros, garantindo um ajuste seguro e eficiente.
            </p>
          </div>
   </SwiperSlide>
@@ -128,7 +128,7 @@ const onSlideChange = () => {
          <div class="texto-carrosel">
            <h3>Troca de resistência</h3>
            <p>
-             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+                Realizamos a troca de resistência com precisão e cuidado, assegurando uma instalação correta que prolonga a vida útil do equipamento e mantém seu funcionamento seguro e eficiente.
            </p>
          </div>
       </SwiperSlide>
@@ -174,7 +174,7 @@ const onSlideChange = () => {
          <div class="texto-carrosel">
            <h3>Instalação de pia</h3>
            <p>
-             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+                Realizamos a instalação de pias com precisão e cuidado, garantindo um ajuste perfeito e funcionamento eficiente
            </p>
          </div>
   </SwiperSlide>
@@ -186,7 +186,7 @@ const onSlideChange = () => {
          <div class="texto-carrosel">
            <h3>Troca de lâmpada</h3>
            <p>
-             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+                Realizamos a troca de lâmpadas com precisão e cuidado, proporcionando uma iluminação adequada e duradoura para o seu ambiente,  garantindo uma instalação segura e eficiente.
            </p>
          </div>
   </SwiperSlide>
@@ -198,7 +198,7 @@ const onSlideChange = () => {
          <div class="texto-carrosel">
            <h3>Instalação ar-condicionado</h3>
            <p>
-             Deixe seu lar impecável com uma limpeza detalhada em todos os cômodos.
+                Realizamos a instalação de ar-condicionado com precisão e cuidado, assegurando que o processo seja seguro e eficiente, proporcionando conforto térmico e eficiência energética no seu ambiente.
            </p>
          </div>
       </SwiperSlide>
@@ -351,9 +351,9 @@ const onSlideChange = () => {
 
 .texto-carrosel p{
   width: 44%;
-  font-size: 0.8rem;
-  font-weight: 400;
-  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: left;
   }
 
 .carousel{
