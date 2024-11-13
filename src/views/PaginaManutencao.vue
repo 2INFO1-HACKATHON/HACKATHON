@@ -214,7 +214,11 @@ const onSlideChange = () => {
         empenho do nosso time de profissionais.
       </p>
     </div>
-    <img  class="avaliacao" src="../assets/imagens/manutencao1.jpeg" alt="Imagem de avaliação dos clientes">
+    <img  class="avaliacao" src="../assets/imagens/avaliacao1.png" alt="Imagem de avaliação dos clientes">
+
+    <img  class="avaliacao"  src="../assets/imagens/avaliacao1.png" alt="Imagem de avaliação dos clientes">
+
+    <img  class="avaliacao"  src="../assets/imagens/avaliacao1.png" alt="Imagem de avaliação dos clientes">
   </div>
   <header> <Footer></Footer></header> 
   </div>
@@ -225,7 +229,7 @@ const onSlideChange = () => {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-items: center;
   width: 100%;
   height: 100vh;
   background-color: #f7f6f6;
@@ -241,10 +245,10 @@ const onSlideChange = () => {
 }
 
 .t2 {
-  display: flex;
+  display: block;
   width: 700px;
   font-size: 20px;
-  margin-bottom: 2em;
+  margin:0 auto 2em;
   text-align: center;
 }
 .descricao {
@@ -259,10 +263,9 @@ const onSlideChange = () => {
   display: flex;
   flex-wrap: wrap;
   gap: 90px;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  justify-content: center;
+  margin-bottom: 100px;
+  margin-top: 60px;
 }
 
 .card {
@@ -299,7 +302,8 @@ const onSlideChange = () => {
   color: #2ab0bf;
   align-items: center;
   text-align: center;
-  justify-content: center
+  justify-content: center;
+  margin-top: 3em;
 }
 .secao{
   height: 60vh;
@@ -313,7 +317,6 @@ const onSlideChange = () => {
   height: 80vh;
   width: 5vw;
   border-radius: 0.7rem;
-
   overflow: hidden;
   justify-content: center;
   align-items: center;
@@ -358,7 +361,7 @@ const onSlideChange = () => {
 }
 
 .descricao-clientes {
-  background-color: #29b6c5; /* Fundo azul */
+  background-color: #29b6c5; 
   padding: 4rem;
   color: #ffffff;
   display: flex;
@@ -366,18 +369,20 @@ const onSlideChange = () => {
   justify-content: space-between;
   position: relative;
   margin-top: 3rem;
-  z-index: 1;
+
 }
 
 .avaliacao {
-width: 230px;
-height: auto;
+width: 24vw;
+height: 20vh;
 display: flex;
+flex-direction: column;
+justify-content: flex-end;
 margin-left: 2rem;
 }
 
 .text-content {
-  max-width: 200px;
+  max-width: 400px;
 }
 
 .line {
