@@ -130,6 +130,7 @@ import Footer from '@/components/Footer.vue'
 .titulo {
   font-weight: 500;
   font-size: 28px;
+  padding-top: 15vh;
 }
 
 .texto-inicio {

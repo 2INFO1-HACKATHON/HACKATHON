@@ -222,6 +222,7 @@ const onSlideChange = () => {
   </div>
   <header> <Footer></Footer></header> 
   </div>
+
 </template>
 
 <style scoped>
