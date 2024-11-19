@@ -170,8 +170,11 @@ userStore.loadUser();
 
 <style scoped>
 .imagem-home {
-  margin-left: 59.6vw;
-  margin-top: -27vw;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
 
 header {
@@ -476,7 +479,7 @@ header {
 .service-card h2,
 .service-card p {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .service-card h2 {
