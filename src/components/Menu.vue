@@ -51,8 +51,10 @@ onBeforeUnmount(() => {
   <RouterLink to="/PaginaLimpeza" class="dropdown-item" role="menuitem">Limpeza</RouterLink>
   <RouterLink to="/PaginaCulinaria" class="dropdown-item">Culinária</RouterLink>
   <RouterLink to="/PaginaCuidados" class="dropdown-item">Cuidados</RouterLink>
-   <RouterLink to="/PaginaManutencao" class="dropdown-item">Manutenção</RouterLink>
+  <RouterLink to="/PaginaManutencao" class="dropdown-item">Manutenção</RouterLink>
+
 </div>
+
 
 </div>
 
