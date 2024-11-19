@@ -126,6 +126,7 @@ button {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  font-size: 0.8rem;
 }
 
 .dropdown-item:hover {

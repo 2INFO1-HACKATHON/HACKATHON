@@ -126,6 +126,7 @@ import Footer from '@/components/Footer.vue'
   max-width: 800px;
   margin: 0 auto;
   margin-top: 10vw;
+  
 }
 .servicos-cuidados h1 {
   font-size: 2em;
@@ -142,6 +143,7 @@ import Footer from '@/components/Footer.vue'
   justify-content: space-between;
   align-items: flex-start;
   padding: 80px;
+  
 }
 .service-box {
   background-color: white;
@@ -313,6 +315,7 @@ import Footer from '@/components/Footer.vue'
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
+  padding-top: 15vh;
 }
 
 .subtitle {
@@ -336,7 +339,7 @@ import Footer from '@/components/Footer.vue'
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 300px;
+  margin-bottom: 4vw;
   padding: 80px;
 }
 
