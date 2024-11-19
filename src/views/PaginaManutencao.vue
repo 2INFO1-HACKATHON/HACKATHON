@@ -243,6 +243,7 @@ const onSlideChange = () => {
   margin-bottom: 1rem;
   color: #000000;
   text-align: center;
+   padding-top: 15vh;
 }
 
 .t2 {
