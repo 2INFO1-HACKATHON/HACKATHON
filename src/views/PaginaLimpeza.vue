@@ -191,6 +191,16 @@ const onSlideChange = () => {
     <h1>Escolha o pacote ideal para você</h1>
     <div class="packages">
       <div class="package">
+        <h2>Limpeza Diária</h2>
+        <p>Ideal para manter o ambiente impecável todos os dias, sem preocupações com a limpeza.</p>
+        <p class="price">$150 <span>/Limpeza</span></p>
+        <ul>
+          <li>Manutenção continua</li>
+          <li>Maior custo-beneficio</li>
+          <li>Cuidado com os detalhes</li>
+        </ul>
+      </div>
+      <div class="package">
         <h2>Limpeza Semanal</h2>
         <p>
           Perfeito para quem quer uma manutenção contínua e um ambiente sempre limpo e organizado.
@@ -200,16 +210,6 @@ const onSlideChange = () => {
           <li>Equilibrio entre custo e manutenção</li>
           <li>Foco nas áreas mais utilizadas</li>
           <li>Flexibilidade para diferentes rotinas</li>
-        </ul>
-      </div>
-      <div class="package">
-        <h2>Limpeza Diária</h2>
-        <p>Ideal para manter o ambiente impecável todos os dias, sem preocupações com a limpeza.</p>
-        <p class="price">$150 <span>/Limpeza</span></p>
-        <ul>
-          <li>Manutenção continua</li>
-          <li>Maior custo-beneficio</li>
-          <li>Cuidado com os detalhes</li>
         </ul>
       </div>
       <div class="package">

@@ -6,6 +6,8 @@ import PaginaLimpeza from '../views/PaginaLimpeza.vue'
 import PaginaLogin from '../views/PaginaLogin.vue'
 import PaginaSignup from '../views/PaginaSignup.vue'
 import PaginaManutencao from '../views/PaginaManutencao.vue'
+import SoliciteServico from '../views/SoliciteServico.vue'
+import PaginaCheckout from '../views/PaginaCheckout.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +47,16 @@ const router = createRouter({
       path: '/PaginaManutencao',
       name: 'PaginaManutencao',
       component: PaginaManutencao
+    },
+    {
+      path: '/SoliciteServico',
+      name: 'SoliciteServico',
+      component: SoliciteServico
+    },
+    {
+      path: '/PaginaCheckout',
+      name: 'PaginaCheckout',
+      component: PaginaCheckout
     }
   ]
 })
