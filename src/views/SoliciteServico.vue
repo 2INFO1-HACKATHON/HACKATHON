@@ -1,30 +1,52 @@
 <script setup>
 import { reactive, ref } from 'vue';
-import { useRouter } from 'vue-router';
 
-const router = useRouter();
-const serviços = [
-  { name: 'Limpeza' },
-  { name: 'Culinária' },
-  { name: 'Manutenção' },
-  { name: 'Cuidados' }
-];
+const serviços = ['Limpeza', 'Culinária', 'Manutenção', 'Cuidados'];
+
+const subServiços = {
+  Limpeza: ['Limpeza Diária', 'Limpeza Semanal', 'Limpeza Quinzenal'],
+  Culinária: ['Personal Chef', 'Chef de Festa', 'Chef Nutricionista'],
+  Cuidados: ['Cuidado com Crianças', 'Cuidado com Idosos', 'Cuidados Pós-Operatórios'],
+  Manutenção: [
+    'Troca de Encanamento',
+    'Troca de Resistência',
+    'Instalação de Chuveiro',
+    'Troca de Lâmpada',
+    'Instalação/Manutenção de Ar Condicionado',
+    'Instalação de Pia'
+  ]
+};
 
 const pessoa = reactive({
   nome: '',
   telefone: '',
+  email: '',
   servico: '',
-  email: ''
+  subServico: '',
+  observacoes: '' // Adicionado campo para observações
 });
 
-const showMessage = ref(false);
+const subServicosDisponiveis = ref([]);
+
+function atualizarSubServicos() {
+  if (pessoa.servico) {
+    subServicosDisponiveis.value = subServiços[pessoa.servico];
+  } else {
+    subServicosDisponiveis.value = [];
+  }
+}
 
 function EnviarDados() {
-  if (pessoa.nome && pessoa.telefone && pessoa.servico && pessoa.email) {
-    showMessage.value = true && router.push({name: 'PaginaCheckout'});
-    
+  if (
+    pessoa.nome &&
+    pessoa.telefone &&
+    pessoa.email &&
+    pessoa.servico &&
+    pessoa.subServico
+  ) {
+    alert('Formulário enviado com sucesso!\n' + JSON.stringify(pessoa, null, 2));
   } else {
-    alert('Por favor, preencha todos os campos corretamente!');
+    alert('Por favor, preencha todos os campos obrigatórios.');
   }
 }
 </script>
@@ -32,33 +54,42 @@ function EnviarDados() {
 <template>
   <div class="form-wrapper">
     <div class="form-container">
-      <h2>Solicite seu Orçamento</h2>
+      <h2>Solicite seu Serviço</h2>
       <form @submit.prevent="EnviarDados">
         <div class="form-group">
           <label for="nome">Nome:</label>
-          <input type="text" v-model="pessoa.nome" required />
+          <input type="text" id="nome" v-model="pessoa.nome" required />
         </div>
         <div class="form-group">
           <label for="telefone">Telefone:</label>
-          <input type="tel" v-model="pessoa.telefone" required />
+          <input type="tel" id="telefone" v-model="pessoa.telefone" required />
         </div>
         <div class="form-group">
-          <label for="servico">Serviço desejado:</label>
-          <select v-model="pessoa.servico" required>
-            <option disabled value="">Escolha um serviço</option>
-            <option v-for="servico in serviços" :key="servico.name" :value="servico.name">
-              {{ servico.name }}
+          <label for="email">Email:</label>
+          <input type="email" id="email" v-model="pessoa.email" required />
+        </div>
+        <div class="form-group">
+          <label for="servico">Serviço:</label>
+          <select id="servico" v-model="pessoa.servico" @change="atualizarSubServicos" required>
+            <option value="" disabled>Selecione um serviço</option>
+            <option v-for="servico in serviços" :key="servico" :value="servico">{{ servico }}</option>
+          </select>
+        </div>
+        <div class="form-group" v-if="subServicosDisponiveis.length > 0">
+          <label for="subServico">Subserviço:</label>
+          <select id="subServico" v-model="pessoa.subServico" required>
+            <option value="" disabled>Selecione um tipo de {{ pessoa.servico }}</option>
+            <option v-for="subServico in subServicosDisponiveis" :key="subServico" :value="subServico">
+              {{ subServico }}
             </option>
           </select>
         </div>
         <div class="form-group">
-          <label for="email">Email de Confirmação:</label>
-          <input type="email" v-model="pessoa.email" required />
+          <label for="observacoes">Observações:</label>
+          <textarea id="observacoes" v-model="pessoa.observacoes" rows="4" placeholder="Digite aqui suas observações..."></textarea>
         </div>
-        <button type="submit" class="submit-button" >Enviar</button>
+        <button type="submit" class="submit-button">Enviar</button>
       </form>
-
-      <p v-if="showMessage" class="confirmation-message">Formulário enviado com sucesso!</p>
     </div>
   </div>
 </template>
@@ -84,8 +115,7 @@ function EnviarDados() {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: rgb(16,127,139);
-background: linear-gradient(90deg, rgba(63,191,168,1) 100%, rgba(42,176,191,1) 35%,  rgba(16,127,139,1) 0%);
+  background: linear-gradient(90deg, rgba(63, 191, 168, 1) 100%, rgba(42, 176, 191, 1) 35%, rgba(16, 127, 139, 1) 0%);
   font-family: var(--font-geral);
 }
 
@@ -120,7 +150,8 @@ label {
 input[type="text"],
 input[type="tel"],
 input[type="email"],
-select {
+select,
+textarea {
   width: 100%;
   padding: 12px;
   border-radius: 5px;
@@ -133,10 +164,15 @@ select {
 input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="email"]:focus,
-select:focus {
+select:focus,
+textarea:focus {
   outline: none;
   border-color: var(--azul-royal);
   background-color: #fff;
+}
+
+textarea {
+  resize: none;
 }
 
 .submit-button {
@@ -154,11 +190,5 @@ select:focus {
 .submit-button:hover {
   background-color: var(--azul-royal-escuro);
 }
-
-.confirmation-message {
-  margin-top: 20px;
-  color: var(--verde-agua);
-  font-size: 1em;
-  font-weight: bold;
-}
 </style>
+
