@@ -111,9 +111,6 @@ import Footer from '@/components/Footer.vue'
 </template>
 
 <style scoped>
-
-/*INÍCIO*/
-
 .cinza{
   background-color: var(--cinza);
 }
