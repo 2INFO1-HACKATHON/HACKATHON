@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/user';
 
@@ -9,15 +9,20 @@ const errorMessage = ref('');
 const router = useRouter();
 const userStore = useUserStore();
 
-userStore.loadUser();
+onMounted(() => {
+  userStore.loadUser();
+  if (userStore.user) {
+    email.value = userStore.user.email;
+    password.value = userStore.user.password;
+  }
+});
 
 function handleLogin() {
-
   errorMessage.value = '';
 
   const storedUser = userStore.user;
 
-  if (storedUser && storedUser.email === email.value.toLowerCase() && storedUser.password === password.value) {
+  if (storedUser && storedUser.email.toLowerCase() === email.value.toLowerCase() && storedUser.password === password.value) {
     router.push('/');
   } else {
     errorMessage.value = 'Email ou senha incorretos!';
@@ -26,21 +31,34 @@ function handleLogin() {
 </script>
 
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <div class="container">
     <div class="content">
       <div class="first-column">
         <h2 class="title title-primary">Conectar-se</h2>
         <form class="form" @submit.prevent="handleLogin">
+
+          <!-- Email -->
           <div class="label-input">
+            <i class="icon fas fa-envelope"></i>
             <input v-model="email" type="email" placeholder="Email" required />
           </div>
+
+          <!-- Senha -->
           <div class="label-input">
+            <i class="icon fas fa-lock"></i>
             <input v-model="password" type="password" placeholder="Senha" required />
           </div>
+
+          <!-- Esqueceu sua senha -->
           <div class="password-container">
             <router-link class="password" to="#">Esqueceu sua senha?</router-link>
           </div>
+
+          <!-- Botão Entrar -->
           <button type="submit" class="btn btn-login">Entrar</button>
+
           <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
         </form>
       </div>
@@ -73,10 +91,22 @@ function handleLogin() {
 .content {
   display: flex;
   background-color: #fff;
-  border-radius: 15px;
-  width: 960px;
-  height: 50%;
+  border-radius: 1.5vw;
+  width: 60%;
+  height: 70%;
+  position: relative;
   justify-content: space-between;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  background-color: #45CDDD;
+  width: 40%;
+  height: 100%;
+  border-top-right-radius: 1.5vw;
+  border-bottom-right-radius: 1.5vw;
+  right: 0;
 }
 
 .first-column {
@@ -85,7 +115,8 @@ function handleLogin() {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px 40px;
+  padding: 2vw;
+  z-index: 1;
 }
 
 .second-column {
@@ -94,110 +125,128 @@ function handleLogin() {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: #45cdde;
+  padding: 2vw;
+  text-align: center;
   color: #fff;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .title {
-  font-size: 28px;
+  font-size: 2.5vw;
   font-weight: bold;
-  margin-bottom: 20px;
 }
 
 .title-primary {
-  color: #45cdde;
+  color: #45CDDD;
+  margin-bottom: 2vh;
 }
 
 .title-second {
   color: #fff;
+  margin-bottom: 2vh;
 }
 
 .description {
-  font-size: 14px;
-  margin-bottom: 20px;
+  font-size: 1.5vw;
   text-align: center;
+  color: #fff;
+  line-height: 1.5;
+  margin-bottom: 3vh;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.form input {
-  width: 90%;
-  border: none;
-  background-color: #ecf0f1;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
+  width: 70%;
 }
 
 .label-input {
   position: relative;
+  background-color: rgb(250, 250, 250);
+  padding-bottom: 0.6vh;
+  height: 6vh;
   display: flex;
   align-items: center;
+  flex-grow: 1;
+}
+
+.form input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #ecf0f1;
+  font-size: 1rem;
+  padding: 1vh 2.5vw;
+  border-radius: 0.5vw;
+}
+
+.label-input .icon {
+  position: absolute;
+  left: 0.6vw;
+  font-size: 1.2rem;
+  color: #7f8c8d;
 }
 
 .password-container {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 1vh;
   align-self: flex-start;
 }
 
 .password {
-  font-size: 12px;
+  font-size: 1rem;
   color: #3498db;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.password:hover {
+  color: #2980b9;
 }
 
 .btn {
-  border-radius: 15px;
+  border-radius: 1vw;
   text-transform: uppercase;
-  text-decoration: none;
-  font-size: 10px;
-  padding: 10px 50px;
+  color: #fff;
+  font-size: 0.9vw;
+  padding: 1vh 3vw;
   cursor: pointer;
   font-weight: bold;
-  width: 150px;
   align-self: center;
+  border: none;
+  margin-top: 2vh;
   text-align: center;
-  margin-top: 1rem;
+  align-items: center;
 }
 
 .btn-login {
-  color: #fff;
-  background-color: #45cdde;
-  border: 1px solid #45cdde;
+  background-color: #45CDDD;
+  border: 0.2vw solid #45CDDD;
   transition: background-color 0.5s;
 }
 
 .btn-login:hover {
   background-color: #fff;
-  border: 1px solid #45cdde;
-  color: #45cdde;
+  border: 0.2vw solid #45CDDD;
+  color: #45CDDD;
 }
 
 .btn-signup {
-  background-color: #45cdde;
-  color: #ffffff;
-  border: 1px solid #fff;
+  background-color: transparent;
+  border: 0.2vw solid #fff;
   transition: background-color 0.5s;
+  text-decoration: none;
 }
 
 .btn-signup:hover {
-  background-color: #ffffff;
-  color: #45cdde;
+  background-color: #fff;
+  color: #45CDDD;
+  text-decoration: none;
 }
 
 .error-message {
   color: red;
-  font-size: 14px;
-  margin-top: 10px;
+  font-size: 1.2vw;
+  margin-top: 2vh;
 }
 </style>

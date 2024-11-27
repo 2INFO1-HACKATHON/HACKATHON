@@ -10,7 +10,9 @@ userStore.loadUser();
 <template>
   <div class="container">
     <header>
+      <div class="menu">
       <Menu></Menu>
+    </div>
     </header>
 
     <div class="main">
@@ -170,15 +172,20 @@ userStore.loadUser();
 
 <style scoped>
 .imagem-home {
-
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 100;
 }
 
 header {
   margin-bottom: 13vw
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  z-index: 99;
 }
 
 .container {
