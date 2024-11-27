@@ -8,6 +8,7 @@ import PaginaSignup from '../views/PaginaSignup.vue'
 import PaginaManutencao from '../views/PaginaManutencao.vue'
 import SoliciteServico from '../views/SoliciteServico.vue'
 import PaginaCheckout from '../views/PaginaCheckout.vue'
+import PaginaPerfil from '../views/PaginaPerfil.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -57,6 +58,11 @@ const router = createRouter({
       path: '/PaginaCheckout',
       name: 'PaginaCheckout',
       component: PaginaCheckout
+    },
+    {
+      path: '/PaginaPerfil',
+      name: 'PaginaPerfil',
+      component: PaginaPerfil
     }
   ]
 })
