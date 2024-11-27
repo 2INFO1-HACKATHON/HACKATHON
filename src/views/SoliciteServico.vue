@@ -1,5 +1,7 @@
 <script setup>
 import { reactive, ref } from 'vue';
+import Menu from '@/components/Menu.vue'
+import Footer from '@/components/Footer.vue'
 
 const serviços = ['Limpeza', 'Culinária', 'Manutenção', 'Cuidados'];
 
@@ -52,6 +54,7 @@ function EnviarDados() {
 </script>
 
 <template>
+  <Menu></Menu>
   <div class="form-wrapper">
     <div class="form-container">
       <h2>Solicite seu Serviço</h2>
@@ -92,6 +95,7 @@ function EnviarDados() {
       </form>
     </div>
   </div>
+  <Footer></Footer>
 </template>
 
 <style scoped>
@@ -114,16 +118,15 @@ function EnviarDados() {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(90deg, rgba(63, 191, 168, 1) 100%, rgba(42, 176, 191, 1) 35%, rgba(16, 127, 139, 1) 0%);
+  height: 120vh;
   font-family: var(--font-geral);
 }
 
 .form-container {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   padding: 30px;
-  background-color: white;
+  background-color: var(--azul-royal);
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -131,7 +134,8 @@ function EnviarDados() {
 
 h2 {
   font-family: var(--font-titulo);
-  color: var(--azul-royal-escuro);
+  font-weight: 500;
+  color: white;
   font-size: 1.8em;
   margin-bottom: 20px;
 }
@@ -143,8 +147,7 @@ h2 {
 
 label {
   font-size: 0.9em;
-  color: var(--azul-royal-escuro);
-  font-weight: bold;
+  color: white;
 }
 
 input[type="text"],
