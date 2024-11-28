@@ -4,6 +4,10 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <template>
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
 
   <Menu></Menu>
 
@@ -17,52 +21,83 @@ import Footer from '@/components/Footer.vue'
         proporcionando uma refeição inesquecível para você e seus convidados.
       </p>
     </div>
-  </div>
 
-  <section class="cards-iniciais">
+
+    <section class="cards-iniciais">
+    <!-- Card 1 -->
     <div class="card">
       <h1 class="titulo-card">Qualidade Garantida</h1>
-      <p>Chefs cuidadosamente selecionados.</p>
-      <p>Garantia de refeição impecável.</p>
-      <p>Foco na qualidade dos ingredientes e na apresentação.</p>
+      <p>
+        <span class="icon-verificado verde">✔</span>
+        Chefs cuidadosamente selecionados.
+      </p>
+      <p>
+        <span class="icon-verificado verde">✔</span>
+        Garantia de refeição impecável.
+      </p>
+      <p>
+        <span class="icon-verificado verde">✔</span>
+        Foco na qualidade dos ingredientes e na apresentação.
+      </p>
     </div>
-    <div class="card">
+    <!-- Card 2 -->
+    <div class="card card-middle">
       <h1 class="titulo-card">Serviço Personalizado</h1>
-      <p>Serviço adaptado para diferentes tipos de eventos.</p>
-      <p>Menus criados sob medida para cada preferência.</p>
-      <p>Flexibilidade no horário e local de atendimento.</p>
+      <p>
+        <span class="icon-verificado branco">✔</span>
+        Serviço adaptado para diferentes tipos de eventos.
+      </p>
+      <p>
+        <span class="icon-verificado branco">✔</span>
+        Menus criados sob medida para cada preferência.
+      </p>
+      <p>
+        <span class="icon-verificado branco">✔</span>
+        Flexibilidade no horário e local de atendimento.
+      </p>
     </div>
+    <!-- Card 3 -->
     <div class="card">
       <h1 class="titulo-card">Suporte 24/7</h1>
-      <p>Equipe disponível a todo momento</p>
-      <p>Comunicação rápida e eficaz para imprevistos.</p>
-      <p>Acompanhamento completo, desde a reserva até o final do evento.</p>
+      <p>
+        <span class="icon-verificado verde">✔</span>
+        Equipe disponível a todo momento.
+      </p>
+      <p>
+        <span class="icon-verificado verde">✔</span>
+        Comunicação rápida e eficaz para imprevistos.
+      </p>
+      <p>
+        <span class="icon-verificado verde">✔</span>
+        Acompanhamento completo, desde a reserva até o final do evento.
+      </p>
     </div>
   </section>
+  </div>
 
   <section class="how-it-works">
     <h1 class="titulo">Como Funciona?</h1>
     <div class="how-it-works-grid">
       <div class="card-grid">
-        <p class="card-number">01. Personalize seu Pedido</p>
+        <h2>01. Personalize seu Pedido</h2>
         <p>
           Partilhe conosco os detalhes da refeição dos seus sonhos, incluindo tipo de cozinha,
           preferências e intolerâncias.
         </p>
       </div>
       <div class="card-grid">
-        <p class="card-number">02. Receba propostas de cardápio</p>
+        <h2>02. Receba propostas de cardápio</h2>
         <p>Nossos chefs criarão menus baseados exclusivamente em seus desejos e necessidades.</p>
       </div>
       <div class="card-grid">
-        <p class="card-number">03. Reserve sua experiência</p>
+        <h2>03. Reserve sua experiência</h2>
         <p>
           Quando estiver satisfeito com sua escolha, envie seu pagamento para garantir sua
           experiência.
         </p>
       </div>
       <div class="card-grid">
-        <p class="card-number">04. Execução e Avaliação</p>
+        <h2>04. Execução e Avaliação</h2>
         <p>
           O chef realiza o serviço no dia do evento. Após a conclusão, você avalia a experiência e
           fornece feedback.
@@ -111,8 +146,12 @@ import Footer from '@/components/Footer.vue'
 </template>
 
 <style scoped>
-.cinza{
+.cinza {
   background-color: var(--cinza);
+}
+
+.inicioPagina {
+  background-color: #F0F0F0;
 }
 
 .titulo,
@@ -121,20 +160,19 @@ import Footer from '@/components/Footer.vue'
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 5px;
+  padding: 0.6vw;
 }
 
 .titulo {
-  font-weight: 500;
-  font-size: 28px;
+  font-weight: 600;
+  font-size: 3.5vw;
   padding-top: 15vh;
 }
 
 .texto-inicio {
-  display: flex;
-  width: 80%;
-  font-size: 20px;
-  margin-bottom: 2em;
+  width: 70%;
+  font-size: 1.8vw;
+  margin-bottom: 5vh;
   text-align: center;
 }
 
@@ -147,77 +185,124 @@ import Footer from '@/components/Footer.vue'
 
 .cards-iniciais {
   display: flex;
-  gap: 60px;
+  gap: 3vw;
   justify-content: center;
   align-items: stretch;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 3vh;
+  padding-bottom: 15vh;
 }
 
 .titulo-card {
   text-align: center;
-  font-weight: 550;
+  font-weight: 600;
+  font-size: 2vw;
+  color: var(--azul-royal);
 }
 
 .card {
   flex: 1;
-  padding: 20px;
-  border: 1px solid #ccc;
+  padding: 2vw;
   background-color: white;
-  border-radius: 8px;
+  border-radius: 2vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 400px;
-  height: 240px;
+  max-width: 25vw;
+  height: 40vh;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* COMO FUNCIONA*/
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 1vw 3vw rgba(0, 0, 0, 0.09);
+}
 
-.how-it-works h1{
+.card p {
+  font-size: 1.2vw;
+  display: flex;
+  align-items: center;
+  gap: 0.3vw;
+}
+
+.card-middle {
+  background-color: var(--azul-royal);
+  color: white;
+}
+
+.card-middle .titulo-card {
+  color: white;
+}
+
+.icon-verificado {
+  font-size: 1.3vw;
+  width: 10%;
+}
+
+.icon-verificado.verde {
+  color: black;
+}
+
+.icon-verificado.branco {
+  color: white;
+}
+
+.how-it-works h1 {
   color: var(--azul-royal-escuro);
+  padding-top: 8vh;
+  font-size: 3vw;
+  padding-bottom: 3vh;
 }
+
+.how-it-works h2 {
+  font-weight: bold;
+  color: var(--azul-royal-escuro);
+  margin-bottom: 2vh;
+  font-size: 2vw;
+}
+
+.how-it-works p {
+  font-size: 1rem;
+}
+
 .how-it-works-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 2vw;
   justify-content: center;
-  max-width: 74%;
-  margin: 0 auto
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .card-grid {
-  padding: 30px;
+  padding: 2vw;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  margin: 2rem;
+  border-radius: 1vw;
+  margin: 3vh;
 }
-
-.card-number {
-  font-size: 22px;
-  font-weight: bold;
-  color: var(--azul-royal-escuro);
-  margin-bottom: 10px;
-}
-
-/*SERVIÇOS DE CULINÁRIA*/
 
 .culinary-services {
   text-align: center;
-  margin: 50px 0;
+  margin: 15vh 0;
 }
 
-.culinary-services h2 {
-  font-size: 28px;
-  margin-bottom: 2rem;
+.culinary-services h2, span {
+  font-size: 3vw;
+  font-weight: 550;
+  margin-bottom: 4vh;
+  width: 100%;
+  text-align: center;
   color: var(--azul-royal-escuro);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .services-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px;
+  gap: 5vw;
 }
 
 .service {
@@ -225,16 +310,16 @@ import Footer from '@/components/Footer.vue'
   max-width: 80%;
   align-items: center;
   background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  border-radius: 2vw;
+  box-shadow: 0px 0.5vw 2vw rgba(0, 0, 0, 0.1);
+  padding: 3vw;
 }
 
 .service img {
-  width: 200px;
+  width: 30vw;
   height: auto;
-  border-radius: 10px;
-  margin-right: 20px;
+  border-radius: 1vw;
+  margin-right: 3vw;
 }
 
 .service-text {
@@ -242,13 +327,14 @@ import Footer from '@/components/Footer.vue'
 }
 
 .service h3 {
-  font-size: 1.5rem;
+  font-size: 2.5vw;
+  font-weight: 600;
   color: var(--azul-royal-escuro);
-  margin-bottom: 10px;
+  margin-bottom: 2vh;
 }
 
 .service p {
-  font-size: 1rem;
+  font-size: 2vw;
   line-height: 1.5;
 }
 
@@ -258,7 +344,6 @@ import Footer from '@/components/Footer.vue'
 
 .reverse img {
   margin-right: 0;
-  margin-left: 20px;
+  margin-left: 3vw;
 }
-
 </style>

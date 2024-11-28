@@ -11,8 +11,8 @@ userStore.loadUser();
   <div class="container">
     <header>
       <div class="menu">
-      <Menu></Menu>
-    </div>
+        <Menu></Menu>
+      </div>
     </header>
 
     <div class="main">
@@ -20,7 +20,9 @@ userStore.loadUser();
       <h2>Sua casa em boas mãos</h2>
       <p>Manutenção e cuidado com carinho</p>
       <div class="welcome-container">
-        <h1 v-if="userStore.user">Boas-vindas, {{ userStore.user.name }}!</h1>
+        <h1 v-if="userStore.user">
+          Boas-vindas, {{ userStore.user.name.charAt(0).toUpperCase() + userStore.user.name.slice(1).toLowerCase() }}!
+        </h1>
       </div>
     </div>
     <div class="imagem-home">
