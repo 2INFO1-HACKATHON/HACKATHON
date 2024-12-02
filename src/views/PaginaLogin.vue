@@ -166,6 +166,7 @@ function handleLogin() {
   background-color: rgb(250, 250, 250);
   padding-bottom: 0.6vh;
   height: 6vh;
+  margin: 0.2vw;
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -189,7 +190,8 @@ function handleLogin() {
 }
 
 .password-container {
-  margin-top: 1vh;
+  margin-top: 4vh;
+  margin-bottom: 2vh;
   align-self: flex-start;
 }
 

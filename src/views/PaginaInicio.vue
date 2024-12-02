@@ -8,6 +8,7 @@ userStore.loadUser();
 </script>
 
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <div class="container">
     <header>
       <div class="menu">
@@ -84,31 +85,31 @@ userStore.loadUser();
     <div class="rowben">
       <div class="columnben">
         <div class="sectionben">
-          <i class="fas fa-tools"></i>
+          <i class="fas fa-user-check"></i>
           <p>Profissionais treinados e supervisionados</p>
         </div>
         <div class="sectionben">
-          <i class="fas fa-landmark"></i>
+          <i class="fas fa-building"></i>
           <p>Empresa consolidada no mercado carioca</p>
         </div>
       </div>
       <div class="columnben">
         <div class="sectionben">
-          <i class="fas fa-wrench"></i>
-          <p>Equipamentos e produtos de qualidade..</p>
+          <i class="fas fa-cogs"></i>
+          <p>Equipamentos e produtos de qualidade</p>
         </div>
         <div class="sectionben">
-          <i class="fas fa-user-friends"></i>
+          <i class="fas fa-handshake"></i>
           <p>Atendimento rápido e excelente relacionamento com os clientes</p>
         </div>
       </div>
       <div class="columnben">
         <div class="sectionben">
-          <i class="fas fa-check-circle"></i>
-          <p>Melhor custo benefício para você e sua empresa</p>
+          <i class="fas fa-tags"></i>
+          <p>Melhor custo-benefício para você e sua empresa</p>
         </div>
         <div class="sectionben">
-          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-calendar-alt"></i>
           <p>Preços e horários flexíveis de acordo com sua necessidade</p>
         </div>
       </div>
@@ -332,63 +333,73 @@ header {
   color: #fff;
 }
 
+.sectionben {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2vw;
+  width: 100%;
+  border-radius: 1rem;
+  text-align: left;
+}
+
+.sectionben i {
+  font-size: 5vw;
+  color: var(--azul-royal-escuro);
+  margin-right: 1rem;
+}
+
+.sectionben p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #333;
+  text-align: left;
+  max-width: 80%;
+  margin-left: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
 .beneficios {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20vh 3vw 20vh 3vw;
+  padding: 10vh 5vw;
   text-align: center;
   background-color: #f3f3f3;
 }
 
 .beneficios h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   letter-spacing: 0.4rem;
   font-weight: 400;
-  margin-bottom: -1vh;
+  margin-bottom: 2vh;
 }
 
 .beneficios h3 {
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   font-weight: 750;
   color: var(--azul-royal-escuro);
-  margin-bottom: 4rem;
+  margin-bottom: 4vh;
 }
 
 .rowben {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2vw;
+  gap: 3vw;
   max-width: 1200px;
 }
 
 .columnben {
   flex: 1;
-  min-width: 300px;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5vw;
-}
-
-.sectionben {
-  display: flex;
-  align-items: center;
-  padding: 1.5rem;
-  width: 100%;
-  max-width: 100%;
-}
-
-.sectionben i {
-  font-size: 20rem;
-  margin-right: 4rem;
-}
-
-.sectionben p {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  text-align: left;
+  gap: 2vw;
 }
 
 .feedback {

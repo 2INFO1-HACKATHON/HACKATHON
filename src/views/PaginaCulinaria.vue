@@ -28,15 +28,15 @@ import Footer from '@/components/Footer.vue'
     <div class="card">
       <h1 class="titulo-card">Qualidade Garantida</h1>
       <p>
-        <span class="icon-verificado verde">✔</span>
+        <span class="icon-verificado preto">✔</span>
         Chefs cuidadosamente selecionados.
       </p>
       <p>
-        <span class="icon-verificado verde">✔</span>
+        <span class="icon-verificado preto">✔</span>
         Garantia de refeição impecável.
       </p>
       <p>
-        <span class="icon-verificado verde">✔</span>
+        <span class="icon-verificado preto">✔</span>
         Foco na qualidade dos ingredientes e na apresentação.
       </p>
     </div>
@@ -60,15 +60,15 @@ import Footer from '@/components/Footer.vue'
     <div class="card">
       <h1 class="titulo-card">Suporte 24/7</h1>
       <p>
-        <span class="icon-verificado verde">✔</span>
+        <span class="icon-verificado preto">✔</span>
         Equipe disponível a todo momento.
       </p>
       <p>
-        <span class="icon-verificado verde">✔</span>
+        <span class="icon-verificado preto">✔</span>
         Comunicação rápida e eficaz para imprevistos.
       </p>
       <p>
-        <span class="icon-verificado verde">✔</span>
+        <span class="icon-verificado preto">✔</span>
         Acompanhamento completo, desde a reserva até o final do evento.
       </p>
     </div>
@@ -238,8 +238,9 @@ import Footer from '@/components/Footer.vue'
   width: 10%;
 }
 
-.icon-verificado.verde {
+.icon-verificado.preto {
   color: black;
+  font-weight: lighter;
 }
 
 .icon-verificado.branco {
@@ -345,5 +346,169 @@ import Footer from '@/components/Footer.vue'
 .reverse img {
   margin-right: 0;
   margin-left: 3vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 2rem;
+    padding-top: 5vh;
+  }
+
+  .subtitulo,
+  .texto-inicio {
+    font-size: 1rem;
+    width: 90%;
+    padding: 1rem;
+  }
+
+  .cards-iniciais {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+    margin-top: 2vh;
+  }
+
+  .card {
+    max-width: 90%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .titulo-card {
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+
+  .how-it-works h1 {
+    font-size: 2rem;
+    padding-top: 3vh;
+    padding-bottom: 2vh;
+  }
+
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .card-grid {
+    padding: 1rem;
+  }
+
+  .services-container {
+    gap: 1rem;
+  }
+
+  .service {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .service img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .service-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .service-text p {
+    font-size: 1rem;
+  }
+}
+
+/* Responsividade para tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .titulo {
+    font-size: 2.5rem;
+    padding-top: 8vh;
+  }
+
+  .subtitulo,
+  .texto-inicio {
+    font-size: 1.2rem;
+    width: 80%;
+  }
+
+  .cards-iniciais {
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .card {
+    max-width: 80%;
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .titulo-card {
+    font-size: 1.8rem;
+  }
+
+  .card p {
+    font-size: 1.1rem;
+  }
+
+  .how-it-works h1 {
+    font-size: 2.5rem;
+    padding-top: 5vh;
+    padding-bottom: 2vh;
+  }
+
+  .how-it-works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+
+  .card-grid {
+    padding: 1.5rem;
+  }
+
+  .services-container {
+    gap: 2rem;
+  }
+
+  .service {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1.5rem;
+  }
+
+  .service img {
+    width: 40%;
+    height: auto;
+    margin-right: 1.5rem;
+  }
+
+  .service-text h3 {
+    font-size: 1.8rem;
+  }
+
+  .service-text p {
+    font-size: 1.1rem;
+  }
 }
 </style>

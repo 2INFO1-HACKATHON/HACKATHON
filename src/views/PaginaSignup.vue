@@ -56,6 +56,7 @@ function handleRegister() {
 </script>
 
 <template>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <div class="container">
         <div class="content first-content">
             <div class="first-column">
@@ -70,31 +71,33 @@ function handleRegister() {
                 <form class="form" @submit.prevent="handleRegister">
 
                     <!-- Nome -->
-                    <div class="label-input"
-                        :class="{ 'error-border': errorMessage || errorEmailMessage || errorPasswordMessage || errorConfirmPasswordMessage || errorNameMessage }">
+                    <div class="label-input">
+                        <i class="icon fas fa-user"></i>
                         <input v-model="name" type="text" placeholder="Nome" required maxlength="20" />
                     </div>
 
                     <!-- Email -->
-                    <div class="label-input" :class="{ 'error-border': errorEmailMessage || errorEmailLengthMessage }">
-                        <input v-model="email" type="text" placeholder="Email" required maxlength="50" />
+                    <div class="label-input">
+                        <i class="icon fas fa-envelope"></i>
+                        <input v-model="email" type="email" placeholder="Email" required maxlength="50" />
                     </div>
 
                     <!-- Senha -->
-                    <div class="label-input"
-                        :class="{ 'error-border': errorPasswordMessage || errorPasswordLengthMessage }">
+                    <div class="label-input">
+                        <i class="icon fas fa-lock"></i>
                         <input v-model="password" type="password" placeholder="Senha" required maxlength="30" />
                     </div>
 
                     <!-- Confirmar Senha -->
-                    <div class="label-input" :class="{ 'error-border': errorConfirmPasswordMessage }">
+                    <div class="label-input">
+                        <i class="icon fas fa-lock"></i>
                         <input v-model="confirmPassword" type="password" placeholder="Confirmar Senha" required />
                     </div>
 
                     <!-- Botão Registrar -->
                     <button type="submit" class="btn btn-second">Registrar</button>
 
-                    <!-- Mensagens de erro agrupadas abaixo do botão -->
+                    <!-- Mensagens de erro -->
                     <div v-if="errorMessages.length" class="error-message-container">
                         <p v-for="(message, index) in errorMessages" :key="index" class="error-message">
                             {{ message }}
@@ -260,11 +263,20 @@ function handleRegister() {
     height: 6vh;
     display: flex;
     align-items: center;
+    flex-grow: 1;
+    margin: 0.2vw;
 }
 
 .label-input input {
     height: 100%;
     width: 100%;
+}
+
+.label-input .icon {
+  position: absolute;
+  left: 0.6vw;
+  font-size: 1.2rem;
+  color: #7f8c8d;
 }
 
 .error-border input {
@@ -284,10 +296,13 @@ function handleRegister() {
 }
 
 .form input {
-    border: none;
-    background-color: #ecf0f1;
-    font-size: 1rem;
-    padding: 0 1vw;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #ecf0f1;
+  font-size: 1rem;
+  padding: 1vh 2.5vw;
+  border-radius: 0.5vw;
 }
 
 input:-webkit-autofill {
