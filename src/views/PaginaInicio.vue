@@ -472,7 +472,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, var(--azul-royal) 40%, rgba(24, 172, 152, 0.425) 100%);
+  background: linear-gradient(to top, var(--azul-royal) 8%, rgba(24, 172, 152, 0.425) 90%);
   z-index: 1;
 }
 
