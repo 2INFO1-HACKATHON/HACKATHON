@@ -1,4 +1,4 @@
-<script setup>
+ <script setup>
 import Menu from '@/components/Menu.vue'
 import Footer from '@/components/Footer.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -20,8 +20,8 @@ const onSlideChange = () => {
 }
 </script>
 <template>
+<Menu></Menu>
   <div class="container">
-    <Menu></Menu>
     <h1 class="title">Limpeza</h1>
     <p class="description">Solicite seu orçamento personalizado</p>
     <div class="descricao">
@@ -206,7 +206,8 @@ const onSlideChange = () => {
     </div>
   </div>
 
-  <Footer></Footer>
+<Footer></Footer>
+
 </template>
 
 <style scoped>
@@ -217,7 +218,7 @@ const onSlideChange = () => {
   display: flex;
   flex-direction: column;
   background-color: #f0f0f0;
-  padding-bottom: 10vh;
+  padding-bottom: 20vh;
   width: 100%;
   box-sizing: border-box;
 }
@@ -226,7 +227,6 @@ const onSlideChange = () => {
   text-align: center;
   margin-bottom: 0.5em;
   font-size: 2rem;
-  padding-top: 10vh;
   font-weight: 600;
 }
 
@@ -277,11 +277,10 @@ const onSlideChange = () => {
 }
 
 .swiper-slide img {
-  width: 100%;
+  width: 80%;
   height: auto;
-  aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
 }
 
 .texto-carrosel {
@@ -317,6 +316,7 @@ const onSlideChange = () => {
 .incluso h1 {
   font-weight: 600;
   color: var(--azul-royal);
+  text-align: center;
 }
 
 .card-incluso {
@@ -368,7 +368,7 @@ li {
 .pacote {
   font-family: sans-serif;
   text-align: center;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: #f0f0f0;
 }
 
@@ -386,7 +386,6 @@ li {
   padding: 2rem 1rem;
   border-radius: 1rem;
   width: 100%;
-  max-width: 300px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 4px 4px 10px #e4e4e4, -4px -4px 10px #f5f5f5;
@@ -435,31 +434,9 @@ li {
   font-weight: normal;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 639px) {
   .incluso {
-    padding: 2rem 1rem;
+    padding: 2rem 3rem;
   }
 
   .card-incluso {
@@ -524,7 +501,7 @@ li {
 @media (min-width: 768px) {
   .title {
     font-size: 2.4rem;
-    padding-top: 12vh;
+    padding-top: 8vh;
   }
 
   .description {
@@ -592,7 +569,6 @@ li {
   }
 }
 
-/* Adjustments for the package cards */
 .packages {
   display: flex;
   flex-direction: column;
@@ -626,7 +602,6 @@ li {
   box-shadow: 8px 8px 15px #e4e4e4, -8px -8px 15px #f5f5f5;
 }
 
-/* Media queries */
 @media (max-width: 767px) {
   .packages {
     flex-direction: column;
@@ -663,8 +638,8 @@ li {
 
 @media (min-width: 1024px) {
   .title {
-    font-size: 2.5rem;
-    padding-top: 15vh;
+    font-size: 2rem;
+    padding-top: 8vh;    
   }
 
   .description {
@@ -682,7 +657,7 @@ li {
   }
 
   .secao {
-    height: 60vh;
+    height: 30vh;
     width: 75%;
   }
 
@@ -717,16 +692,16 @@ li {
 
   .packages {
     gap: 4vw;
-    margin: 8vh auto 15vh auto;
+    margin: 2vh auto 5vh auto;
   }
 
   .package {
-    width: 22%;
+    width: 30%;
   }
 
   .pacote-title {
     font-size: 2rem;
-    margin-top: 8vh;
+    margin-top: 3vh;
   }
 
   .pacote-title span {
@@ -734,8 +709,8 @@ li {
   }
 
   .package h2 {
-    font-size: 1.5rem;
-    margin-bottom: 3vh;
+    font-size: 2rem;
+    margin-bottom: 1vh;
   }
 
   .price {
@@ -752,6 +727,7 @@ li {
   .incluso {
     padding: 4rem 7rem;
   }
+
   .swiper-slide img {
     max-width: 100%;
     max-height: 50vh;

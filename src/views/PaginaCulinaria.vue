@@ -141,87 +141,79 @@ import Footer from '@/components/Footer.vue'
       </div>
     </div>
   </section>
-
   <Footer></Footer>
 </template>
 
 <style scoped>
-.cinza {
-  background-color: var(--cinza);
-}
-
 .inicioPagina {
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
+  padding: 2rem 1rem;
 }
 
 .titulo,
 .subtitulo,
 .texto-inicio {
-  display: flex;
-  flex-direction: column;
   text-align: center;
-  padding: 0.6vw;
+  margin-bottom: 1rem;
 }
 
 .titulo {
   font-weight: 600;
-  font-size: 3.5vw;
-  padding-top: 15vh;
+  font-size: 2.5rem;
+  padding-top: 4rem;
+}
+
+.subtitulo {
+  font-size: 1.5rem;
 }
 
 .texto-inicio {
-  width: 70%;
-  font-size: 1.8vw;
-  margin-bottom: 5vh;
-  text-align: center;
-}
-
-.t1 {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
 }
 
 .cards-iniciais {
   display: flex;
-  gap: 3vw;
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: center;
-  align-items: stretch;
-  margin-top: 3vh;
-  padding-bottom: 15vh;
+  margin-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.card {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .titulo-card {
   text-align: center;
   font-weight: 600;
-  font-size: 2vw;
+  font-size: 1.5rem;
   color: var(--azul-royal);
-}
-
-.card {
-  flex: 1;
-  padding: 2vw;
-  background-color: white;
-  border-radius: 2vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  max-width: 25vw;
-  height: 40vh;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 1vw 3vw rgba(0, 0, 0, 0.09);
+  margin-bottom: 1rem;
 }
 
 .card p {
-  font-size: 1.2vw;
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  gap: 0.3vw;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-middle {
@@ -234,232 +226,136 @@ import Footer from '@/components/Footer.vue'
 }
 
 .icon-verificado {
-  font-size: 1.3vw;
-  width: 10%;
+  font-size: 1.2rem;
 }
 
 .icon-verificado.preto {
   color: black;
-  font-weight: lighter;
 }
 
 .icon-verificado.branco {
   color: white;
 }
 
-.how-it-works h1 {
-  color: var(--azul-royal-escuro);
-  padding-top: 8vh;
-  font-size: 3vw;
-  padding-bottom: 3vh;
+.how-it-works {
+  padding: 4rem 1rem;
+  background-color: white;
 }
 
-.how-it-works h2 {
-  font-weight: bold;
+.how-it-works .titulo {
   color: var(--azul-royal-escuro);
-  margin-bottom: 2vh;
-  font-size: 2vw;
-}
-
-.how-it-works p {
-  font-size: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .how-it-works-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2vw;
-  justify-content: center;
-  max-width: 80%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .card-grid {
-  padding: 2vw;
+  padding: 1.5rem;
   border: 1px solid #ccc;
-  border-radius: 1vw;
-  margin: 3vh;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-grid:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-grid h3 {
+  font-weight: bold;
+  color: var(--azul-royal-escuro);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.card-grid p {
+  font-size: 1rem;
 }
 
 .culinary-services {
   text-align: center;
-  margin: 15vh 0;
+  padding: 4rem 1rem;
+  background-color: var(--cinza);
 }
 
-.culinary-services h2, span {
-  font-size: 3vw;
+.culinary-services h2 {
+  font-size: 2.5rem;
   font-weight: 550;
-  margin-bottom: 4vh;
-  width: 100%;
-  text-align: center;
+  margin-bottom: 2rem;
   color: var(--azul-royal-escuro);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+}
+
+.culinary-services h2 span {
+  display: block;
+  font-size: 2rem;
 }
 
 .services-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5vw;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service {
   display: flex;
-  max-width: 80%;
+  flex-direction: column;
   align-items: center;
   background-color: #f9f9f9;
-  border-radius: 2vw;
-  box-shadow: 0px 0.5vw 2vw rgba(0, 0, 0, 0.1);
-  padding: 3vw;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
 }
 
 .service img {
-  width: 30vw;
+  width: 100%;
+  max-width: 400px;
   height: auto;
-  border-radius: 1vw;
-  margin-right: 3vw;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .service-text {
-  text-align: left;
+  text-align: center;
 }
 
 .service h3 {
-  font-size: 2.5vw;
+  font-size: 1.8rem;
   font-weight: 600;
   color: var(--azul-royal-escuro);
-  margin-bottom: 2vh;
+  margin-bottom: 1rem;
 }
 
 .service p {
-  font-size: 2vw;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
-.reverse {
-  flex-direction: row-reverse;
-}
-
-.reverse img {
-  margin-right: 0;
-  margin-left: 3vw;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .titulo {
-    font-size: 2rem;
-    padding-top: 5vh;
+    font-size: 3rem;
   }
 
-  .subtitulo,
+  .subtitulo {
+    font-size: 1.8rem;
+  }
+
   .texto-inicio {
-    font-size: 1rem;
-    width: 90%;
-    padding: 1rem;
-  }
-
-  .cards-iniciais {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0;
-    margin-top: 2vh;
+    font-size: 1.1rem;
   }
 
   .card {
-    max-width: 90%;
-    height: auto;
-    padding: 1rem;
-  }
-
-  .titulo-card {
-    font-size: 1.5rem;
-  }
-
-  .card p {
-    font-size: 1rem;
-  }
-
-  .how-it-works h1 {
-    font-size: 2rem;
-    padding-top: 3vh;
-    padding-bottom: 2vh;
-  }
-
-  .how-it-works-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
-
-  .card-grid {
-    padding: 1rem;
-  }
-
-  .services-container {
-    gap: 1rem;
-  }
-
-  .service {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-  }
-
-  .service img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-  }
-
-  .service-text h3 {
-    font-size: 1.5rem;
-  }
-
-  .service-text p {
-    font-size: 1rem;
-  }
-}
-
-/* Responsividade para tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .titulo {
-    font-size: 2.5rem;
-    padding-top: 8vh;
-  }
-
-  .subtitulo,
-  .texto-inicio {
-    font-size: 1.2rem;
-    width: 80%;
-  }
-
-  .cards-iniciais {
-    gap: 1.5rem;
-    padding: 0;
-  }
-
-  .card {
-    max-width: 80%;
-    height: auto;
-    padding: 1.5rem;
+    padding: 2rem;
   }
 
   .titulo-card {
@@ -470,45 +366,97 @@ import Footer from '@/components/Footer.vue'
     font-size: 1.1rem;
   }
 
-  .how-it-works h1 {
+  .how-it-works .titulo {
+    font-size: 3rem;
+  }
+
+  .card-grid h3 {
+    font-size: 1.5rem;
+  }
+
+  .card-grid p {
+    font-size: 1.1rem;
+  }
+
+  .culinary-services h2 {
+    font-size: 3rem;
+  }
+
+  .culinary-services h2 span {
     font-size: 2.5rem;
-    padding-top: 5vh;
-    padding-bottom: 2vh;
-  }
-
-  .how-it-works-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    padding: 0 2rem;
-  }
-
-  .card-grid {
-    padding: 1.5rem;
-  }
-
-  .services-container {
-    gap: 2rem;
   }
 
   .service {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     text-align: left;
-    padding: 1.5rem;
+    padding: 3rem;
   }
 
   .service img {
-    width: 40%;
-    height: auto;
-    margin-right: 1.5rem;
+    width: 50%;
+    margin-bottom: 0;
+    margin-right: 2rem;
   }
 
-  .service-text h3 {
+  .service-text {
+    width: 50%;
+    text-align: left;
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
+  .reverse img {
+    margin-right: 0;
+    margin-left: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .titulo {
+    font-size: 3.5rem;
+  }
+
+  .subtitulo {
+    font-size: 2rem;
+  }
+
+  .texto-inicio {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 1.2rem;
+  }
+
+  .how-it-works .titulo {
+    font-size: 3.5rem;
+  }
+
+  .card-grid h3 {
     font-size: 1.8rem;
   }
 
-  .service-text p {
-    font-size: 1.1rem;
+  .card-grid p {
+    font-size: 1.2rem;
+  }
+
+  .culinary-services h2 {
+    font-size: 3.5rem;
+  }
+
+  .culinary-services h2 span {
+    font-size: 3rem;
+  }
+
+  .service h3 {
+    font-size: 2.2rem;
+  }
+
+  .service p {
+    font-size: 1.2rem;
   }
 }
 </style>
