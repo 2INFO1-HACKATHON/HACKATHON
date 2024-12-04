@@ -32,8 +32,8 @@
         <div class="column second-column">
           <h3 class="second-title">NOSSOS CONTATOS</h3>
           <p class="description">fixtudocontato@gmail.com</p>
-          <p class="description">(47)9090-9999</p>
-          <p class="description">(47)3456-7811</p>
+          <p class="description">(47) 9 9090-9999</p>
+          <p class="description">(47) 9 3456-7811</p>
         </div>
       </div>
     </div>

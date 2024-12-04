@@ -238,7 +238,7 @@ import Footer from '@/components/Footer.vue'
 }
 
 .how-it-works {
-  padding: 4rem 1rem;
+  margin: 1rem auto 4rem auto;
   background-color: white;
 }
 
@@ -271,7 +271,6 @@ import Footer from '@/components/Footer.vue'
 .card-grid h3 {
   font-weight: bold;
   color: var(--azul-royal-escuro);
-  margin-bottom: 1rem;
   font-size: 1.2rem;
 }
 
@@ -281,14 +280,14 @@ import Footer from '@/components/Footer.vue'
 
 .culinary-services {
   text-align: center;
-  padding: 4rem 1rem;
-  background-color: var(--cinza);
+  padding: 2rem 1rem;
+  background-color: #f0f0f0;
 }
 
 .culinary-services h2 {
   font-size: 2.5rem;
   font-weight: 550;
-  margin-bottom: 2rem;
+  margin: 1rem auto 2rem auto;
   color: var(--azul-royal-escuro);
 }
 

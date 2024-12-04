@@ -193,7 +193,7 @@ const onSlideChange = () => {
           <li><span class="icon-verificado blue">✔</span>Flexibilidade para diferentes rotinas</li>
         </ul>
       </div>
-      <div class="package">
+        <div class="package">
         <h2>Limpeza Quinzenal</h2>
         <p>Excelente para quem busca uma solução econômica, com um espaço limpo a cada 15 dias.</p>
         <p class="price">R$300 <span>/Limpeza</span></p>
@@ -368,7 +368,7 @@ li {
 .pacote {
   font-family: sans-serif;
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 1rem 4rem;
   background-color: #f0f0f0;
 }
 
