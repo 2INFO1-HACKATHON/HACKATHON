@@ -8,9 +8,12 @@ userStore.loadUser();
 </script>
 
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <div class="container">
     <header>
-      <Menu></Menu>
+      <div class="menu">
+        <Menu></Menu>
+      </div>
     </header>
 
     <div class="main">
@@ -18,7 +21,9 @@ userStore.loadUser();
       <h2>Sua casa em boas mãos</h2>
       <p>Manutenção e cuidado com carinho</p>
       <div class="welcome-container">
-        <h1 v-if="userStore.user">Boas-vindas, {{ userStore.user.name }}!</h1>
+        <h1 v-if="userStore.user">
+          Boas-vindas, {{ userStore.user.name.charAt(0).toUpperCase() + userStore.user.name.slice(1).toLowerCase() }}!
+        </h1>
       </div>
     </div>
     <div class="imagem-home">
@@ -46,11 +51,6 @@ userStore.loadUser();
       <p>Basta apenas um toque e deixa que o resto a gente facilita para você.</p>
       <p class="small-text">Não leva nem 10 segundos.</p>
       <button class="cta-button">
-        <svg class="icon-left whatsapp-icon" viewBox="0 0 16 16">
-          <path
-            d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z">
-          </path>
-        </svg>
         <p class="orcamento">Solicitar Orçamento</p>
       </button>
     </div>
@@ -80,31 +80,31 @@ userStore.loadUser();
     <div class="rowben">
       <div class="columnben">
         <div class="sectionben">
-          <i class="fas fa-tools"></i>
+          <i class="fas fa-user-check"></i>
           <p>Profissionais treinados e supervisionados</p>
         </div>
         <div class="sectionben">
-          <i class="fas fa-landmark"></i>
+          <i class="fas fa-building"></i>
           <p>Empresa consolidada no mercado carioca</p>
         </div>
       </div>
       <div class="columnben">
         <div class="sectionben">
-          <i class="fas fa-wrench"></i>
-          <p>Equipamentos e produtos de qualidade..</p>
+          <i class="fas fa-cogs"></i>
+          <p>Equipamentos e produtos de qualidade</p>
         </div>
         <div class="sectionben">
-          <i class="fas fa-user-friends"></i>
+          <i class="fas fa-handshake"></i>
           <p>Atendimento rápido e excelente relacionamento com os clientes</p>
         </div>
       </div>
       <div class="columnben">
         <div class="sectionben">
-          <i class="fas fa-check-circle"></i>
-          <p>Melhor custo benefício para você e sua empresa</p>
+          <i class="fas fa-tags"></i>
+          <p>Melhor custo-benefício para você e sua empresa</p>
         </div>
         <div class="sectionben">
-          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-calendar-alt"></i>
           <p>Preços e horários flexíveis de acordo com sua necessidade</p>
         </div>
       </div>
@@ -170,15 +170,20 @@ userStore.loadUser();
 
 <style scoped>
 .imagem-home {
-
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 100;
 }
 
 header {
   margin-bottom: 13vw
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+  z-index: 99;
 }
 
 .container {
@@ -240,7 +245,7 @@ header {
   text-align: center;
   font-size: 1.6rem;
   font-weight: 300;
-  margin: 0 auto;
+  margin: 0 auto 5vh;
 }
 
 .forte {
@@ -252,7 +257,7 @@ header {
   justify-content: center;
   gap: 7vw;
   background-color: white;
-  padding: 18vh 7vw 5vh 7vw;
+  padding: 7vh 7vw;
 }
 
 .orcamento {
@@ -323,63 +328,73 @@ header {
   color: #fff;
 }
 
+.sectionben {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2vw;
+  width: 100%;
+  border-radius: 1rem;
+  text-align: left;
+}
+
+.sectionben i {
+  font-size: 5vw;
+  color: var(--azul-royal-escuro);
+  margin-right: 1rem;
+}
+
+.sectionben p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #333;
+  text-align: left;
+  max-width: 80%;
+  margin-left: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
 .beneficios {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20vh 3vw 20vh 3vw;
+  padding: 10vh 5vw;
   text-align: center;
   background-color: #f3f3f3;
 }
 
 .beneficios h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   letter-spacing: 0.4rem;
   font-weight: 400;
-  margin-bottom: -1vh;
+  margin-bottom: 2vh;
 }
 
 .beneficios h3 {
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   font-weight: 750;
   color: var(--azul-royal-escuro);
-  margin-bottom: 4rem;
+  margin-bottom: 4vh;
 }
 
 .rowben {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 2vw;
+  gap: 3vw;
   max-width: 1200px;
 }
 
 .columnben {
   flex: 1;
-  min-width: 300px;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5vw;
-}
-
-.sectionben {
-  display: flex;
-  align-items: center;
-  padding: 1.5rem;
-  width: 100%;
-  max-width: 100%;
-}
-
-.sectionben i {
-  font-size: 20rem;
-  margin-right: 4rem;
-}
-
-.sectionben p {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  text-align: left;
+  gap: 2vw;
 }
 
 .feedback {
@@ -522,23 +537,15 @@ button {
   align-items: center;
   background-color: rgb(199, 199, 199);
   color: rgb(0, 0, 0);
-  padding: 0.5vw 0vw 0.5vw 1vw;
+  padding: 0.5vw 1vw 0.5vw 1vw;
   border: none;
   border-radius: 5vw;
   cursor: pointer;
-  width: 13vw;
-
   transition: transform 0.3s ease;
 }
 
 .cta-button:hover {
   transform: scale(1.05);
-}
-
-.icon-left {
-  width: 10%;
-  margin-right: 0.2vw;
-  margin-bottom: 0.1vw
 }
 
 .small-text {
