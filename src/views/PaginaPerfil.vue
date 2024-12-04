@@ -2,6 +2,7 @@
   <div class="container">
     <div class="content">
       <div class="profile-section">
+        <h1>Configurações de usuário</h1>
         <div class="profile-photo">
           <img v-if="profileImage" :src="profileImage" alt="Profile" />
         </div>
@@ -22,9 +23,12 @@
 
       <div class="form-section">
         <h1>Meu perfil</h1>
+        <div class="line-profile"></div>
         
         <form @submit.prevent="saveProfile">
           <h2>Informações pessoais:</h2>
+          <div class="line-info"></div>
+
           <div class="form-grid">
             <div class="form-field">
               <label>Nome:</label>
@@ -45,6 +49,8 @@
           </div>
 
           <h2>Informações residenciais:</h2>
+          <div class="line-info"></div>
+
           <div class="form-grid">
             <div class="form-field">
               <label>CEP:</label>
@@ -64,7 +70,7 @@
               <select v-model="form.city" :disabled="!form.state">
                 <option value="">Selecione a cidade</option>
                 <option v-for="city in cities" :key="city" :value="city">
-                  {{ city }}
+                  {{ city.name }}
                 </option>
               </select>
             </div>
@@ -218,7 +224,7 @@ const saveProfile = () => {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f3f4f6;
+  background-color: #3fbfa8;
   padding: 20px;
 }
 
@@ -245,7 +251,7 @@ const saveProfile = () => {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: #0d9488;
+  background-color: #107F8B;
   overflow: hidden;
   margin-bottom: 20px;
 }
@@ -261,14 +267,14 @@ const saveProfile = () => {
   padding: 10px;
   margin-bottom: 10px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .upload-button {
-  background-color: #0d9488;
+  background-color: #107F8B;
   color: white;
 }
 
@@ -277,24 +283,32 @@ const saveProfile = () => {
 }
 
 .delete-button {
-  background-color: #ef4444;
+  background-color: #107F8B;
   color: white;
 }
 
 .delete-button:hover {
-  background-color: #dc2626;
+  background-color: #0f766e;
 }
 
 .form-section {
   flex: 1;
-  padding: 20px;
+  padding: 40px;
+  background-color: #D9D9D9;
 }
 
 h1 {
+  
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
   color: #111827;
+}
+.line-profile{
+  width: 100px;
+  height: 1px;
+  background-color: #292929;
+  margin-bottom: 3rem;
 }
 
 h2 {
@@ -303,6 +317,12 @@ h2 {
   margin-top: 20px;
   margin-bottom: 10px;
   color: #374151;
+}
+.line-info{
+  width: 200px;
+  height: 1px;
+  background-color: #292929;
+  margin-bottom: 1rem;
 }
 
 .form-grid {
@@ -341,18 +361,18 @@ input, select {
 }
 
 .submit-button {
-  background-color: #0d9488;
+  background-color: #107F8B;
   color: white;
   border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
+  border-radius: 6px;
+  padding: 10px 70px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-  background-color: #0f766e;
+  background-color: #107F8B;
 }
 
 .hidden {
