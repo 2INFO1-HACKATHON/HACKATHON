@@ -18,12 +18,14 @@ import Footer from '@/components/Footer.vue'
     <div class="cards">
       <div class="card">
         <h2 class="card-title">Equipe Multidisciplinar</h2>
+        <hr>
         <p class="card-text">
           Profissionais qualificados em diversas áreas para abordar todas as necessidades de saúde.
         </p>
       </div>
       <div class="card">
         <h2 class="card-title">Avaliação Especializada</h2>
+        <hr>
         <p class="card-text">
           Avaliação especializada no local, garantindo planos de cuidados personalizados e
           eficientes.
@@ -31,6 +33,7 @@ import Footer from '@/components/Footer.vue'
       </div>
       <div class="card">
         <h2 class="card-title">Atendimento Consultivo</h2>
+        <hr>
         <p class="card-text">
           Ouvimos suas necessidades, oferecendo orientações e soluções adaptadas para o bem-estar.
         </p>
@@ -108,8 +111,7 @@ import Footer from '@/components/Footer.vue'
                 Mobilidade: Assistência com a mobilidade para prevenir quedas e garantir segurança.
               </li>
               <li>
-                Lembretes de Medicação: Garantimos que as medicações sejam tomadas nos horários
-                corretos.
+                Lembretes de Medicação: Garantimos que as medicações sejam tomadas corretas.
               </li>
             </ul>
           </div>
@@ -121,6 +123,8 @@ import Footer from '@/components/Footer.vue'
 </template>
 
 <style scoped>
+
+
 .servicos-cuidados {
   text-align: center;
   max-width: 800px;
@@ -130,28 +134,34 @@ import Footer from '@/components/Footer.vue'
 }
 .servicos-cuidados h1 {
   font-size: 2em;
-  color: #333;
+  color: #2ab0bf;
+  font-weight: 600;
+  
 
 }
 .servicos-cuidados p {
+
   font-size: 1em;
-  color: #666;
-  margin-bottom: 40px;
+  color: #000000;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 .services {
   display: flex;
   justify-content: space-between;
+  gap: 80px;
   align-items: flex-start;
-  padding: 80px;
+  padding: 50px;
   
 }
 .service-box {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 45%;
+  padding: 50px;
+  width: 80%;
   position: relative;
+  margin-bottom: 30px;
 }
 .service-box h2 {
   font-size: 1.2em;
@@ -165,14 +175,14 @@ import Footer from '@/components/Footer.vue'
 }
 .service-box ul li {
   font-size: 0.9em;
-  color: #333;
+  color: #000000;
   margin-bottom: 10px;
   display: flex;
   align-items: flex-start;
 }
 .service-box ul li::before {
   content: '•';
-  color: #333;
+  color: #000000;
   font-size: 1.2em;
   margin-right: 10px;
 }
@@ -222,30 +232,34 @@ import Footer from '@/components/Footer.vue'
   flex-direction: column;
   justify-content: center;
 }
+
 .text-right {
   width: 40vw;
   padding: 20px;
   padding-right: 270px;
   display: flex;
   flex-direction: column;
+  font-weight: 500;
   justify-content: center;
 }
 
 .text-right h2,
 .text-left h2 {
-  color: #00a099;
+  color:#2ab0bf;
+  font-weight: bold;
   margin-bottom: 15px;
-  font-size: 1.5rem;
+  font-size: 2em;
 }
 
 .text-right p {
+
   font-size: 1.1rem;
-  color: #333;
+  color: #000000;
   line-height: 1.6;
 }
 .text-left p {
   font-size: 1.1rem;
-  color: #333;
+  color: #000000;
   line-height: 1.6;
   width: 90%;
   display: flex;
@@ -285,7 +299,7 @@ import Footer from '@/components/Footer.vue'
 }
 
 .p-card {
-  color: #666;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   margin-left: 25px;
@@ -320,14 +334,14 @@ import Footer from '@/components/Footer.vue'
 
 .subtitle {
   font-size: 18px;
-  color: #666;
+  color: #000000;
   margin-bottom: 20px;
   justify-content: center;
   display: flex;
 }
 
 .text {
-  color: #333;
+  color: #000000;
   margin-bottom: 30px;
   margin: 0 auto;
   width: 50%;
@@ -339,7 +353,6 @@ import Footer from '@/components/Footer.vue'
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 4vw;
   padding: 80px;
 }
 
@@ -347,8 +360,13 @@ import Footer from '@/components/Footer.vue'
   margin: 20px;
   padding: 20px;
   width: 300px;
-  background-color: #fff;
+  height: 180px;
+  background-color:#2ab0bf;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5vw;
+color: white;
+
+
 }
 
 .card-title {
@@ -359,6 +377,11 @@ import Footer from '@/components/Footer.vue'
 
 .card-text {
   font-size: 14px;
-  color: #666;
+  color: #ffffff;
+  margin-top: 1vw;
+}
+
+hr {
+  color: white;
 }
 </style>
