@@ -10,7 +10,7 @@ export const useUserStore = defineStore('user', {
     setUser(name, email, password) {
 
       const user = { name, email, password }
-      this.user = user
+  
       this.isLoggedIn = true
       localStorage.setItem('user', JSON.stringify(user))
 
