@@ -1,102 +1,3 @@
-<template>
-  <div class="container">
-    <div class="content">
-      <div class="profile-section">
-        <h1>Configurações de usuário</h1>
-        <div class="profile-photo">
-          <img v-if="profileImage" :src="profileImage" alt="Profile" />
-        </div>
-        <input
-          ref="fileInput"
-          type="file"
-          class="hidden"
-          accept="image/*"
-          @change="handleImageUpload"
-        />
-        <button class="upload-button" @click="$refs.fileInput.click()">
-          Efetue o upload
-        </button>
-        <button class="delete-button">
-          Deletar cadastro
-        </button>
-      </div>
-
-      <div class="form-section">
-        <h1>Meu perfil</h1>
-        <div class="line-profile"></div>
-        
-        <form @submit.prevent="saveProfile">
-          <h2>Informações pessoais:</h2>
-          <div class="line-info"></div>
-
-          <div class="form-grid">
-            <div class="form-field">
-              <label>Nome:</label>
-              <input v-model="form.firstName" type="text" />
-            </div>
-            <div class="form-field">
-              <label>Sobrenome:</label>
-              <input v-model="form.lastName" type="text" />
-            </div>
-            <div class="form-field">
-              <label>Telefone:</label>
-              <input v-model="form.phone" type="tel" />
-            </div>
-            <div class="form-field">
-              <label>Email:</label>
-              <input v-model="form.email" type="email" />
-            </div>
-          </div>
-
-          <h2>Informações residenciais:</h2>
-          <div class="line-info"></div>
-
-          <div class="form-grid">
-            <div class="form-field">
-              <label>CEP:</label>
-              <input v-model="form.cep" type="text" @blur="lookupCEP" maxlength="8" />
-            </div>
-            <div class="form-field">
-              <label>Estado:</label>
-              <select v-model="form.state" @change="updateCities">
-                <option value="">Selecione o estado</option>
-                <option v-for="state in states" :key="state.uf" :value="state.uf">
-                  {{ state.name }}
-                </option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label>Cidade:</label>
-              <select v-model="form.city" :disabled="!form.state">
-                <option value="">Selecione a cidade</option>
-                <option v-for="city in cities" :key="city" :value="city">
-                  {{ city.name }}
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="form-grid address">
-            <div class="form-field">
-              <label>Rua:</label>
-              <input v-model="form.street" type="text" />
-            </div>
-            <div class="form-field">
-              <label>Número:</label>
-              <input v-model="form.number" type="text" />
-            </div>
-          </div>
-
-          <div class="submit-container">
-            <button type="submit" class="submit-button">
-              Salvar
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { ref, reactive } from 'vue'
 
@@ -218,63 +119,163 @@ const saveProfile = () => {
 }
 </script>
 
-<style scoped>
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #3fbfa8;
-  padding: 20px;
-}
+<template>
+  <div class="content">
+    <div class="profile-section">
+      <h1>Configurações de usuário</h1>
+      <div class="profile-photo">
+        <img v-if="profileImage" :src="profileImage" alt="Profile" />
+        <div v-else class="default-photo"></div>
+      </div>
+      <input
+        ref="fileInput"
+        type="file"
+        class="hidden"
+        accept="image/*"
+        @change="handleImageUpload"
+      />
+      <button class="upload-button" @click="$refs.fileInput.click()">
+        Efetue o upload
+      </button>
+      <button class="delete-button">Deletar cadastro</button>
+    </div>
 
+    <div class="form-section">
+      <h1>Meu perfil</h1>
+      <div class="line-profile"></div>
+      <form @submit.prevent="saveProfile">
+        <h2>Informações pessoais:</h2>
+        <div class="line-info"></div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label>Nome:</label>
+            <input v-model="form.firstName" type="text" />
+          </div>
+          <div class="form-field">
+            <label>Sobrenome:</label>
+            <input v-model="form.lastName" type="text" />
+          </div>
+          <div class="form-field">
+            <label>Telefone:</label>
+            <input v-model="form.phone" type="tel" />
+          </div>
+          <div class="form-field">
+            <label>Email:</label>
+            <input v-model="form.email" type="email" />
+          </div>
+        </div>
+
+        <h2>Informações residenciais:</h2>
+        <div class="line-info"></div>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label>CEP:</label>
+            <input
+              v-model="form.cep"
+              type="text"
+              @blur="lookupCEP"
+              maxlength="8"
+            />
+          </div>
+          <div class="form-field">
+            <label>Estado:</label>
+            <select v-model="form.state" @change="updateCities">
+              <option value="">Selecione o estado</option>
+              <option
+                v-for="state in states"
+                :key="state.uf"
+                :value="state.uf"
+              >
+                {{ state.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Cidade:</label>
+            <select v-model="form.city" :disabled="!form.state">
+              <option value="">Selecione a cidade</option>
+              <option v-for="city in cities" :key="city" :value="city">
+                {{ city.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-grid address">
+          <div class="form-field">
+            <label>Rua:</label>
+            <input v-model="form.street" type="text" />
+          </div>
+          <div class="form-field">
+            <label>Número:</label>
+            <input v-model="form.number" type="text" />
+          </div>
+        </div>
+
+        <div class="submit-container">
+          <button type="submit" class="submit-button">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+/* Ajustes gerais para tela cheia */
 .content {
   display: flex;
-  max-width: 900px;
-  width: 100%;
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f2f2f2;
 }
 
 .profile-section {
-  width: 300px;
-  padding: 20px;
-  background-color: #e5e7eb;
+  width: 50%;
+  background-color: #F0F0F0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
+  border-right: 1px solid #ccc;
 }
 
 .profile-photo {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: #107F8B;
+  background-color: #107f8b;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-photo img {
+.default-photo {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  background-color: #107f8b;
+  border-radius: 50%;
 }
 
-.upload-button, .delete-button {
-  width: 100%;
+.upload-button,
+.delete-button {
+  width: 40%;
   padding: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .upload-button {
-  background-color: #107F8B;
+  background-color: #107f8b;
   color: white;
 }
 
@@ -283,7 +284,7 @@ const saveProfile = () => {
 }
 
 .delete-button {
-  background-color: #107F8B;
+  background-color: #107f8b;
   color: white;
 }
 
@@ -298,17 +299,18 @@ const saveProfile = () => {
 }
 
 h1 {
-  
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
   color: #111827;
 }
-.line-profile{
-  width: 100px;
-  height: 1px;
-  background-color: #292929;
+
+.line-profile {
+  width: 150px;
+  height: 4px;
+  background-color: #C9C9C9;
   margin-bottom: 3rem;
+  border-radius: 10px;
 }
 
 h2 {
@@ -316,11 +318,12 @@ h2 {
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 10px;
-  color: #374151;
+  color: #2c2c2c;
 }
-.line-info{
+
+.line-info {
   width: 200px;
-  height: 1px;
+  height: 2px;
   background-color: #292929;
   margin-bottom: 1rem;
 }
@@ -341,42 +344,45 @@ h2 {
 }
 
 label {
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 5px;
+  font-weight: bold;
   color: #4b5563;
 }
 
-input, select {
-  width: 100%;
-  padding: 8px;
+input,
+select {
+  width: 70%;
+  padding: 7px;
   border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 14px;
+  border-radius: 15px;
+  font-size: 15px;
 }
 
 .submit-container {
-  margin-top: 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  margin-top: 20px;
 }
 
 .submit-button {
-  background-color: #107F8B;
+  align-items: center;
+  background-color: #107f8b;
   color: white;
   border: none;
   border-radius: 6px;
-  padding: 10px 70px;
+  padding: 10px 50px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .submit-button:hover {
-  background-color: #107F8B;
+  background-color: #0f766e;
 }
 
 .hidden {
   display: none;
 }
 </style>
-
