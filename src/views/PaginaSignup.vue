@@ -10,6 +10,7 @@ const confirmPassword = ref('');
 const errorMessages = ref([]);
 const router = useRouter();
 const userStore = useUserStore();
+ 
 
 function handleRegister() {
     errorMessages.value = [];
@@ -53,6 +54,10 @@ function handleRegister() {
         router.push('/');
     }
 }
+
+ 
+
+
 </script>
 
 <template>
