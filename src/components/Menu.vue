@@ -76,7 +76,7 @@ onBeforeUnmount(() => {
       <RouterLink to="/" class="logo-container">
         <img src="../assets/imagens/logo.png" alt="logo" />
       </RouterLink>
-      <RouterLink to="/SoliciteServico" class="menu-button desktop-only" aria-label="Home">Início</RouterLink>
+      <RouterLink to="/" class="menu-button desktop-only" aria-label="Home">Início</RouterLink>
 
       <div class="dropdown-container desktop-only">
         <button class="dropdown-button" @click="toggleDropdown" aria-haspopup="true" :aria-expanded="open">
@@ -100,9 +100,6 @@ onBeforeUnmount(() => {
     </div>
 
     <div class="mobile-menu" :class="{ 'open': mobileMenuOpen }">
-      <button class="close-button" @click="toggleMobileMenu" aria-label="Fechar menu">
-        &times;
-      </button>
       <nav>
         <RouterLink to="/" @click="toggleMobileMenu">Início</RouterLink>
         <RouterLink to="/SoliciteServico" @click="toggleMobileMenu">Solicitar Serviço</RouterLink>
@@ -136,16 +133,6 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.menu-button:hover,
-.dropdown-button:hover,
-.auth-button:hover,
-.mobile-menu a:hover,
-.mobile-menu button:hover,
-.dropdown-item:hover {
-  color: #9b9b9b;
-}
-
-
 header {
   width: 100%;
   display: flex;
@@ -159,7 +146,6 @@ header {
   z-index: 9999;
 }
 
-
 .logo-container {
   display: flex;
   align-items: center;
@@ -167,13 +153,11 @@ header {
   flex-shrink: 0;
 }
 
-
 img {
   max-width: 2.5vw;
   min-width: 2.5vw;
   margin: 0.7vw;
 }
-
 
 .left-menu {
   display: flex;
@@ -182,7 +166,6 @@ img {
   justify-content: space-between;
 }
 
-
 .menu-button,
 .dropdown-button {
   color: #666;
@@ -190,18 +173,15 @@ img {
   background-color: transparent;
   text-decoration: none;
   cursor: pointer;
-  font-size: 1rem;
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  padding: 10px;
+  margin-right: 2vw;
 }
-
 
 .dropdown-container {
   position: relative;
 }
-
 
 .dropdown-menu {
   position: absolute;
@@ -212,7 +192,6 @@ img {
   text-align: center;
 }
 
-
 .dropdown-item {
   color: black;
   padding: 12px 16px;
@@ -222,18 +201,15 @@ img {
   white-space: nowrap;
 }
 
-
 .dropdown-item:hover {
   background-color: #f1f1f1;
 }
-
 
 .auth-buttons {
   display: flex;
   gap: 1rem;
   margin-left: auto;
 }
-
 
 .auth-button {
   background-color: transparent;
@@ -247,11 +223,9 @@ img {
   white-space: nowrap;
 }
 
-
 .auth-button:hover {
   background-color: #f1f1f1;
 }
-
 
 .hamburger-button {
   display: none;
@@ -266,9 +240,8 @@ img {
   z-index: 10000;
   position: absolute;
   left: 1rem;
-  top: 1rem;
+  top: 0.7rem;
 }
-
 
 .hamburger-button span {
   width: 2rem;
@@ -279,7 +252,6 @@ img {
   position: relative;
   transform-origin: 1px;
 }
-
 
 .mobile-menu {
   display: none;
@@ -294,18 +266,15 @@ img {
   z-index: 9998;
 }
 
-
 .mobile-menu.open {
   left: 0;
 }
-
 
 .mobile-menu nav {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-
 
 .mobile-menu a,
 .mobile-menu button {
@@ -317,25 +286,6 @@ img {
   border: none;
   padding: 0.5rem 0;
 }
-
-
-.close-button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 3rem;
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-  color: #666;
-}
-
 
 .close-button:hover {
   transform: rotate(90deg);
@@ -377,6 +327,15 @@ img {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.menu-button:hover,
+.dropdown-button:hover,
+.auth-button:hover,
+.mobile-menu a:hover,
+.mobile-menu button:hover,
+.dropdown-item:hover {
+  color: #9b9b9b;
 }
 
 .left-menu {

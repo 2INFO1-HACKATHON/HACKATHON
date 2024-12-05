@@ -50,8 +50,8 @@ userStore.loadUser();
       <h2>Como Funciona?</h2>
       <p>Basta apenas um toque e deixa que o resto a gente facilita para você.</p>
       <p class="small-text">Não leva nem 10 segundos.</p>
-      <button class="cta-button">
-        <p class="servico">Solicitar Serviço</p>
+      <button>
+        <RouterLink class="cta-button" to="/SoliciteServico"><p class="servico">Solicitar Serviço</p></RouterLink>
       </button>
     </div>
     <div class="right-side">
@@ -232,7 +232,7 @@ header {
 
 .sobrenos {
   margin-bottom: 5vh;
-  margin-top: -20vw;
+
 }
 
 

@@ -7,25 +7,24 @@ export const useUserStore = defineStore('user', {
 
   actions: {
     setUser(name, email, password) {
-      const user = { name, email, password }
-      this.user = user
-      localStorage.setItem('user', JSON.stringify(user))
+      const user = { name, email, password };
+      this.user = user;
+      localStorage.setItem('user', JSON.stringify(user));
     },
-
+  
     loadUser() {
-      const storedUser = localStorage.getItem('user')
+      const storedUser = localStorage.getItem('user');
       if (storedUser) {
-        this.user = JSON.parse(storedUser)
+        this.user = JSON.parse(storedUser);
       }
     },
-
+  
     clearUser() {
-      this.user = null
+      this.user = null;
     },
-
+  
     deleteUserData() {
-      this.user = null
-      localStorage.removeItem('user')
+      this.clearUser();
     }
   }
 })

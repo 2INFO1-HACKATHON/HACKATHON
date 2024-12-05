@@ -14,6 +14,10 @@ const confirmPasswordError = ref('');
 const router = useRouter();
 const userStore = useUserStore();
 
+function goBack() {
+    window.history.back();
+}
+
 function handleRegister() {
     nameError.value = '';
     emailError.value = '';
@@ -63,7 +67,11 @@ function handleRegister() {
 
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <div class="container">
+        <button class="back-button" @click="goBack">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
         <div class="content first-content">
             <div class="first-column">
                 <h2 class="title title-primary">Bem Vindo!</h2>
@@ -119,6 +127,29 @@ function handleRegister() {
     box-sizing: border-box;
 }
 
+.back-button {
+  position: fixed;
+  top: 2vh;
+  left: 2vw;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5vw;
+  color: var(--azul-royal);
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.back-button i {
+  margin-right: 0.3vw;
+}
+
+.back-button:hover {
+  color: #3498db;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -132,7 +163,7 @@ function handleRegister() {
 .content {
     background-color: #fff;
     border-radius: 1.5vw;
-    width: 20%;
+    width: 80%;
     height: 70%;
     display: flex;
     justify-content: space-between;
@@ -153,11 +184,6 @@ function handleRegister() {
 
 .first-content {
     display: flex;
-    width: 100%;
-}
-
-.first-content .second-column {
-    z-index: 11;
 }
 
 .first-column {
@@ -257,17 +283,18 @@ function handleRegister() {
     display: flex;
     flex-direction: column;
     width: 60%;
+    gap: 1vh;
 }
 
 .label-input {
     position: relative;
     background-color: rgb(250, 250, 250);
-    padding-bottom: 0.6vh;
-    height: 6vh;
+    padding-bottom: 1vh;
+    height: 7vh;
     display: flex;
     align-items: center;
     flex-grow: 1;
-    margin: 0.2vw;
+    margin-bottom: 1.5vh;
 }
 
 .label-input input {
@@ -276,10 +303,10 @@ function handleRegister() {
 }
 
 .label-input .icon {
-  position: absolute;
-  left: 0.6vw;
-  font-size: 1.2rem;
-  color: #7f8c8d;
+    position: absolute;
+    left: 0.6vw;
+    font-size: 1.2rem;
+    color: #7f8c8d;
 }
 
 .error-border input {
@@ -288,21 +315,22 @@ function handleRegister() {
 
 .error-message {
     color: red;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-top: 0.5vh;
-    margin-bottom: 1vh;
+    margin-bottom: 0;
     text-align: left;
     padding-left: 0.5vw;
+    height: 2vh;
 }
 
 .form input {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background-color: #ecf0f1;
-  font-size: 1rem;
-  padding: 1vh 2.5vw;
-  border-radius: 0.5vw;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #ecf0f1;
+    font-size: 1rem;
+    padding: 1.5vh 2rem;
+    border-radius: 0.5vw;
 }
 
 input:-webkit-autofill {
