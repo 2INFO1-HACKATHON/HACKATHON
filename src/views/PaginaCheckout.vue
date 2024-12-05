@@ -1,5 +1,7 @@
 <script setup>
 import { reactive, ref, computed, watch} from 'vue'
+import Menu from '@/components/Menu.vue'
+import Footer from '@/components/Footer.vue'
 
 const formData = reactive({
   nome: '',
@@ -8,6 +10,7 @@ const formData = reactive({
   cep: '',
   numero: ''
 })
+
 
 const telefoneModel = ref('')
 const telefone = computed({
@@ -116,14 +119,14 @@ const bloquearNaoNumeros = (event) => {
 }
 
 const selectedMethod = ref('card')
-const amount = ref('100.00')
+const amount = ref('150.00')
 const qrCodeGenerated = ref(false)
 const paymentComplete = ref(false)
 const cardNumber = ref('')
 const expiryDate = ref('')
 const cvv = ref('')
 const cardholderName = ref('')
-const serviceName = ref('Serviço Example')
+const serviceName = ref('Limpeza Diária')
 const isProcessing = ref(false)
 const paymentStatus = ref('')
 const paymentMessage = ref('')
@@ -197,11 +200,7 @@ const simulatePayment = () => {
   }, 2000)
 }
 
-const resetPayment = () => {
-  qrCodeGenerated.value = false
-  paymentComplete.value = false
-  selectedMethod.value = 'card'
-}
+
 watch(selectedMethod, (newMethod) => {
   if (newMethod === 'pix') {
     generateQRCode()
@@ -212,18 +211,20 @@ watch(selectedMethod, (newMethod) => {
 </script>
 
 <template>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <Menu></Menu>
   <div class="container">
     <div class="progress-bar">
       <div class="step">
-        <div class="icon user-icon"></div>
-        <span>Log in</span>
+        <div class="icon user-icon"><i class="fa-regular fa-user"></i></div>
+        <span>Login</span>
       </div>
       <div class="step">
-        <div class="icon budget-icon"></div>
+        <div class="icon budget-icon"> <i class="fa-solid fa-list"></i></div>
         <span>Orçamento</span>
       </div>
       <div class="step">
-        <div class="icon cart-icon"></div>
+        <div class="icon cart-icon"><i class="fa-solid fa-cart-shopping"></i></div>
         <span>Finalizando Pedido</span>
       </div>
     </div>
@@ -307,7 +308,7 @@ watch(selectedMethod, (newMethod) => {
                 :class="{ active: selectedMethod === 'pix' }"
                 @click="selectedMethod = 'pix'"
               >
-                <div class="method-icon pix-icon"></div>
+                <div class="method-icon pix-icon"> <img src="" alt=""></div>
                 <span>Pix</span>
               </div>
             </div>
@@ -414,9 +415,13 @@ watch(selectedMethod, (newMethod) => {
             <circle cx="32" cy="32" r="30" fill="#4CAF50" />
             <path d="M27 37.4L19.6 30l-2.8 2.8L27 43l20-20-2.8-2.8z" fill="white" />
           </svg>
-          <h2 class="success-title">Seu pagamento foi aprovado</h2>
+          <h2 class="success-title">Sua solicitação foi recebida</h2>
           <p class="success-message">Confira seu e-mail para confirmação.</p>
-          
+           <button v-if="qrCodeGenerated"  class="button pay-button"> 
+            <RouterLink to="/" class="go-back">
+              Voltar ao início
+            </RouterLink>
+          </button>
         </div>
       </div>
     </div>
@@ -427,8 +432,11 @@ watch(selectedMethod, (newMethod) => {
           </div>
         </div>
       </form>
+       
     </div>
+    
   </div>
+  <Footer></Footer>
 </template>
 
 <style scoped>
@@ -439,6 +447,7 @@ watch(selectedMethod, (newMethod) => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 15vh
 }
 
 .progress-bar {
@@ -461,26 +470,11 @@ watch(selectedMethod, (newMethod) => {
   text-align: center;
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
-  background-color: white;
-  border-radius: 50%;
-  margin-bottom: 8px;
-  position: relative;
-}
-
-.user-icon::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  border: 2px solid #2dc4b6;
-  border-radius: 50%;
-}
+ 
+ .go-back{
+  text-decoration: none;
+  color: inherit
+ }
 
 .budget-icon::after {
   content: '';
@@ -490,21 +484,10 @@ watch(selectedMethod, (newMethod) => {
   transform: translate(-50%, -50%);
   width: 12px;
   height: 12px;
-  border: 2px solid #2dc4b6;
+  
   border-radius: 2px;
 }
-
-.cart-icon::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 12px;
-  height: 12px;
-  border: 2px solid #2dc4b6;
-  border-radius: 8px 8px 2px 2px;
-}
+ 
 
 .form-container {
   background-color: white;

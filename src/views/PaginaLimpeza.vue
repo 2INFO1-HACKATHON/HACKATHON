@@ -170,8 +170,11 @@ const onSlideChange = () => {
     <h1 class="pacote-title">
       Escolha o pacote ideal<br><span>para você</span>
     </h1>
-    <div class="packages">
+    <div class="packages"> 
+     
       <div class="package">
+        <RouterLink class="route-package" to="/SoliciteServico"> 
+        
         <h2>Limpeza Diária</h2>
         <p>Ideal para manter o ambiente impecável todos os dias, sem preocupações com a limpeza.</p>
         <p class="price">R$150 <span>/Limpeza</span></p>
@@ -179,9 +182,12 @@ const onSlideChange = () => {
           <li><span class="icon-verificado">✔</span>Manutenção continua</li>
           <li><span class="icon-verificado">✔</span>Maior custo-beneficio</li>
           <li><span class="icon-verificado">✔</span>Cuidado com os detalhes</li>
-        </ul>
+        </ul> 
+      </RouterLink>
       </div>
+   
       <div class="package middle">
+        <RouterLink class="route-package" to="/SoliciteServico">
         <h2>Limpeza Semanal</h2>
         <p>
           Perfeito para quem quer uma manutenção contínua e um ambiente sempre limpo e organizado.
@@ -192,8 +198,10 @@ const onSlideChange = () => {
           <li><span class="icon-verificado blue">✔</span>Foco nas áreas mais utilizadas</li>
           <li><span class="icon-verificado blue">✔</span>Flexibilidade para diferentes rotinas</li>
         </ul>
+        </RouterLink> 
       </div>
         <div class="package">
+          <RouterLink class="route-package" to="/SoliciteServico">
         <h2>Limpeza Quinzenal</h2>
         <p>Excelente para quem busca uma solução econômica, com um espaço limpo a cada 15 dias.</p>
         <p class="price">R$300 <span>/Limpeza</span></p>
@@ -202,6 +210,7 @@ const onSlideChange = () => {
           <li><span class="icon-verificado">✔</span>Economia e eficácia</li>
           <li><span class="icon-verificado">✔</span>Renovação semanal do espaço</li>
         </ul>
+        </RouterLink>
       </div>
     </div>
   </div>
@@ -221,6 +230,7 @@ const onSlideChange = () => {
   padding-bottom: 20vh;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 10vh
 }
 
 .title {
@@ -255,7 +265,7 @@ const onSlideChange = () => {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1em;
+  margin-bottom: 5em;
 }
 
 .secao {
@@ -379,7 +389,10 @@ li {
   gap: 2rem;
   margin: 2rem auto;
 }
-
+.route-package{
+ text-decoration: none;
+ color: inherit;
+}
 .package {
   border: 1px solid #ccc;
   background-color: white;
