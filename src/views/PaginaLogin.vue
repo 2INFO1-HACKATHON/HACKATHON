@@ -17,6 +17,10 @@ onMounted(() => {
   }
 });
 
+function goBack() {
+  window.history.back();
+}
+
 function handleLogin() {
   errorMessage.value = '';
 
@@ -34,6 +38,9 @@ function handleLogin() {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <div class="container">
+    <button class="back-button" @click="goBack">
+      <i class="fas fa-arrow-left"></i> Voltar
+    </button>
     <div class="content">
       <div class="first-column">
         <h2 class="title title-primary">Conectar-se</h2>
@@ -79,8 +86,32 @@ function handleLogin() {
   box-sizing: border-box;
 }
 
+.back-button {
+  position: fixed;
+  top: 2vh;
+  left: 2vw;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5vw;
+  color: var(--azul-royal);
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.back-button i {
+  margin-right: 0.3vw;
+}
+
+.back-button:hover {
+  color: #3498db;
+}
+
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -92,7 +123,7 @@ function handleLogin() {
   display: flex;
   background-color: #fff;
   border-radius: 1.5vw;
-  width: 60%;
+  width: 80%;
   height: 70%;
   position: relative;
   justify-content: space-between;
@@ -178,13 +209,14 @@ function handleLogin() {
   border: none;
   background-color: #ecf0f1;
   font-size: 1rem;
-  padding: 1vh 2.5vw;
+  padding: 1vh 2rem;
   border-radius: 0.5vw;
 }
 
 .label-input .icon {
   position: absolute;
-  left: 0.6vw;
+  left: 0.5rem;
+
   font-size: 1.2rem;
   color: #7f8c8d;
 }

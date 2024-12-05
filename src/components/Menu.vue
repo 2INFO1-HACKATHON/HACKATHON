@@ -5,6 +5,7 @@ import { useUserStore } from '@/stores/user'
 
 const open = ref(false)
 const mobileMenuOpen = ref(false)
+const mobileDropdownOpen = ref(false)
 const userStore = useUserStore()
 
 const isAuthenticated = computed(() => userStore.user)
@@ -15,6 +16,13 @@ function toggleDropdown() {
 
 function toggleMobileMenu() {
   mobileMenuOpen.value = !mobileMenuOpen.value
+  if (!mobileMenuOpen.value) {
+    mobileDropdownOpen.value = false
+  }
+}
+
+function toggleMobileDropdown() {
+  mobileDropdownOpen.value = !mobileDropdownOpen.value
 }
 
 function logout() {
@@ -44,6 +52,7 @@ function handleClickOutside(event) {
     !hamburgerButton.contains(event.target)
   ) {
     mobileMenuOpen.value = false
+    mobileDropdownOpen.value = false
   }
 }
 
@@ -64,8 +73,10 @@ onBeforeUnmount(() => {
       <span></span>
     </button>
     <div class="left-menu">
-      <RouterLink to="/"><img src="../assets/imagens/logo.png" alt="logo" /></RouterLink>
-      <RouterLink to="/SoliciteServico" class="menu-button desktop-only" aria-label="Solicitar Serviço">Solicitar Serviço</RouterLink>
+      <RouterLink to="/" class="logo-container">
+        <img src="../assets/imagens/logo.png" alt="logo" />
+      </RouterLink>
+      <RouterLink to="/" class="menu-button desktop-only" aria-label="Home">Início</RouterLink>
 
       <div class="dropdown-container desktop-only">
         <button class="dropdown-button" @click="toggleDropdown" aria-haspopup="true" :aria-expanded="open">
@@ -89,21 +100,23 @@ onBeforeUnmount(() => {
     </div>
 
     <div class="mobile-menu" :class="{ 'open': mobileMenuOpen }">
-      <button class="close-button" @click="toggleMobileMenu" aria-label="Fechar menu">
-        &times;
-      </button>
       <nav>
-        <RouterLink to="/" @click="toggleMobileMenu">Home</RouterLink>
-        <RouterLink to="/sobre" @click="toggleMobileMenu">Sobre Nós</RouterLink>
-        <button class="dropdown-button" @click="toggleDropdown" aria-haspopup="true" :aria-expanded="open">
-          Serviços
-        </button>
-        <div v-if="open" class="dropdown-menu" role="menu">
-          <RouterLink to="/PaginaLimpeza" class="dropdown-item" role="menuitem" @click="toggleMobileMenu">Limpeza
-          </RouterLink>
-          <RouterLink to="/PaginaCulinaria" class="dropdown-item" @click="toggleMobileMenu">Culinária</RouterLink>
-          <RouterLink to="/PaginaCuidados" class="dropdown-item" @click="toggleMobileMenu">Cuidados</RouterLink>
-          <RouterLink to="/PaginaManutencao" class="dropdown-item" @click="toggleMobileMenu">Manutenção</RouterLink>
+        <RouterLink to="/" @click="toggleMobileMenu">Início</RouterLink>
+        <RouterLink to="/SoliciteServico" @click="toggleMobileMenu">Solicitar Serviço</RouterLink>
+        <div class="mobile-dropdown">
+          <button class="dropdown-button" @click="toggleMobileDropdown" aria-haspopup="true"
+            :aria-expanded="mobileDropdownOpen">
+            Serviços
+          </button>
+          <transition name="fade">
+            <div v-if="mobileDropdownOpen" class="mobile-dropdown-menu" role="menu">
+              <RouterLink to="/PaginaLimpeza" class="dropdown-item" role="menuitem" @click="toggleMobileMenu">Limpeza
+              </RouterLink>
+              <RouterLink to="/PaginaCulinaria" class="dropdown-item" @click="toggleMobileMenu">Culinária</RouterLink>
+              <RouterLink to="/PaginaCuidados" class="dropdown-item" @click="toggleMobileMenu">Cuidados</RouterLink>
+              <RouterLink to="/PaginaManutencao" class="dropdown-item" @click="toggleMobileMenu">Manutenção</RouterLink>
+            </div>
+          </transition>
         </div>
         <div v-if="!isAuthenticated" class="auth-buttons">
           <RouterLink to="/Paginalogin" class="auth-button" aria-label="Entrar" @click="toggleMobileMenu">Entrar
@@ -124,7 +137,7 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 1rem;
   background-color: #f3f3f3;
   position: fixed;
@@ -133,14 +146,24 @@ header {
   z-index: 9999;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+  flex-shrink: 0;
+}
+
 img {
-  width: 6vw;
+  max-width: 2.5vw;
+  min-width: 2.5vw;
+  margin: 0.7vw;
 }
 
 .left-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .menu-button,
@@ -150,17 +173,14 @@ img {
   background-color: transparent;
   text-decoration: none;
   cursor: pointer;
-  font-size: 1rem;
   display: inline-flex;
   align-items: center;
+  white-space: nowrap;
+  margin-right: 2vw;
 }
 
 .dropdown-container {
   position: relative;
-}
-
-.dropdown-button {
-  padding: 10px 20px;
 }
 
 .dropdown-menu {
@@ -178,6 +198,7 @@ img {
   text-decoration: none;
   display: block;
   font-size: 1rem;
+  white-space: nowrap;
 }
 
 .dropdown-item:hover {
@@ -187,17 +208,19 @@ img {
 .auth-buttons {
   display: flex;
   gap: 1rem;
+  margin-left: auto;
 }
 
 .auth-button {
   background-color: transparent;
   color: #666;
-  padding: 10px 20px;
+  padding: 10px;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
   font-size: 1rem;
   border: none;
+  white-space: nowrap;
 }
 
 .auth-button:hover {
@@ -217,7 +240,7 @@ img {
   z-index: 10000;
   position: absolute;
   left: 1rem;
-  top: 1rem;
+  top: 0.7rem;
 }
 
 .hamburger-button span {
@@ -264,14 +287,8 @@ img {
   padding: 0.5rem 0;
 }
 
-.close-button {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+.close-button:hover {
+  transform: rotate(90deg);
 }
 
 .logout-button {
@@ -279,6 +296,61 @@ img {
   bottom: 2rem;
   left: 2rem;
   width: calc(100% - 4rem);
+}
+
+.mobile-dropdown {
+  position: relative;
+}
+
+.mobile-dropdown-menu {
+  background-color: #e9e9e9;
+  padding: 0.5rem 0;
+  margin-left: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-dropdown-menu .dropdown-item {
+  padding: 10px 15px;
+  transition: background-color 0.2s ease;
+}
+
+.mobile-dropdown-menu .dropdown-item:hover {
+  background-color: #d9d9d9;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.menu-button:hover,
+.dropdown-button:hover,
+.auth-button:hover,
+.mobile-menu a:hover,
+.mobile-menu button:hover,
+.dropdown-item:hover {
+  color: #9b9b9b;
+}
+
+.left-menu {
+  justify-content: flex-start;
+}
+
+.auth-buttons {
+  margin-left: 1rem;
+}
+
+.menu-button,
+.dropdown-button,
+.auth-button {
+  padding: 10px 5px;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -294,12 +366,22 @@ img {
     display: block;
   }
 
-  .left-menu {
+  .logo-container {
+    position: static;
+    transform: none;
+    display: flex;
     justify-content: center;
   }
 
+  .left-menu {
+    justify-content: center;
+    width: 100%;
+  }
+
   img {
-    width: 15vw;
+    max-width: 3rem;
+    min-width: 2rem;
+    margin: 1vw;
   }
 }
 </style>

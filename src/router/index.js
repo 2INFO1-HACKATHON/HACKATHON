@@ -1,3 +1,4 @@
+ 
 import { createRouter, createWebHistory } from 'vue-router';
 import PaginaInicio from '../views/PaginaInicio.vue';
 import PaginaCuidados from '../views/PaginaCuidados.vue';
@@ -8,6 +9,7 @@ import PaginaSignup from '../views/PaginaSignup.vue';
 import PaginaManutencao from '../views/PaginaManutencao.vue';
 import SoliciteServico from '../views/SoliciteServico.vue';
 import PaginaCheckout from '../views/PaginaCheckout.vue';
+import PaginaPerfil from '../views/PaginaPerfil.vue'
 
 const routes = [
   { path: '/', name: 'PaginaInicio', component: PaginaInicio },
@@ -18,7 +20,8 @@ const routes = [
   { path: '/PaginaSignup', name: 'PaginaSignup', component: PaginaSignup },
   { path: '/PaginaManutencao', name: 'PaginaManutencao', component: PaginaManutencao },
   { path: '/SoliciteServico', name: 'SoliciteServico', component: SoliciteServico },
-  { path: '/PaginaCheckout', name: 'PaginaCheckout', component: PaginaCheckout }
+  { path: '/PaginaCheckout', name: 'PaginaCheckout', component: PaginaCheckout },
+  { path: '/PaginaPerfil', name: 'PaginaPerfil', component: PaginaPerfil }
 ];
 
 const router = createRouter({
@@ -27,6 +30,7 @@ const router = createRouter({
   scrollBehavior: (to, from, savedPosition) => {
     if (savedPosition) {
       return savedPosition;
+
     }
     return { top: 0};
   }
