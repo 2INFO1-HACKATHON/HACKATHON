@@ -13,6 +13,7 @@ const passwordError = ref('');
 const confirmPasswordError = ref('');
 const router = useRouter();
 const userStore = useUserStore();
+ 
 
 function goBack() {
     window.history.back();
@@ -63,6 +64,10 @@ function handleRegister() {
         router.push('/');
     }
 }
+
+ 
+
+
 </script>
 
 <template>

@@ -1,15 +1,23 @@
-import { defineStore } from 'pinia'
+import { defineStore  } from 'pinia'
 
 export const useUserStore = defineStore('user', {
   state: () => ({
+    isLoggedIn: false,
     user: null
   }),
 
   actions: {
     setUser(name, email, password) {
+
+      const user = { name, email, password }
+      this.user = user
+      this.isLoggedIn = true
+      localStorage.setItem('user', JSON.stringify(user))
+
       const user = { name, email, password };
       this.user = user;
       localStorage.setItem('user', JSON.stringify(user));
+
     },
   
     loadUser() {
@@ -22,9 +30,22 @@ export const useUserStore = defineStore('user', {
     clearUser() {
       this.user = null;
     },
-  
+
+
+    getters: {
+      isLoggedIn: (state) => !!state.user
+    },
+    
+    logout() {
+      this.user = null
+      this.isLoggedIn = false
+    },
+
+
     deleteUserData() {
       this.clearUser();
     }
   }
 })
+
+ 
