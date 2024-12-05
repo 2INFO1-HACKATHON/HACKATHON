@@ -51,13 +51,13 @@ userStore.loadUser();
       <p>Basta apenas um toque e deixa que o resto a gente facilita para você.</p>
       <p class="small-text">Não leva nem 10 segundos.</p>
       <button class="cta-button">
-        <p class="orcamento">Solicitar Orçamento</p>
+        <p class="servico">Solicitar Serviço</p>
       </button>
     </div>
     <div class="right-side">
       <div class="card">
         <p class="card-number">01.</p>
-        <p>Toque em qualquer botão do site para ser atendido por nossa equipe por Whatsapp.</p>
+        <p>Clique em qualquer botão do site para solicitar um serviço.</p>
       </div>
       <div class="card">
         <p class="card-number">02.</p>
@@ -85,7 +85,7 @@ userStore.loadUser();
         </div>
         <div class="sectionben">
           <i class="fas fa-building"></i>
-          <p>Empresa consolidada no mercado carioca</p>
+          <p>Empresa consolidada no mercado catarinense</p>
         </div>
       </div>
       <div class="columnben">
@@ -177,7 +177,7 @@ userStore.loadUser();
 }
 
 header {
-  margin-bottom: 13vw
+  margin-bottom: 13vw;
 }
 
 .menu {
@@ -193,10 +193,12 @@ header {
   width: 100%;
 }
 
+
 .main {
   margin-left: 9vw;
   margin-bottom: 1.5rem;
 }
+
 
 .main h2 {
   width: 20%;
@@ -205,17 +207,20 @@ header {
   margin-bottom: 0.5rem;
 }
 
+
 .main p {
   width: 35%;
   font-size: 2rem;
   font-weight: 200;
 }
 
+
 .welcome-container {
   padding-top: 2vh;
   font-size: 1rem;
   font-weight: 300;
 }
+
 
 .imagem-home img {
   height: 600px;
@@ -224,11 +229,12 @@ header {
   display: flex;
 }
 
+
 .sobrenos {
   margin-bottom: 5vh;
   margin-top: -20vw;
-
 }
+
 
 .sobrenos h3 {
   display: flex;
@@ -240,6 +246,7 @@ header {
   font-weight: 600;
 }
 
+
 .sobrenos p {
   width: 80%;
   text-align: center;
@@ -248,9 +255,11 @@ header {
   margin: 0 auto 5vh;
 }
 
+
 .forte {
   font-weight: 600;
 }
+
 
 .intera {
   display: flex;
@@ -260,9 +269,11 @@ header {
   padding: 7vh 7vw;
 }
 
-.orcamento {
+
+.servico {
   font-weight: 650;
 }
+
 
 .left-side {
   display: flex;
@@ -273,17 +284,20 @@ header {
   margin-left: 10px;
 }
 
+
 .left-side h2 {
   color: var(--azul-royal-escuro);
   font-size: 2.5rem;
   font-weight: 700;
 }
 
+
 .left-side h4 {
   letter-spacing: 0.5rem;
   font-weight: 400;
   font-size: 1.5rem;
 }
+
 
 .right-side {
   display: grid;
@@ -293,6 +307,7 @@ header {
   gap: 2vw;
   padding: 3vw;
 }
+
 
 .card {
   border-radius: 1vw;
@@ -308,14 +323,17 @@ header {
   transition: transform 0.3s ease;
 }
 
+
 .card:hover {
   transform: translateY(-5px);
 }
+
 
 .blue-card {
   background: linear-gradient(0deg, #0e96a5, #40E0D0);
   color: #fff;
 }
+
 
 .card-number {
   font-size: 2rem;
@@ -323,10 +341,12 @@ header {
   color: teal;
 }
 
+
 .blue-card p {
   font-weight: 600;
   color: #fff;
 }
+
 
 .sectionben {
   display: flex;
@@ -338,11 +358,13 @@ header {
   text-align: left;
 }
 
+
 .sectionben i {
   font-size: 5vw;
   color: var(--azul-royal-escuro);
   margin-right: 1rem;
 }
+
 
 .sectionben p {
   font-size: 1.5rem;
@@ -357,6 +379,7 @@ header {
   align-items: flex-start;
 }
 
+
 .beneficios {
   display: flex;
   flex-direction: column;
@@ -366,6 +389,7 @@ header {
   background-color: #f3f3f3;
 }
 
+
 .beneficios h2 {
   font-size: 2.5rem;
   letter-spacing: 0.4rem;
@@ -373,12 +397,14 @@ header {
   margin-bottom: 2vh;
 }
 
+
 .beneficios h3 {
   font-size: 2.5rem;
   font-weight: 750;
   color: var(--azul-royal-escuro);
   margin-bottom: 4vh;
 }
+
 
 .rowben {
   display: flex;
@@ -388,6 +414,7 @@ header {
   max-width: 1200px;
 }
 
+
 .columnben {
   flex: 1;
   min-width: 250px;
@@ -396,6 +423,7 @@ header {
   align-items: center;
   gap: 2vw;
 }
+
 
 .feedback {
   display: flex;
@@ -407,20 +435,24 @@ header {
   padding: 2.5vw;
 }
 
+
 .item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+
 .number {
   font-size: 3em;
   font-weight: bold;
 }
 
+
 .description {
   font-size: 0.8em;
 }
+
 
 .services-container {
   padding: 9vw 4vw;
@@ -431,6 +463,7 @@ header {
   flex-direction: column;
 }
 
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -439,6 +472,7 @@ header {
   justify-items: center;
   align-items: center;
 }
+
 
 .service-card {
   position: relative;
@@ -459,26 +493,32 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+
 .service-card:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+
 .service-card:nth-child(1) {
   background-image: url("../assets/imagens/limpeza1.jpg");
 }
+
 
 .service-card:nth-child(2) {
   background-image: url("../assets/imagens/manutencao2.jpeg");
 }
 
+
 .service-card:nth-child(3) {
   background-image: url("../assets/imagens/cuidados2.jpg");
 }
 
+
 .service-card:nth-child(4) {
   background-image: url("../assets/imagens/culinaria2.jpg");
 }
+
 
 .service-card::before {
   content: "";
@@ -487,15 +527,17 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, var(--azul-royal) 8%, rgba(24, 172, 152, 0.425) 90%);
+  background: linear-gradient(to top, var(--azul-royal) 40%, rgba(24, 172, 152, 0.425) 100%);
   z-index: 1;
 }
+
 
 .service-card h2,
 .service-card p {
   position: relative;
   z-index: 1;
 }
+
 
 .service-card h2 {
   font-size: 1.7rem;
@@ -504,6 +546,7 @@ header {
   margin: 0.5vw 0 0.2vw;
 }
 
+
 .service-card p {
   margin: 0;
   color: white;
@@ -511,14 +554,17 @@ header {
   padding-bottom: 1vw;
 }
 
+
 .service-icon {
   display: none;
 }
+
 
 .titulo {
   font-size: 5rem;
   font-weight: 800;
 }
+
 
 a {
   margin-right: 1.5rem;
@@ -526,11 +572,13 @@ a {
   text-decoration: none;
 }
 
+
 button {
   text-decoration: none;
   border: none;
   background-color: #ffe0e000;
 }
+
 
 .cta-button {
   display: flex;
@@ -544,13 +592,225 @@ button {
   transition: transform 0.3s ease;
 }
 
+
 .cta-button:hover {
   transform: scale(1.05);
 }
+
 
 .small-text {
   font-size: 1vw;
   color: #020202;
   font-weight: 600;
+}
+
+
+@media (max-width: 1200px) {
+  .main h2 {
+    width: 30%;
+    font-size: 1.8rem;
+  }
+
+
+  .main p {
+    width: 45%;
+    font-size: 1.8rem;
+  }
+
+
+  .sobrenos p {
+    font-size: 1.4rem;
+  }
+
+
+  .card {
+    width: 22vw;
+    height: 22vh;
+  }
+
+
+  .service-card {
+    height: 35vh;
+    width: 30vw;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .imagem-home {
+    display: none;
+  }
+
+
+  .main {
+    margin-left: 5vw;
+  }
+
+
+  .main h2 {
+    width: 50%;
+  }
+
+
+  .main p {
+    width: 70%;
+  }
+
+
+
+
+  .sobrenos h3 {
+    margin-top: 10vh;
+  }
+
+
+  .intera {
+    flex-direction: column;
+    gap: 5vw;
+  }
+
+
+  .right-side {
+    grid-template-columns: 1fr;
+  }
+
+
+  .card {
+    width: 80vw;
+    height: auto;
+  }
+
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .service-card {
+    width: 80vw;
+    height: 30vh;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .main h2 {
+    width: 70%;
+    font-size: 1.5rem;
+  }
+
+
+  .main p {
+    width: 90%;
+    font-size: 1.5rem;
+  }
+
+
+
+
+  .sobrenos p {
+    font-size: 1.2rem;
+  }
+
+
+  .beneficios h2 {
+    font-size: 2rem;
+  }
+
+
+  .beneficios h3 {
+    font-size: 2rem;
+  }
+
+
+  .sectionben i {
+    font-size: 8vw;
+  }
+
+
+  .sectionben p {
+    font-size: 1.2rem;
+  }
+
+
+  .feedback {
+    flex-wrap: wrap;
+  }
+
+
+  .item {
+    width: 50%;
+    margin-bottom: 2vh;
+  }
+
+
+  .number {
+    font-size: 2em;
+  }
+
+
+  .description {
+    font-size: 0.7em;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .main h1 {
+    padding-top: 5vh;
+    font-size: 3rem;
+  }
+
+  .main h2 {
+    width: 40%;
+    font-size: 1.4rem;
+  }
+
+
+  .main p {
+    width: 100%;
+    font-size: 1.3rem;
+  }
+
+
+  .sobrenos p {
+    font-size: 1rem;
+  }
+
+
+  .left-side h2 {
+    font-size: 2rem;
+  }
+
+
+  .left-side h4 {
+    font-size: 1.2rem;
+  }
+
+
+  .card {
+    width: 90vw;
+  }
+
+
+  .service-card {
+    width: 90vw;
+    height: 25vh;
+  }
+
+
+  .service-card h2 {
+    font-size: 1.4rem;
+  }
+
+
+  .service-card p {
+    font-size: 0.8rem;
+  }
+
+
+  .item {
+    width: 100%;
+  }
 }
 </style>

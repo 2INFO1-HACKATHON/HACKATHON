@@ -7,45 +7,51 @@ const name = ref('');
 const email = ref('');
 const password = ref('');
 const confirmPassword = ref('');
-const errorMessages = ref([]);
+const nameError = ref('');
+const emailError = ref('');
+const passwordError = ref('');
+const confirmPasswordError = ref('');
 const router = useRouter();
 const userStore = useUserStore();
 
 function handleRegister() {
-    errorMessages.value = [];
+    nameError.value = '';
+    emailError.value = '';
+    passwordError.value = '';
+    confirmPasswordError.value = '';
 
     let valid = true;
 
     if (!name.value) {
         valid = false;
-        errorMessages.value.push('Por favor, preencha todos os campos!');
+        nameError.value = 'Por favor, preencha o nome!';
     } else if (name.value.length < 2) {
         valid = false;
-        errorMessages.value.push('O nome deve ter no mínimo 2 caracteres!');
+        nameError.value = 'O nome deve ter no mínimo 2 caracteres!';
     } else if (name.value.length > 20) {
         valid = false;
-        errorMessages.value.push('O nome deve ter no máximo 20 caracteres!');
+        nameError.value = 'O nome deve ter no máximo 20 caracteres!';
     }
 
     if (!email.value || !email.value.endsWith('@gmail.com')) {
         valid = false;
-        errorMessages.value.push('O e-mail deve ser do tipo @gmail.com!');
+        emailError.value = 'O e-mail deve ser do tipo @gmail.com!';
     } else if (email.value.length > 50) {
         valid = false;
-        errorMessages.value.push('O e-mail deve ter no máximo 50 caracteres!');
+        emailError.value = 'O e-mail deve ter no máximo 50 caracteres!';
     }
 
     if (!password.value || password.value.length < 4) {
         valid = false;
-        errorMessages.value.push('A senha deve ter no mínimo 4 caracteres!');
+        passwordError.value = 'A senha deve ter no mínimo 4 caracteres!';
     } else if (password.value.length > 30) {
         valid = false;
-        errorMessages.value.push('A senha deve ter no máximo 30 caracteres!');
+        passwordError.value = 'A senha deve ter no máximo 30 caracteres!';
     }
 
     if (!confirmPassword.value || confirmPassword.value !== password.value) {
         valid = false;
-        errorMessages.value.push('As senhas não coincidem!');
+        confirmPasswordError.value = 'As senhas não coincidem!';
     }
 
     if (valid) {
@@ -75,34 +81,31 @@ function handleRegister() {
                         <i class="icon fas fa-user"></i>
                         <input v-model="name" type="text" placeholder="Nome" required maxlength="20" />
                     </div>
+                    <p v-if="nameError" class="error-message">{{ nameError }}</p>
 
                     <!-- Email -->
                     <div class="label-input">
                         <i class="icon fas fa-envelope"></i>
                         <input v-model="email" type="email" placeholder="Email" required maxlength="50" />
                     </div>
+                    <p v-if="emailError" class="error-message">{{ emailError }}</p>
 
                     <!-- Senha -->
                     <div class="label-input">
                         <i class="icon fas fa-lock"></i>
                         <input v-model="password" type="password" placeholder="Senha" required maxlength="30" />
                     </div>
+                    <p v-if="passwordError" class="error-message">{{ passwordError }}</p>
 
                     <!-- Confirmar Senha -->
                     <div class="label-input">
                         <i class="icon fas fa-lock"></i>
                         <input v-model="confirmPassword" type="password" placeholder="Confirmar Senha" required />
                     </div>
+                    <p v-if="confirmPasswordError" class="error-message">{{ confirmPasswordError }}</p>
 
                     <!-- Botão Registrar -->
                     <button type="submit" class="btn btn-second">Registrar</button>
-
-                    <!-- Mensagens de erro -->
-                    <div v-if="errorMessages.length" class="error-message-container">
-                        <p v-for="(message, index) in errorMessages" :key="index" class="error-message">
-                            {{ message }}
-                        </p>
-                    </div>
                 </form>
             </div>
         </div>
@@ -283,16 +286,13 @@ function handleRegister() {
     border: 0.2vw solid red;
 }
 
-.error-message-container {
-    margin-top: 2vh;
-    text-align: center;
-    color: red;
-    font-size: 1rem;
-    font-weight: bold;
-}
-
 .error-message {
-    margin-top: 1vh;
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.5vh;
+    margin-bottom: 1vh;
+    text-align: left;
+    padding-left: 0.5vw;
 }
 
 .form input {
