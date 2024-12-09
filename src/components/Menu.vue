@@ -128,11 +128,12 @@ onBeforeUnmount(() => {
           <button @click="logout" class="auth-button" aria-label="Sair">Logout</button>
         </div>
       </nav>
-    </div>
+    </div>  
   </header>
 </template>
 
 <style scoped>
+
 header {
   width: 100%;
   display: flex;
@@ -167,16 +168,18 @@ img {
 }
 
 .menu-button,
-.dropdown-button {
-  color: #666;
-  border: none;
-  background-color: transparent;
+.dropdown-button,
+.auth-button {
+  padding: 10px 15px; 
+  margin: 0 1vw;
   text-decoration: none;
-  cursor: pointer;
+  font-size: 1rem; 
   display: inline-flex;
   align-items: center;
-  white-space: nowrap;
-  margin-right: 2vw;
+  justify-content: center;
+  color: #575656;
+  outline: none;
+  border: none;
 }
 
 .dropdown-container {
@@ -194,6 +197,7 @@ img {
 
 .dropdown-item {
   color: black;
+  background-color: transparent;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -202,25 +206,7 @@ img {
 }
 
 .dropdown-item:hover {
-  background-color: #f1f1f1;
-}
-
-.auth-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-left: auto;
-}
-
-.auth-button {
   background-color: transparent;
-  color: #666;
-  padding: 10px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 1rem;
-  border: none;
-  white-space: nowrap;
 }
 
 .auth-button:hover {
