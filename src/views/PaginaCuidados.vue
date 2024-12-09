@@ -41,7 +41,8 @@ import Footer from '@/components/Footer.vue'
     </div>
 
     <div class="cuidados">
-      <h1 class="title-cuidados">Tipos de Cuidados</h1>
+      <h1 class="title-cuidados">Tipos de </h1>
+      <h1 class="title-cuidadoss">Cuidados</h1>
       <div class="section">
         <div class="image-left">
           <img src="@/assets/imagens/cuidados1.jpeg" alt="Cuidados com Crianças" />
@@ -221,7 +222,7 @@ import Footer from '@/components/Footer.vue'
 .image-right img {
   width: 80%;
   height: auto;
-  border-radius: 12px;
+  border-radius: 25px;
 }
 
 .text-left {
@@ -245,10 +246,11 @@ import Footer from '@/components/Footer.vue'
 
 .text-right h2,
 .text-left h2 {
-  color:#2ab0bf;
-  font-weight: bold;
+  color:#107f8b;
+  font-weight: 600;
   margin-bottom: 15px;
   font-size: 2em;
+  letter-spacing: 4px;
 }
 
 .text-right p {
@@ -284,10 +286,21 @@ import Footer from '@/components/Footer.vue'
 
 .title-cuidados {
   font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 70px;
+  font-weight: 550;
   justify-content: center;
   display: flex;
+  color: #2ab0bf;
+   
+}
+.title-cuidadoss {
+  font-size: 33px;
+  font-weight: 420;
+  justify-content: center;
+  display: flex;
+  color: #2ab0bf;
+  ;
+  letter-spacing: 6px;
+margin-bottom: 3em;
 }
 
 .title-card {
@@ -335,6 +348,7 @@ import Footer from '@/components/Footer.vue'
 .subtitle {
   font-size: 18px;
   color: #000000;
+  font-weight: bold;
   margin-bottom: 20px;
   justify-content: center;
   display: flex;
@@ -361,10 +375,10 @@ import Footer from '@/components/Footer.vue'
   padding: 20px;
   width: 300px;
   height: 180px;
-  background-color:#2ab0bf;
+  background-color:#ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 1.5vw;
-color: white;
+color: rgb(0, 0, 0);
 
 
 }
@@ -373,14 +387,16 @@ color: white;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+  color:#107f8b;
 }
 
 .card-text {
   font-size: 14px;
-  color: #ffffff;
+  color: #000000;
   margin-top: 1vw;
 }
 
+.card
 hr {
   color: white;
 }
