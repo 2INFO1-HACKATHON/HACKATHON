@@ -1,9 +1,15 @@
 <template>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <div class="content">
     <div class="profile-section">
-      <h1>Configurações de usuário</h1>
+    <div class="user-config">
+   <h1>Configurações de usuário</h1>
+    
+    </div>
         <div class="profile-photo">
           <img v-if="profileImage" :src="profileImage" alt="Profile" />
+         
         </div>
         <input
           ref="fileInput"
@@ -384,8 +390,18 @@ watch(() => form.state, updateCities)
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   border-right: 1px solid #ccc;
+  margin-top: 6rem;
+}
+.user-config{
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+
+}
+.user-config i{
+  font-size: 1em;
 }
 
 .profile-photo {
