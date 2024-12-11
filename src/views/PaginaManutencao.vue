@@ -21,6 +21,8 @@ const onSlideChange = () => {
 
 </script>
 <template>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <header>
     <Menu></Menu>
   </header>
@@ -205,6 +207,31 @@ const onSlideChange = () => {
     </Swiper>
 </section>
 
+<div class="descricao-clientes">
+    <div class="text-content">
+      <div class="line"></div>
+      <h2>O que nossos clientes dizem</h2>
+      <p>
+        Todos esses depoimentos são fruto de muita dedicação, carinho e
+        empenho do nosso time de profissionais.
+      </p>
+    </div>
+    <div class="avaliacao-cliente1">
+      <i class=""></i>
+          <p class="text-avaliacao1">
+            Empresa de excelente qualidade, profissionais atenciosos. Recomendo o
+            serviço de instalação de ar condicionado.
+          </p>
+    </div>
+
+    <div class="avaliacao-cliente2">
+      <i class=""></i>
+          <p class="text-avaliacao2">
+            Empresa de excelente qualidade, profissionais atenciosos. Recomendo o
+            serviço de instalação de ar condicionado.
+          </p>
+    </div>
+</div>
  
   <header> <Footer></Footer></header> 
   </div>
@@ -269,6 +296,7 @@ const onSlideChange = () => {
   width: 100%;
   height: 200px;
   box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+
 }
 
 .card-title {
@@ -299,6 +327,7 @@ const onSlideChange = () => {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 
 }
 .swiper-slide{
@@ -340,6 +369,7 @@ const onSlideChange = () => {
 .texto-carrosel p{
   width: 44%;
   font-size: 0.9rem;
+  line-height: normal;
   font-weight: 500;
   text-align: left;
   }
@@ -350,7 +380,7 @@ const onSlideChange = () => {
 
 .descricao-clientes {
   background-color: #29b6c5; 
-  padding: 4rem;
+  padding: 5.5rem;
   color: #ffffff;
   display: flex;
   align-items: flex-start;
@@ -360,22 +390,13 @@ const onSlideChange = () => {
 
 }
 
-.avaliacao {
-width: 24vw;
-height: 20vh;
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
-margin-left: 2rem;
-}
-
 .text-content {
-  max-width: 400px;
+  max-width: 250px;
 }
 
 .line {
   width: 200px;
-  height: 2px;
+  height: 3px;
   background-color: #ffffff;
   margin-bottom: 1em;
 }
@@ -391,6 +412,29 @@ margin-left: 2rem;
   line-height:1.6;
   display: flex;
   align-items: flex-start;
+}
+.avaliacao-cliente1{
+  position: relative;
+  background-color: #f3f4f6;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.avaliacao-cliente2{
+  position: relative;
+  background-color: #f3f4f6;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.text-avaliacao1{
+  text-align: center;
+  color: #040507;
+}
+.text-avaliacao2{
+  text-align: center;
+  color:  #040507;
+  
 }
 
 </style>
