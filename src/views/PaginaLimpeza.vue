@@ -230,7 +230,7 @@ const onSlideChange = () => {
   padding-bottom: 20vh;
   width: 100%;
   box-sizing: border-box;
-  margin-top: 10vh
+
 }
 
 .title {
@@ -238,6 +238,7 @@ const onSlideChange = () => {
   margin-bottom: 0.5em;
   font-size: 2rem;
   font-weight: 600;
+  margin-top: 3rem;
 }
 
 .description {
@@ -291,16 +292,18 @@ const onSlideChange = () => {
   height: auto;
   object-fit: cover;
   border-radius: 0.5rem;
+  
 }
 
 .texto-carrosel {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center; /* Alinha o conteúdo horizontalmente */
+  justify-content: center; /* Alinha o conteúdo verticalmente */
+  text-align: center; /* Garante que o texto fique centralizado */
   background-color: transparent;
-  width: 100%;
-  padding: 1rem;
+  width: 30vw;
+
 }
 
 .texto-carrosel h3 {
@@ -310,10 +313,12 @@ const onSlideChange = () => {
 }
 
 .texto-carrosel p {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 1000%;
   font-size: 0.9rem;
   font-weight: 400;
-  text-align: center;
+  text-align: left;
 }
 
 .incluso {
@@ -685,7 +690,7 @@ li {
   }
 
   .texto-carrosel {
-    width: 35%;
+    width: 40%;
   }
 
   .texto-carrosel h3 {
@@ -693,7 +698,7 @@ li {
   }
 
   .texto-carrosel p {
-    width: 44%;
+    width: 40%;
     font-size: 0.8rem;
   }
 
