@@ -205,21 +205,7 @@ const onSlideChange = () => {
     </Swiper>
 </section>
 
-  <div class="descricao-clientes">
-    <div class="text-content">
-      <div class="line"></div>
-      <h2>O que nossos clientes dizem</h2>
-      <p>
-        Todos esses depoimentos são fruto de muita dedicação, carinho e
-        empenho do nosso time de profissionais.
-      </p>
-    </div>
-    <img  class="avaliacao" src="../assets/imagens/avaliacao1.png" alt="Imagem de avaliação dos clientes">
-
-    <img  class="avaliacao"  src="../assets/imagens/avaliacao1.png" alt="Imagem de avaliação dos clientes">
-
-    <img  class="avaliacao"  src="../assets/imagens/avaliacao1.png" alt="Imagem de avaliação dos clientes">
-  </div>
+ 
   <header> <Footer></Footer></header> 
   </div>
 
