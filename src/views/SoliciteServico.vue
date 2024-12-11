@@ -223,6 +223,8 @@ function atualizarPreco() {
 
 <template>
   <Menu></Menu>
+  <div class="texto"><h1>Nos fale um pouco sobre você e sobre a sua residência, para enviarmos o seu orçamento!</h1></div>
+
   <div class="form-wrapper">
     <div class="form-container">
       <h2>Solicite seu Serviço</h2>
@@ -325,7 +327,6 @@ function atualizarPreco() {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120vh;
   font-family: var(--font-geral);
   margin: 5vh auto 5vh;
 }
@@ -339,9 +340,9 @@ function atualizarPreco() {
 
 .form-container {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
+  max-height: 1000px;
   padding: 30px;
-  background-color: var(--azul-royal);
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -351,11 +352,20 @@ function atualizarPreco() {
 h2 {
   font-family: var(--font-titulo);
   font-weight: 500;
-  color: white;
+  color:#2ab0bf;
   font-size: 1.8em;
   margin-bottom: 20px;
 }
 
+.texto {
+   display: flex;
+  justify-content: center;
+  font-weight: bold !important;
+  color:black  ;
+  margin-top: 15vh;
+  margin-left: 0;
+  font-size: 1em;
+}
 .form-group {
   margin-bottom: 15px;
   text-align: left;
@@ -363,7 +373,8 @@ h2 {
 
 label {
   font-size: 0.9em;
-  color: white;
+  color:#2ab0bf;
+  font-weight: bold;
 }
 
 input[type='text'],
