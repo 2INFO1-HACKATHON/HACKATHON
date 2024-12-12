@@ -285,10 +285,11 @@ const onSlideChange = () => {
   align-items: center;
   display: flex;
   flex-direction: column;
+  
 }
 
 .swiper-slide img {
-  width: 80%;
+  width: 60%;
   height: auto;
   object-fit: cover;
   border-radius: 0.5rem;
@@ -298,9 +299,9 @@ const onSlideChange = () => {
 .texto-carrosel {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Alinha o conteúdo horizontalmente */
-  justify-content: center; /* Alinha o conteúdo verticalmente */
-  text-align: center; /* Garante que o texto fique centralizado */
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
   background-color: transparent;
   width: 30vw;
 
@@ -315,10 +316,10 @@ const onSlideChange = () => {
 .texto-carrosel p {
   display: flex;
   flex-direction: column;
-  width: 1000%;
+  width: 100%;
   font-size: 0.9rem;
   font-weight: 400;
-  text-align: left;
+  text-align: center;
 }
 
 .incluso {
