@@ -1,4 +1,4 @@
-<script setup>
+ <script setup>
 import Menu from '@/components/Menu.vue'
 import Footer from '@/components/Footer.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -126,11 +126,11 @@ const onSlideChange = () => {
 
   <SwiperSlide>
          
-         <img src="../assets/imagens/manutencao3.jpeg" alt="" />
+         <img src="../assets/imagens/manutencao1.jpeg" alt="" />
          <div class="texto-carrosel">
-           <h3>Troca de resistência</h3>
+           <h3>Instalação de pia</h3>
            <p>
-                Realizamos a troca de resistência com precisão e cuidado, assegurando uma instalação correta que prolonga a vida útil do equipamento e mantém seu funcionamento seguro e eficiente.
+            Realizamos a instalação de pias com precisão e cuidado, garantindo um ajuste perfeito e funcionamento eficiente.
            </p>
          </div>
       </SwiperSlide>
@@ -172,11 +172,11 @@ const onSlideChange = () => {
 >
   <SwiperSlide>
          
-         <img src="../assets/imagens/manutencao1.jpeg" alt="" />
+         <img src="../assets/imagens/manutencao3.jpeg" alt="" />
          <div class="texto-carrosel">
-           <h3>Instalação de pia</h3>
+           <h3>Troca de resistência</h3> 
            <p>
-                Realizamos a instalação de pias com precisão e cuidado, garantindo um ajuste perfeito e funcionamento eficiente
+            Realizamos a troca de resistência com precisão e cuidado, assegurando uma instalação correta que prolonga a vida útil do equipamento e mantém seu funcionamento seguro e eficiente.         
            </p>
          </div>
   </SwiperSlide>
@@ -216,23 +216,16 @@ const onSlideChange = () => {
         empenho do nosso time de profissionais.
       </p>
     </div>
-    <div class="avaliacao-cliente1">
-      <i class=""></i>
-          <p class="text-avaliacao1">
-            Empresa de excelente qualidade, profissionais atenciosos. Recomendo o
-            serviço de instalação de ar condicionado.
-          </p>
-    </div>
-
-    <div class="avaliacao-cliente2">
-      <i class=""></i>
-          <p class="text-avaliacao2">
-            Empresa de excelente qualidade, profissionais atenciosos. Recomendo o
-            serviço de instalação de ar condicionado.
-          </p>
-    </div>
+    <div class="feedback1">
+  <img src="../assets/imagens/feedback1.png" alt="">
 </div>
- 
+<div class="feedback2">
+  <img src="../assets/imagens/feedback.jpg" alt="">
+</div>
+</div>
+
+
+
   <header> <Footer></Footer></header> 
   </div>
 
@@ -387,7 +380,6 @@ const onSlideChange = () => {
   justify-content: space-between;
   position: relative;
   margin-top: 3rem;
-
 }
 
 .text-content {
@@ -413,28 +405,25 @@ const onSlideChange = () => {
   display: flex;
   align-items: flex-start;
 }
-.avaliacao-cliente1{
-  position: relative;
-  background-color: #f3f4f6;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.avaliacao-cliente2{
-  position: relative;
-  background-color: #f3f4f6;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.text-avaliacao1{
-  text-align: center;
-  color: #040507;
-}
-.text-avaliacao2{
-  text-align: center;
-  color:  #040507;
-  
+
+.feedback1{
+display: flex;
+justify-content: center;
+width: 30vw;
+height: 20vh;
+flex-direction: column;
+border-radius: 5px;
+box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
 }
 
+.feedback2{
+  margin-top: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  width: 30vw;
+  height: 20vh;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+}
 </style>
