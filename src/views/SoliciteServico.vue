@@ -1,11 +1,14 @@
 <script setup>
 import { reactive, ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
 import Menu from '@/components/Menu.vue'
 import Footer from '@/components/Footer.vue'
 
 const router = useRouter()
+const userStore = useUserStore()
 const nome = ref('');
+
 
 const serviços = ['Limpeza', 'Culinária', 'Manutenção', 'Cuidados']
 
@@ -64,6 +67,28 @@ const submitForm = () => {
   });
 };
 
+
+const erro = ref('')
+function checkLoginAndSubmit() {
+  if (userStore.isLoggedIn) {
+    EnviarDados()
+  } else {
+    localStorage.setItem('pendingServiceRequest', JSON.stringify(pessoa))
+    router.push('/PaginaSignup')
+  }
+
+  if (!telefoneValido.value) {
+    erro.value = 'Telefone inválido'
+    return
+  }
+
+  pessoa.telefone = telefoneModel.value
+
+  console.log('Form submitted:', pessoa)
+
+  resetForm()
+}
+
 function resetForm() {
   Object.assign(pessoa, {
     nome: '',
@@ -99,6 +124,42 @@ const erros = reactive({
   servico: '',
   subServico: ''
 })
+function EnviarDados() {
+  let hasErrors = false;
+
+  //
+  Object.keys(erros).forEach((key) => (erros[key] = ''));
+
+  if (!pessoa.nome) {
+    erros.nome = 'O nome é obrigatório.';
+    hasErrors = true;
+  }
+  if (!telefoneValido.value) {
+    erros.telefone = 'O telefone deve ser válido.';
+    hasErrors = true;
+  }
+  if (!pessoa.email) {
+    erros.email = 'O e-mail é obrigatório.';
+    hasErrors = true;
+  }
+  if (!pessoa.servico) {
+    erros.servico = 'Por favor, selecione um serviço.';
+    hasErrors = true;
+  }
+  if (!pessoa.subServico) {
+    erros.subServico = 'Por favor, selecione um tipo de serviço.';
+    hasErrors = true;
+  }
+
+  if (hasErrors) {
+    return; 
+  }
+
+  
+   
+}
+
+ 
 
 const telefoneModel = ref('')
 const telefone = computed({
@@ -119,6 +180,8 @@ const telefoneValido = computed(() => {
   const numeroLimpo = telefoneModel.value.replace(/\D/g, '')
   return numeroLimpo.length === 11
 })
+
+ 
 
 const precos = {
   Limpeza: {
@@ -164,7 +227,7 @@ function atualizarPreco() {
     <div class="form-container">
       <h2>Solicite seu Serviço</h2>
       <form @submit.prevent="submitForm">
-
+        
           <div class="form-group">
   <label for="nome">Nome:</label>
   <input type="text" id="nome" v-model="pessoa.nome" required />
@@ -214,6 +277,7 @@ function atualizarPreco() {
   </select>
   <p v-if="erros.subServico" class="error-message">{{ erros.subServico }}</p>
 </div>
+
 
         <div v-if="precoSelecionado !== null" class="form-group">
           <label for="preco">Preço:</label>
