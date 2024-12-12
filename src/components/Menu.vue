@@ -145,7 +145,7 @@ onBeforeUnmount(() => {
       <RouterLink to="/" class="logo-container">
         <img src="../assets/imagens/logo.png" alt="logo" />
       </RouterLink>
-      <RouterLink to="/" class="menu-button desktop-only" aria-label="Home">Início</RouterLink>
+     
 
       <div ref="dropdownRef" class="dropdown-container desktop-only">
         <button ref="triggerButtonRef" @click="toggleDropdown" @keydown="handleKeyDown"
@@ -371,7 +371,10 @@ img {
   border: none;
   white-space: nowrap;
 }
-
+.auth-button i {
+ 
+  font-size: 1rem;
+}
 .auth-button:hover {
   background-color: #f1f1f1;
 }

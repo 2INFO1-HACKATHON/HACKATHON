@@ -7,9 +7,14 @@ import Menu from '@/components/Menu.vue'
 const router = useRouter()
 const userStore = useUserStore()
 
+
+function goBack() {
+    window.history.back();
+}
+
 const profileImage = ref(null)
 const form = reactive({
-  firstName: userStore.user?.firstName || '',
+  firstName: userStore.user?.firstName || 'Lucas',
   lastName: userStore.user?.lastName || '',
   phone: userStore.user?.phone || '',
   email: userStore.user?.email || '',
@@ -268,7 +273,11 @@ watch(() => form.state, updateCities)
   <Menu></Menu>
 
   <div class="content">
+ 
     <div class="profile-section">
+         <button class="back-button" @click="goBack">
+            <i class="fas fa-arrow-left"></i> Voltar
+        </button>
       <div class="user-config">
         <h1>Configurações de usuário</h1>
       </div>
@@ -376,6 +385,29 @@ watch(() => form.state, updateCities)
   background-color: #f2f2f2;
 }
 
+.back-button {
+  position: fixed;
+  left: 4vw;
+  top: 5vw;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5vw;
+  color: var(--azul-royal);
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+}
+
+.back-button i {
+  margin-right: 0.3vw;
+}
+
+.back-button:hover {
+  color: #3498db;
+}
+
 .profile-section {
   width: 50%;
   background-color: #F0F0F0;
@@ -464,7 +496,7 @@ watch(() => form.state, updateCities)
 h1 {
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-top: 2vw;
   color: #111827;
 }
 
