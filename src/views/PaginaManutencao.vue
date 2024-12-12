@@ -1,4 +1,4 @@
- <script setup>
+<script setup>
 import Menu from '@/components/Menu.vue'
 import Footer from '@/components/Footer.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -427,3 +427,4 @@ box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
   box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
 }
 </style>
+ 
