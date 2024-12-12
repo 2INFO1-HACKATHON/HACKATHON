@@ -8,40 +8,43 @@ import Footer from '@/components/Footer.vue'
       <Menu></Menu>
     </header>
 
-    <h1 class="title">Cuidados</h1>
-    <p class="subtitle">Garanta conforto e segurança para quem você ama</p>
-    <p class="text">
-      Oferecemos cuidados personalizados para garantir conforto e segurança. Nossa equipe cuida de
-      cada detalhe, permitindo que você tenha tranquilidade e confiança. Deixe seus entes queridos
-      em boas mãos
-    </p>
-    <div class="cards">
-      <div class="card">
-        <h2 class="card-title">Equipe Multidisciplinar</h2>
-        <hr>
-        <p class="card-text">
-          Profissionais qualificados em diversas áreas para abordar todas as necessidades de saúde.
-        </p>
-      </div>
-      <div class="card">
-        <h2 class="card-title">Avaliação Especializada</h2>
-        <hr>
-        <p class="card-text">
-          Avaliação especializada no local, garantindo planos de cuidados personalizados e
-          eficientes.
-        </p>
-      </div>
-      <div class="card">
-        <h2 class="card-title">Atendimento Consultivo</h2>
-        <hr>
-        <p class="card-text">
-          Ouvimos suas necessidades, oferecendo orientações e soluções adaptadas para o bem-estar.
-        </p>
+    <div class="inicioPagina">
+      <h1 class="title">Cuidados</h1>
+      <p class="subtitle">Garanta conforto e segurança para quem você ama</p>
+      <p class="text">
+        Oferecemos cuidados personalizados para garantir conforto e segurança. Nossa equipe cuida de
+        cada detalhe, permitindo que você tenha tranquilidade e confiança. Deixe seus entes queridos
+        em boas mãos
+      </p>
+      <div class="cards">
+        <div class="card">
+          <h2 class="card-title">Equipe Multidisciplinar</h2>
+          <hr />
+          <p class="card-text">
+            Profissionais qualificados em diversas áreas para abordar todas as necessidades de
+            saúde.
+          </p>
+        </div>
+        <div class="card">
+          <h2 class="card-title">Avaliação Especializada</h2>
+          <hr />
+          <p class="card-text">
+            Avaliação especializada no local, garantindo planos de cuidados personalizados e
+            eficientes.
+          </p>
+        </div>
+        <div class="card">
+          <h2 class="card-title">Atendimento Consultivo</h2>
+          <hr />
+          <p class="card-text">
+            Ouvimos suas necessidades, oferecendo orientações e soluções adaptadas para o bem-estar.
+          </p>
+        </div>
       </div>
     </div>
 
     <div class="cuidados">
-      <h1 class="title-cuidados">Tipos de </h1>
+      <h1 class="title-cuidados">Tipos de</h1>
       <h1 class="title-cuidadoss">Cuidados</h1>
       <div class="section">
         <div class="image-left">
@@ -75,11 +78,11 @@ import Footer from '@/components/Footer.vue'
         <div class="text-right">
           <h2>Cuidados pós-operatórios</h2>
           <p>
-            Apoio especializado para uma recuperação segura, com acompanhamento cuidadoso em cada etapa do processo.
+            Apoio especializado para uma recuperação segura, com acompanhamento cuidadoso em cada
+            etapa do processo.
           </p>
         </div>
       </div>
-
 
       <div class="servicos-cuidados">
         <h1>Nossos Serviços de Cuidado</h1>
@@ -111,9 +114,7 @@ import Footer from '@/components/Footer.vue'
               <li>
                 Mobilidade: Assistência com a mobilidade para prevenir quedas e garantir segurança.
               </li>
-              <li>
-                Lembretes de Medicação: Garantimos que as medicações sejam tomadas corretas.
-              </li>
+              <li>Lembretes de Medicação: Garantimos que as medicações sejam tomadas corretas.</li>
             </ul>
           </div>
         </div>
@@ -124,25 +125,26 @@ import Footer from '@/components/Footer.vue'
 </template>
 
 <style scoped>
-
+.inicioPagina {
+  background-color: #efefef;
+  padding: 3rem 3rem;
+}
 
 .servicos-cuidados {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
   margin-top: 10vw;
-  
 }
+
 .servicos-cuidados h1 {
   font-size: 2em;
-  color: #2ab0bf;
+  color: var(--azul-royal-escuro);
   font-weight: 600;
-  
-
 }
-.servicos-cuidados p {
 
-  font-size: 1em;
+.servicos-cuidados p {
+  font-size: 1.2rem;
   color: #000000;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -150,11 +152,10 @@ import Footer from '@/components/Footer.vue'
 .services {
   display: flex;
   justify-content: space-between;
-  gap: 80px;
+  gap: 2.5rem;
   align-items: flex-start;
-  padding: 50px;
-  
 }
+
 .service-box {
   background-color: white;
   border-radius: 10px;
@@ -162,11 +163,13 @@ import Footer from '@/components/Footer.vue'
   padding: 50px;
   width: 80%;
   position: relative;
-  margin-bottom: 30px;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
 }
+
 .service-box h2 {
-  font-size: 1.2em;
-  color: #00a99d;
+  font-size: 1.5em;
+  color: var(--azul-royal-escuro);
   margin-bottom: 20px;
 }
 .service-box ul {
@@ -174,6 +177,7 @@ import Footer from '@/components/Footer.vue'
   padding: 0;
   text-align: left;
 }
+
 .service-box ul li {
   font-size: 0.9em;
   color: #000000;
@@ -181,6 +185,7 @@ import Footer from '@/components/Footer.vue'
   display: flex;
   align-items: flex-start;
 }
+
 .service-box ul li::before {
   content: '•';
   color: #000000;
@@ -215,7 +220,7 @@ import Footer from '@/components/Footer.vue'
 
 .image-left,
 .image-right {
-  width: 40vw;
+  width: 30vw;
 }
 
 .image-left img,
@@ -228,7 +233,7 @@ import Footer from '@/components/Footer.vue'
 .text-left {
   width: 40vw;
   padding: 20px;
-  padding-left: 270px ;
+  padding-left: 270px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -246,21 +251,20 @@ import Footer from '@/components/Footer.vue'
 
 .text-right h2,
 .text-left h2 {
-  color:#107f8b;
+  color: var(--azul-royal-escuro);
   font-weight: 600;
   margin-bottom: 15px;
-  font-size: 2em;
-  letter-spacing: 4px;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
 }
 
 .text-right p {
-
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #000000;
   line-height: 1.6;
 }
 .text-left p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #000000;
   line-height: 1.6;
   width: 90%;
@@ -285,22 +289,21 @@ import Footer from '@/components/Footer.vue'
 }
 
 .title-cuidados {
-  font-size: 36px;
+  margin-top: 3.2rem;
+  font-size: 2.5rem;
   font-weight: 550;
   justify-content: center;
   display: flex;
-  color: #2ab0bf;
-   
+  color: var(--azul-royal-escuro);
 }
 .title-cuidadoss {
   font-size: 33px;
   font-weight: 420;
   justify-content: center;
   display: flex;
-  color: #2ab0bf;
-  ;
+  color: var(--azul-royal-escuro);
   letter-spacing: 6px;
-margin-bottom: 3em;
+  margin-bottom: 3em;
 }
 
 .title-card {
@@ -316,7 +319,6 @@ margin-bottom: 3em;
   display: flex;
   flex-direction: column;
   margin-left: 25px;
-
   width: 30%;
 }
 
@@ -337,8 +339,8 @@ margin-bottom: 3em;
 }
 
 .title {
-  font-size: 36px;
-  font-weight: bold;
+  font-size: 2.5rem;
+  font-weight: 600;
   margin-bottom: 10px;
   display: flex;
   justify-content: center;
@@ -346,9 +348,8 @@ margin-bottom: 3em;
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 1.5rem;
   color: #000000;
-  font-weight: bold;
   margin-bottom: 20px;
   justify-content: center;
   display: flex;
@@ -356,11 +357,11 @@ margin-bottom: 3em;
 
 .text {
   color: #000000;
-  margin-bottom: 30px;
-  margin: 0 auto;
-  width: 50%;
+  margin: 0 auto ;
+  width: 60%;
   display: flex;
-  align-items: center;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .cards {
@@ -375,29 +376,26 @@ margin-bottom: 3em;
   padding: 20px;
   width: 300px;
   height: 180px;
-  background-color:#ffffff;
+  background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 1.5vw;
-color: rgb(0, 0, 0);
-
-
+  color: rgb(0, 0, 0);
 }
 
 .card-title {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
-  color:#107f8b;
+  color: #107f8b;
 }
 
 .card-text {
-  font-size: 14px;
+  font-size: 1rem;
   color: #000000;
   margin-top: 1vw;
 }
 
-.card
-hr {
+.card hr {
   color: white;
 }
 </style>
