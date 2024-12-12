@@ -14,7 +14,8 @@ const props = defineProps({
       { label: 'Limpeza', to: '/PaginaLimpeza' },
       { label: 'Culinária', to: '/PaginaCulinaria' },
       { label: 'Cuidados', to: '/PaginaCuidados' },
-      { label: 'Manutenção', to: '/PaginaManutencao' }
+      { label: 'Manutenção', to: '/PaginaManutencao' },
+      { label: 'Solicite Serviço', to: '/SoliciteServico'}
     ]
   }
 })
@@ -297,18 +298,15 @@ img {
   align-items: center;
   white-space: nowrap;
   margin-right: 2vw;
-  min-width: 50px;
+  width: 4vw;
   transition: all 0.3s ease;
   justify-content: center;
   
 
 }
 .dropdown-button.is-open {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
   width: 100%;
   justify-content: center;
-
 }
  
 .dropdown-button {
@@ -321,9 +319,8 @@ img {
   align-items: center;
   white-space: nowrap;
   margin-right: 2vw;
-  min-width: 50px;
+  width: 100%;
   transition: all 0.3s ease;
-  padding: 10px 20px;
   border-radius: 5px;
   justify-content: center;
 }
@@ -345,7 +342,7 @@ img {
 .dropdown-menu {
   position: absolute;
   background-color: #eeeeee;
-  width: auto;
+  width: 100%;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   text-align: center;
