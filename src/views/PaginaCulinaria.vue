@@ -145,9 +145,10 @@ import Footer from '@/components/Footer.vue'
 </template>
 
 <style scoped>
+
 .inicioPagina {
-  background-color: #f0f0f0;
-  padding: 2rem 1rem;
+  background-color: #efefef;
+  padding: 3rem 3rem;
 }
 
 .titulo,
@@ -159,7 +160,6 @@ import Footer from '@/components/Footer.vue'
 
 .titulo {
   font-weight: 600;
-  font-size: 2.5rem;
   padding-top: 4rem;
 }
 
@@ -170,7 +170,7 @@ import Footer from '@/components/Footer.vue'
 .texto-inicio {
   font-size: 1rem;
   max-width: 800px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 3rem;
 }
 
 .cards-iniciais {
@@ -203,13 +203,13 @@ import Footer from '@/components/Footer.vue'
 .titulo-card {
   text-align: center;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: var(--azul-royal);
   margin-bottom: 1rem;
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -250,32 +250,31 @@ import Footer from '@/components/Footer.vue'
 
 .how-it-works-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 72%;
+  margin: 3rem auto 3rem;
 }
 
 .card-grid {
-  padding: 1.5rem;
+  padding: 1.8rem;
+  height: 180px;
   border: 1px solid #ccc;
   border-radius: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-grid:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card-grid h3 {
+.card-grid h2 {
   font-weight: bold;
   color: var(--azul-royal-escuro);
-  font-size: 1.2rem;
-}
-
-.card-grid p {
-  font-size: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
 }
 
 .culinary-services {
@@ -285,9 +284,9 @@ import Footer from '@/components/Footer.vue'
 }
 
 .culinary-services h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 550;
-  margin: 1rem auto 2rem auto;
+  margin: 3rem auto 3rem auto;
   color: var(--azul-royal-escuro);
 }
 
@@ -301,8 +300,9 @@ import Footer from '@/components/Footer.vue'
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 70%;
+  margin: 0 auto 3rem;
 }
 
 .service {
@@ -312,16 +312,14 @@ import Footer from '@/components/Footer.vue'
   background-color: #f9f9f9;
   border-radius: 1rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  width: 100%;
 }
 
 .service img {
   width: 100%;
-  max-width: 400px;
+  max-width: 36%;
   height: auto;
   border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .service-text {
@@ -329,7 +327,7 @@ import Footer from '@/components/Footer.vue'
 }
 
 .service h3 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--azul-royal-escuro);
   margin-bottom: 1rem;
@@ -358,27 +356,27 @@ import Footer from '@/components/Footer.vue'
   }
 
   .titulo-card {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .card p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .how-it-works .titulo {
     font-size: 3rem;
   }
 
-  .card-grid h3 {
-    font-size: 1.5rem;
+  .card-grid h2 {
+    font-size: 1.4rem;
   }
 
   .card-grid p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .culinary-services h2 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .culinary-services h2 span {
@@ -413,13 +411,16 @@ import Footer from '@/components/Footer.vue'
   }
 }
 
+
+
+
 @media (min-width: 1024px) {
   .titulo {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 
   .subtitulo {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .texto-inicio {
@@ -427,35 +428,31 @@ import Footer from '@/components/Footer.vue'
   }
 
   .card p {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .how-it-works .titulo {
-    font-size: 3.5rem;
-  }
-
-  .card-grid h3 {
-    font-size: 1.8rem;
-  }
-
-  .card-grid p {
-    font-size: 1.2rem;
-  }
-
-  .culinary-services h2 {
-    font-size: 3.5rem;
-  }
-
-  .culinary-services h2 span {
-    font-size: 3rem;
-  }
-
-  .service h3 {
     font-size: 2.2rem;
   }
 
+  .card-grid p {
+    font-size: 1.3rem;
+  }
+
+  .culinary-services h2 {
+    font-size: 2.3rem;
+  }
+
+  .culinary-services h2 span {
+    font-size: 2.2rem;
+  }
+
+  .service h3 {
+    font-size: 1.5rem;
+  }
+
   .service p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 </style>
