@@ -7,14 +7,13 @@ import Footer from '@/components/Footer.vue'
 
 const router = useRouter()
 const userStore = useUserStore()
-const nome = ref('');
-
+const nome = ref('')
 
 const serviços = ['Limpeza', 'Culinária', 'Manutenção', 'Cuidados']
 
 const subServiços = {
   Limpeza: ['Limpeza Diária', 'Limpeza Semanal', 'Limpeza Quinzenal'],
-  Culinária: ['Personal Chef', 'Chef Nutricionista', 'Chef de Festa' ],
+  Culinária: ['Personal Chef', 'Chef Nutricionista', 'Chef de Festa'],
   Cuidados: ['Cuidado com Crianças', 'Cuidado com Idosos', 'Cuidados Pós-Operatórios'],
   Manutenção: [
     'Troca de Encanamento',
@@ -59,14 +58,13 @@ function atualizarSubServicos() {
 }
 const submitForm = () => {
   router.push({
-    name: 'PaginaCheckout', 
+    name: 'PaginaCheckout',
     query: {
       nome: nome.value,
       telefone: telefone.value
     }
-  });
-};
-
+  })
+}
 
 const erro = ref('')
 function checkLoginAndSubmit() {
@@ -125,41 +123,36 @@ const erros = reactive({
   subServico: ''
 })
 function EnviarDados() {
-  let hasErrors = false;
+  let hasErrors = false
 
   //
-  Object.keys(erros).forEach((key) => (erros[key] = ''));
+  Object.keys(erros).forEach((key) => (erros[key] = ''))
 
   if (!pessoa.nome) {
-    erros.nome = 'O nome é obrigatório.';
-    hasErrors = true;
+    erros.nome = 'O nome é obrigatório.'
+    hasErrors = true
   }
   if (!telefoneValido.value) {
-    erros.telefone = 'O telefone deve ser válido.';
-    hasErrors = true;
+    erros.telefone = 'O telefone deve ser válido.'
+    hasErrors = true
   }
   if (!pessoa.email) {
-    erros.email = 'O e-mail é obrigatório.';
-    hasErrors = true;
+    erros.email = 'O e-mail é obrigatório.'
+    hasErrors = true
   }
   if (!pessoa.servico) {
-    erros.servico = 'Por favor, selecione um serviço.';
-    hasErrors = true;
+    erros.servico = 'Por favor, selecione um serviço.'
+    hasErrors = true
   }
   if (!pessoa.subServico) {
-    erros.subServico = 'Por favor, selecione um tipo de serviço.';
-    hasErrors = true;
+    erros.subServico = 'Por favor, selecione um tipo de serviço.'
+    hasErrors = true
   }
 
   if (hasErrors) {
-    return; 
+    return
   }
-
-  
-   
 }
-
- 
 
 const telefoneModel = ref('')
 const telefone = computed({
@@ -181,8 +174,6 @@ const telefoneValido = computed(() => {
   return numeroLimpo.length === 11
 })
 
- 
-
 const precos = {
   Limpeza: {
     'Limpeza Diária': 150,
@@ -193,7 +184,6 @@ const precos = {
     'Personal Chef': 400,
     'Chef Nutricionista': 300,
     'Chef de Festa': 800
-    
   },
   Cuidados: {
     'Cuidado com Crianças': 100,
@@ -223,63 +213,71 @@ function atualizarPreco() {
 
 <template>
   <Menu></Menu>
-  <div class="texto"><h1>Nos fale um pouco sobre você e sobre a sua residência, para enviarmos o seu orçamento!</h1></div>
+  <div class="containerText">
+    <h1 class="title">Solicite seu Orçamento</h1>
+  </div>
+  <div class="descricao">
+    <p class="t2">
+      Para fornecermos um orçamento personalizado, por favor, preencha as informações sobre você e a sua residência!
+    </p>
+  </div>
 
   <div class="form-wrapper">
     <div class="form-container">
-      <h2>Solicite seu Serviço</h2>
       <form @submit.prevent="submitForm">
-        
-          <div class="form-group">
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" v-model="pessoa.nome" required />
-  <p v-if="erros.nome" class="error-message">{{ erros.nome }}</p>
-</div>
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" v-model="pessoa.nome" required />
+          <p v-if="erros.nome" class="error-message">{{ erros.nome }}</p>
+        </div>
 
-<div class="form-group">
-  <label for="telefone">Telefone</label>
-  <input
-    type="tel"
-    id="telefone"
-    v-model="telefone"
-    :class="{ error: !telefoneValido && telefoneModel.value }"
-    placeholder="(00) 00000-0000"
-    required
-    @input="telefoneModel.value = $event.target.value.replace(/\D/g, '').slice(0, 11)"
-    @keydown="bloquearNaoNumeros($event)"
-    maxlength="15"
-  />
-  <p v-if="erros.telefone" class="error-message">{{ erros.telefone }}</p>
-</div>
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input
+            type="tel"
+            id="telefone"
+            v-model="telefone"
+            :class="{ error: !telefoneValido && telefoneModel.value }"
+            placeholder="(00) 00000-0000"
+            required
+            @input="telefoneModel.value = $event.target.value.replace(/\D/g, '').slice(0, 11)"
+            @keydown="bloquearNaoNumeros($event)"
+            maxlength="15"
+          />
+          <p v-if="erros.telefone" class="error-message">{{ erros.telefone }}</p>
+        </div>
 
-<div class="form-group">
-  <label for="email">Email:</label>
-  <input type="email" id="email" v-model="pessoa.email" required />
-  <p v-if="erros.email" class="error-message">{{ erros.email }}</p>
-</div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" v-model="pessoa.email" required />
+          <p v-if="erros.email" class="error-message">{{ erros.email }}</p>
+        </div>
 
-<div class="form-group">
-  <label for="servico">Serviço:</label>
-  <select id="servico" v-model="pessoa.servico" @change="atualizarSubServicos" required>
-    <option value="" disabled>Selecione um serviço</option>
-    <option v-for="servico in serviços" :key="servico" :value="servico">
-      {{ servico }}
-    </option>
-  </select>
-  <p v-if="erros.servico" class="error-message">{{ erros.servico }}</p>
-</div>
+        <div class="form-group">
+          <label for="servico">Serviço:</label>
+          <select id="servico" v-model="pessoa.servico" @change="atualizarSubServicos" required>
+            <option value="" disabled>Selecione um serviço</option>
+            <option v-for="servico in serviços" :key="servico" :value="servico">
+              {{ servico }}
+            </option>
+          </select>
+          <p v-if="erros.servico" class="error-message">{{ erros.servico }}</p>
+        </div>
 
-<div class="form-group" v-if="subServicosDisponiveis.length > 0">
-  <label for="subServico">Subserviço:</label>
-  <select id="subServico" v-model="pessoa.subServico" @change="atualizarPreco" required>
-    <option value="" disabled>Selecione um tipo de {{ pessoa.servico }}</option>
-    <option v-for="subServico in subServicosDisponiveis" :key="subServico" :value="subServico">
-      {{ subServico }}
-    </option>
-  </select>
-  <p v-if="erros.subServico" class="error-message">{{ erros.subServico }}</p>
-</div>
-
+        <div class="form-group" v-if="subServicosDisponiveis.length > 0">
+          <label for="subServico">Subserviço:</label>
+          <select id="subServico" v-model="pessoa.subServico" @change="atualizarPreco" required>
+            <option value="" disabled>Selecione um tipo de {{ pessoa.servico }}</option>
+            <option
+              v-for="subServico in subServicosDisponiveis"
+              :key="subServico"
+              :value="subServico"
+            >
+              {{ subServico }}
+            </option>
+          </select>
+          <p v-if="erros.subServico" class="error-message">{{ erros.subServico }}</p>
+        </div>
 
         <div v-if="precoSelecionado !== null" class="form-group">
           <label for="preco">Preço:</label>
@@ -328,7 +326,8 @@ function atualizarPreco() {
   justify-content: center;
   align-items: center;
   font-family: var(--font-geral);
-  margin: 5vh auto 5vh;
+  /* top | right | bottom | left */
+  margin: 8vh auto 10vh auto;
 }
 
 .error-message {
@@ -340,32 +339,49 @@ function atualizarPreco() {
 
 .form-container {
   width: 100%;
-  max-width: 600px;
-  max-height: 1000px;
+  max-width: 46%;
+  max-height: 50%;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   text-align: center;
-  margin-top: 10vh;
 }
 
 h2 {
   font-family: var(--font-titulo);
   font-weight: 500;
-  color:#2ab0bf;
+  color: #2ab0bf;
   font-size: 1.8em;
   margin-bottom: 20px;
 }
 
-.texto {
-   display: flex;
+.containerText {
+  display: flex;
   justify-content: center;
-  font-weight: bold !important;
-  color:black  ;
-  margin-top: 15vh;
-  margin-left: 0;
-  font-size: 1em;
+  align-items: center;
+  margin-top: 18vh;
 }
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.descricao {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.t2 {
+  width: 50%;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-top: 2vh;
+  text-align: center;
+}
+
 .form-group {
   margin-bottom: 15px;
   text-align: left;
@@ -373,7 +389,7 @@ h2 {
 
 label {
   font-size: 0.9em;
-  color:#2ab0bf;
+  color: #2ab0bf;
   font-weight: bold;
 }
 
@@ -408,7 +424,7 @@ textarea {
 .submit-button {
   width: 100%;
   padding: 12px;
-  background-color: var(--verde-agua);
+  background-color: var(--azul-royal);
   color: white;
   border: none;
   border-radius: 5px;
