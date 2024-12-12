@@ -634,7 +634,7 @@ input:focus {
 
 button {
   width: 100%;
-  background-color: #4f46e5;
+  background-color: #10b981;
   color: #ffffff;
   font-weight: 500;
   padding: 0.75rem 1rem;
@@ -646,7 +646,7 @@ button {
 }
 
 button:hover:not(:disabled) {
-  background-color: #4338ca;
+  background-color: #22be8a;
 }
 
 button:disabled {
