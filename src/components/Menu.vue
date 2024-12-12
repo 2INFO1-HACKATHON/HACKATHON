@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
@@ -15,7 +16,7 @@ const props = defineProps({
       { label: 'Culinária', to: '/PaginaCulinaria' },
       { label: 'Cuidados', to: '/PaginaCuidados' },
       { label: 'Manutenção', to: '/PaginaManutencao' },
-      { label: 'Solicite Serviço', to: '/SoliciteServico'}
+      { label: 'Solicite Serviço', to: '/SoliciteServico' }
     ]
   }
 })
@@ -96,11 +97,6 @@ const toggleMobileDropdown = () => {
   mobileDropdownOpen.value = !mobileDropdownOpen.value
 }
 
-const logout = () => {
-  userStore.clearUser()
-  mobileMenuOpen.value = false
-}
-
 const handleClickOutside = (event) => {
   if (isOpen.value && !event.target.closest('.dropdown-container')) {
     closeDropdown()
@@ -120,6 +116,13 @@ const handleClickOutside = (event) => {
   }
 }
 
+const navigateToProfile = () => {
+  router.push('/PaginaPerfil')
+  if (mobileMenuOpen.value) {
+    toggleMobileMenu()
+  }
+}
+
 onMounted(() => {
   document.addEventListener('click', handleClickOutside)
 })
@@ -130,6 +133,8 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <header>
     <button class="hamburger-button" @click="toggleMobileMenu" aria-label="Menu">
       <span></span>
@@ -143,27 +148,12 @@ onBeforeUnmount(() => {
       <RouterLink to="/" class="menu-button desktop-only" aria-label="Home">Início</RouterLink>
 
       <div ref="dropdownRef" class="dropdown-container desktop-only">
-        <button
-          ref="triggerButtonRef"
-          @click="toggleDropdown"
-          @keydown="handleKeyDown"
-          :class="['dropdown-button', { 'is-open': isOpen }]"
-          :aria-haspopup="true"
-          :aria-expanded="isOpen"
-        >
+        <button ref="triggerButtonRef" @click="toggleDropdown" @keydown="handleKeyDown"
+          :class="['dropdown-button', { 'is-open': isOpen }]" :aria-haspopup="true" :aria-expanded="isOpen">
           <span class="button-text">{{ currentButtonText }}</span>
           <span :class="['arrow', { 'arrow-up': isOpen }]">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </span>
@@ -172,16 +162,10 @@ onBeforeUnmount(() => {
           <div v-if="isOpen" class="dropdown-menu" role="menu">
             <ul class="dropdown-menu">
               <li v-for="(option, index) in options" :key="index">
-                <a
-                  :href="option.to"
-                  @click.prevent="selectOption(option)"
-                  @keydown.enter="selectOption(option)"
-                  :ref="
-                    (el) => {
-                      if (el) menuItemRefs[index] = el
-                    }
-                  "
-                >
+                <a :href="option.to" @click.prevent="selectOption(option)" @keydown.enter="selectOption(option)" :ref="(el) => {
+                  if (el) menuItemRefs[index] = el
+                }
+                  ">
                   {{ option.label }}
                 </a>
               </li>
@@ -192,12 +176,12 @@ onBeforeUnmount(() => {
 
       <div v-if="!isAuthenticated" class="auth-buttons desktop-only">
         <RouterLink to="/Paginalogin" class="auth-button" aria-label="Entrar">Entrar</RouterLink>
-        <RouterLink to="/PaginaSignup" class="auth-button" aria-label="Criar Conta"
-          >Criar Conta</RouterLink
-        >
+        <RouterLink to="/PaginaSignup" class="auth-button" aria-label="Criar Conta">Criar Conta</RouterLink>
       </div>
       <div v-else class="auth-buttons desktop-only">
-        <button @click="logout" class="auth-button" aria-label="Sair">Logout</button>
+        <button @click="navigateToProfile" class="auth-button" aria-label="Perfil">
+          <i class="fas fa-user"></i>
+        </button>
       </div>
     </div>
 
@@ -206,47 +190,30 @@ onBeforeUnmount(() => {
         <RouterLink to="/" @click="toggleMobileMenu">Início</RouterLink>
         <RouterLink to="/SoliciteServico" @click="toggleMobileMenu">Solicitar Serviço</RouterLink>
         <div class="mobile-dropdown">
-          <button
-            class="dropdown-button"
-            @click="toggleMobileDropdown"
-            aria-haspopup="true"
-            :aria-expanded="mobileDropdownOpen"
-          >
+          <button class="dropdown-button" @click="toggleMobileDropdown" aria-haspopup="true"
+            :aria-expanded="mobileDropdownOpen">
             Serviços
           </button>
           <transition name="fade">
             <div v-if="mobileDropdownOpen" class="mobile-dropdown-menu" role="menu">
-              <a
-                v-for="(option, index) in options"
-                :key="index"
-                :href="option.to"
-                @click.prevent="selectOption(option)"
-                class="dropdown-item"
-                role="menuitem"
-              >
+              <a v-for="(option, index) in options" :key="index" :href="option.to" @click.prevent="selectOption(option)"
+                class="dropdown-item" role="menuitem">
                 {{ option.label }}
               </a>
             </div>
           </transition>
         </div>
         <div v-if="!isAuthenticated" class="auth-buttons">
-          <RouterLink
-            to="/Paginalogin"
-            class="auth-button"
-            aria-label="Entrar"
-            @click="toggleMobileMenu"
-            >Entrar
+          <RouterLink to="/Paginalogin" class="auth-button" aria-label="Entrar" @click="toggleMobileMenu">Entrar
           </RouterLink>
-          <RouterLink
-            to="/PaginaSignup"
-            class="auth-button"
-            aria-label="Criar Conta"
-            @click="toggleMobileMenu"
-            >Criar Conta</RouterLink
-          >
+          <RouterLink to="/PaginaSignup" class="auth-button" aria-label="Criar Conta" @click="toggleMobileMenu">Criar
+            Conta</RouterLink>
         </div>
-        <div v-else class="logout-button">
-          <button @click="logout" class="auth-button" aria-label="Sair">Logout</button>
+        <div v-else class="profile-button">
+          <button @click="navigateToProfile" class="auth-button" aria-label="Perfil">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+          </button>
         </div>
       </nav>
     </div>
@@ -301,14 +268,13 @@ img {
   width: 4vw;
   transition: all 0.3s ease;
   justify-content: center;
-  
-
 }
+
 .dropdown-button.is-open {
   width: 100%;
   justify-content: center;
 }
- 
+
 .dropdown-button {
   color: #666;
   border: none;
@@ -347,12 +313,11 @@ img {
   z-index: 1;
   text-align: center;
   list-style-type: none;
-   align-items: center;
-   justify-content: center;
-   border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
   width: 100%;
   justify-content: center;
-
 }
 
 .dropdown-menu li a {
@@ -365,6 +330,7 @@ img {
   font-size: 15px;
   border-radius: 5px;
 }
+
 .dropdown-button:hover {
   background-color: #f8f9fa;
 }
@@ -474,7 +440,7 @@ img {
   transform: rotate(90deg);
 }
 
-.logout-button {
+.profile-button {
   position: absolute;
   bottom: 2rem;
   left: 2rem;

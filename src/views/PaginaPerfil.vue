@@ -1,144 +1,32 @@
-<template>
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <div class="content">
-    <div class="profile-section">
-    <div class="user-config">
-   <h1>Configurações de usuário</h1>
-    
-    </div>
-        <div class="profile-photo">
-          <img v-if="profileImage" :src="profileImage" alt="Profile" />
-         
-        </div>
-        <input
-          ref="fileInput"
-          type="file"
-          class="hidden"
-          accept="image/*"
-          @change="handleImageUpload"
-        />
-        <button class="upload-button" @click="$refs.fileInput.click()">
-          Efetue o upload
-        </button>
-        <button class="delete-button" @click="deleteProfile">
-          Deletar cadastro
-        </button>
-      </div>
-
-      <div class="form-section">
-        <div v-if="mensagem" :class="['mensagem', mensagemTipo]">
-          {{ mensagem }}
-        </div>
-        <h1>Meu perfil</h1>
-        <div class="line-profile"></div>
-
-        <form @submit.prevent="saveProfile">
-          <h2>Informações pessoais:</h2>
-          <div class="line-info"></div>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="firstName">Nome:</label>
-              <input id="firstName" v-model="form.firstName" type="text" required />
-            </div>
-            <div class="form-field">
-              <label for="lastName">Sobrenome:</label>
-              <input id="lastName" v-model="form.lastName" type="text" required />
-            </div>
-            <div class="form-field">
-              <label for="telefone">Telefone:</label>
-              <input
-                id="telefone"
-                v-model="telefone"
-                type="tel"
-                :class="{ error: !telefoneValido && telefoneModel }"
-                placeholder="(00) 00000-0000"
-                required
-                @keydown="bloquearNaoNumeros"
-                maxlength="15"
-              />
-              <span v-if="telefoneError" class="error-message">{{ telefoneError }}</span>
-            </div>
-            <div class="form-field">
-              <label for="email">Email:</label>
-              <input id="email" v-model="form.email" type="email" required />
-            </div>
-          </div>
-
-          <h2>Informações residenciais:</h2>
-          <div class="line-info"></div>
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="cep">CEP:</label>
-              <input
-                id="cep"
-                v-model="cep"
-                @blur="buscarCep"
-                type="text"
-                placeholder="12345-678"
-                :class="{ error: erro }"
-                maxlength="9"
-              />
-              <span v-if="erro" class="error-message">{{ erro }}</span>
-            </div>
-            <div class="form-field">
-              <label for="state">Estado:</label>
-              <select id="state" v-model="form.state" @change="updateCities">
-                <option value="">Selecione o estado</option>
-                <option v-for="state in states" :key="state.uf" :value="state.uf">
-                  {{ state.name }}
-                </option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="city">Cidade:</label>
-              <select id="city" v-model="form.city">
-                <option value="">Selecione a cidade</option>
-                <option v-for="city in cities" :key="city" :value="city">
-                  {{ city }}
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="form-grid address">
-            <div class="form-field">
-              <label for="street">Rua:</label>
-              <input id="street" v-model="form.street" type="text" />
-            </div>
-            <div class="form-field">
-              <label for="number">Número:</label>
-              <input id="number" v-model="form.number" type="text" />
-            </div>
-          </div>
-
-          <div class="submit-container">
-            <button type="submit" class="submit-button">
-              Salvar
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  
-</template>
-
 <script setup>
 import { ref, reactive, computed, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
+import Menu from '@/components/Menu.vue'
+
+const router = useRouter()
+const userStore = useUserStore()
 
 const profileImage = ref(null)
 const form = reactive({
-  firstName: '',
-  lastName: '',
-  phone: '',
-  email: '',
-  cep: '',
-  state: '',
-  city: '',
-  street: '',
-  number: ''
+  firstName: userStore.user?.firstName || '',
+  lastName: userStore.user?.lastName || '',
+  phone: userStore.user?.phone || '',
+  email: userStore.user?.email || '',
+  cep: userStore.user?.cep || '',
+  state: userStore.user?.state || '',
+  city: userStore.user?.city || '',
+  street: userStore.user?.street || '',
+  number: userStore.user?.number || ''
 })
 
-const telefoneModel = ref('')
+const logout = () => {
+  userStore.clearUser()
+  localStorage.removeItem('user')
+  router.push('/')
+}
+
+const telefoneModel = ref(form.phone)
 const telefone = computed({
   get: () => formatarTelefone(telefoneModel.value),
   set: (value) => {
@@ -165,7 +53,7 @@ const telefoneError = computed(() => {
   return ''
 })
 
-const cepModel = ref('')
+const cepModel = ref(form.cep)
 const cep = computed({
   get: () => {
     const value = cepModel.value.replace(/\D/g, '')
@@ -216,8 +104,7 @@ const buscarCep = async () => {
     endereco.bairro = data.bairro
     endereco.localidade = data.localidade
     endereco.uf = data.uf
-    
-    // Update the form with the fetched data
+
     form.street = endereco.logradouro
     form.city = endereco.localidade
     form.state = endereco.uf
@@ -272,6 +159,7 @@ const saveProfile = () => {
   }
   form.phone = telefoneModel.value
   form.cep = cepModel.value
+  userStore.updateUser(form)
   console.log('Profile saved:', form)
 
   exibirMensagem('Perfil salvo com sucesso!', 'sucesso')
@@ -279,26 +167,28 @@ const saveProfile = () => {
 
 const deleteProfile = () => {
   if (confirm('Tem certeza que deseja deletar seu cadastro? Esta ação não pode ser desfeita.')) {
+    userStore.clearUser()
+
     // Limpar todos os campos do formulário
     Object.keys(form).forEach(key => {
       form[key] = ''
     })
-    
+
     // Limpar outros estados
     profileImage.value = null
     telefoneModel.value = ''
     cepModel.value = ''
     erro.value = ''
-    
+
     // Limpar o endereço
     limparEndereco()
-    
 
     cities.value = []
-    
+
     console.log('Cadastro deletado')
 
     exibirMensagem('Cadastro deletado com sucesso!', 'sucesso')
+    router.push('/login')
   }
 }
 
@@ -369,13 +259,115 @@ const updateCities = () => {
   form.city = ''
 }
 
-// Watch for changes in the form.state and update cities accordingly
 watch(() => form.state, updateCities)
-
 </script>
 
-<style scoped>
+<template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+  <Menu></Menu>
+
+  <div class="content">
+    <div class="profile-section">
+      <div class="user-config">
+        <h1>Configurações de usuário</h1>
+      </div>
+      <div class="profile-photo">
+        <img v-if="profileImage" :src="profileImage" alt="Profile" />
+      </div>
+      <input ref="fileInput" type="file" class="hidden" accept="image/*" @change="handleImageUpload" />
+      <button class="upload-button" @click="$refs.fileInput.click()">
+        Efetue o upload
+      </button>
+      <button class="logout-button" @click="logout">
+        Logout
+      </button>
+      <button class="delete-button" @click="deleteProfile">
+        Deletar cadastro
+      </button>
+    </div>
+
+    <div class="form-section">
+      <div v-if="mensagem" :class="['mensagem', mensagemTipo]">
+        {{ mensagem }}
+      </div>
+      <h1>Meu perfil</h1>
+      <div class="line-profile"></div>
+
+      <form @submit.prevent="saveProfile">
+        <h2>Informações pessoais:</h2>
+        <div class="line-info"></div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="firstName">Nome:</label>
+            <input id="firstName" v-model="form.firstName" type="text" required />
+          </div>
+          <div class="form-field">
+            <label for="lastName">Sobrenome:</label>
+            <input id="lastName" v-model="form.lastName" type="text" required />
+          </div>
+          <div class="form-field">
+            <label for="telefone">Telefone:</label>
+            <input id="telefone" v-model="telefone" type="tel" :class="{ error: !telefoneValido && telefoneModel }"
+              placeholder="(00) 00000-0000" required @keydown="bloquearNaoNumeros" maxlength="15" />
+            <span v-if="telefoneError" class="error-message">{{ telefoneError }}</span>
+          </div>
+          <div class="form-field">
+            <label for="email">Email:</label>
+            <input id="email" v-model="form.email" type="email" required />
+          </div>
+        </div>
+
+        <h2>Informações residenciais:</h2>
+        <div class="line-info"></div>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="cep">CEP:</label>
+            <input id="cep" v-model="cep" @blur="buscarCep" type="text" placeholder="12345-678" :class="{ error: erro }"
+              maxlength="9" />
+            <span v-if="erro" class="error-message">{{ erro }}</span>
+          </div>
+          <div class="form-field">
+            <label for="state">Estado:</label>
+            <select id="state" v-model="form.state" @change="updateCities">
+              <option value="">Selecione o estado</option>
+              <option v-for="state in states" :key="state.uf" :value="state.uf">
+                {{ state.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="city">Cidade:</label>
+            <select id="city" v-model="form.city">
+              <option value="">Selecione a cidade</option>
+              <option v-for="city in cities" :key="city" :value="city">
+                {{ city }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-grid address">
+          <div class="form-field">
+            <label for="street">Rua:</label>
+            <input id="street" v-model="form.street" type="text" />
+          </div>
+          <div class="form-field">
+            <label for="number">Número:</label>
+            <input id="number" v-model="form.number" type="text" />
+          </div>
+        </div>
+
+        <div class="submit-container">
+          <button type="submit" class="submit-button">
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<style scoped>
 .content {
   display: flex;
   flex-direction: row;
@@ -394,13 +386,14 @@ watch(() => form.state, updateCities)
   border-right: 1px solid #ccc;
   margin-top: 6rem;
 }
-.user-config{
+
+.user-config {
   display: flex;
   align-items: center;
-  gap: 10px; 
-
+  gap: 10px;
 }
-.user-config i{
+
+.user-config i {
   font-size: 1em;
 }
 
@@ -423,7 +416,9 @@ watch(() => form.state, updateCities)
   object-fit: cover;
 }
 
-.upload-button, .delete-button {
+.upload-button,
+.logout-button,
+.delete-button {
   width: 40%;
   padding: 10px;
   margin-top: 20px;
@@ -442,6 +437,14 @@ watch(() => form.state, updateCities)
 
 .upload-button:hover {
   background-color: #0f766e;
+}
+
+.logout-button {
+  background-color: #d6d6d6;
+}
+
+.logout-button:hover {
+  background-color: #eeeeee;
 }
 
 .delete-button {
@@ -510,7 +513,8 @@ label {
   color: #4b5563;
 }
 
-input, select {
+input,
+select {
   width: 70%;
   padding: 8px;
   border: 1px solid #d1d5db;
@@ -520,8 +524,8 @@ input, select {
 
 .submit-container {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
 }
 
@@ -576,4 +580,3 @@ input, select {
   color: white;
 }
 </style>
-
